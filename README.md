@@ -22,7 +22,7 @@ Para criarmos uma funçõa no JavaScript é muito simples, precisamos apenas uti
 ![Homer fazendo Doh](https://cldup.com/CVvUx6Uswo.gif)
 
 ```js
-function soma(a, b) {
+function add(a, b) {
   return a + b;
 }
 ```
