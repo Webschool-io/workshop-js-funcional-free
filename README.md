@@ -37,6 +37,7 @@ Agora veremos o porquê falamos que as funções em JavaScript são *first-class
 No JavaScript a função é first-class citizen, assim como objeto, entidade ou valor, porque ela suporta todas as operações comuns às outras entidades.
 
 ![Hein!?](https://cldup.com/Oul_G5l7FB.gif)
+
 Essas operações incluem:
 
 - assinada a uma variável
