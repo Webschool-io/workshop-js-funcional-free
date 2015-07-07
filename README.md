@@ -1,3 +1,6 @@
+![Logo da Webschool](https://cldup.com/K7dgOM5UPM-1200x1200.png)
+
+![Logo do curso JS Funcional](https://cldup.com/h4INTEakk0-2000x2000.jpeg)
 #JS Funcional
 
 ##O que é programação funcional?
