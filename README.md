@@ -46,7 +46,24 @@ Vamos mostrar cada uma dessas operações com o exemplo anterior:
 var add = function (a, b) {
   return a + b;
 }
+
+add(400, 20); // 420
 ```
+
+```js
+// retornada de uma função
+function adder(a) {
+  return function(b) {
+    return a + b;
+  }
+}
+
+var _add =  adder(20);
+_add(400) // 420
+_add(646) // 666
+```
+
+Podemos melhorar esse exemplo e criarmos a função de multiplicar.
 
 ```js
 // retornada de uma função
@@ -60,7 +77,12 @@ function multiply(a) {
     return sum;
   };
 }
+
+multiply(2)(333); //666
 ```
+
+Você deve ter percebido que podemos utilizar 2 formas de passagem de parâmetros, correto?
+
 
 ```js
 // ser passada por parâmetro
@@ -73,8 +95,6 @@ function add(a, b) {
 
 - recebe uma ou mais funções como parâmetro
 - retorna uma função
-
-
 
 ###Closures
 
