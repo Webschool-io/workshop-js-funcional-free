@@ -124,14 +124,6 @@ multiply(2)(333); //666
 
 Você deve ter percebido que podemos utilizar 2 formas de passagem de parâmetros, correto?
 
-
-```js
-// ser passada por parâmetro
-function add(a, b) {
-  return a + b;
-}
-```
-
 ###High-order function
 
 - recebe uma ou mais funções como parâmetro
