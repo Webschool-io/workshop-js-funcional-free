@@ -1,6 +1,5 @@
-![Logo da Webschool](https://cldup.com/e4fv0p2YcZ-1200x1200.png)
+![Logo da Webschool e do Curso JS Funcional](https://cldup.com/bn_CJFPZce-2000x2000.png)
 
-![Logo do curso JS Funcional](https://cldup.com/O-RtLiGYcX.gif)
 #JS Funcional
 
 Possuimos 2 grandes paradigmas de programação: 
