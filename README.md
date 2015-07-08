@@ -124,6 +124,58 @@ multiply(2)(333); //666
 
 Você deve ter percebido que podemos utilizar 2 formas de passagem de parâmetros, correto?
 
+Vamos entender melhor como isso funciona, vamos analisar o exemplo coma soma por sem mais simples, porém desta vez vendo os valores dos parâmetros.
+
+```js
+// retornada de uma função
+function adder(a) {
+  console.log('a', a);
+  return function(b) {
+    console.log('b', b);
+    return a + b;
+  }
+}
+
+var _add =  adder(20);
+_add(400) // 420
+_add(646) // 666
+```
+
+Na linha:
+
+```js
+var _add =  adder(20);
+// a 20
+```
+
+Basicamente a função está apenas instanciando o valor de `a` e retornando a função com a soma já usando o `a`, falaremos mais disso posteriormente, logo `_add` não recebe o valor de `a`, mas sim a funçao da soma:
+
+```js
+function adder(a) {
+  var a = a; // 20
+  return function(b) {
+    return a + b;
+  }
+}
+```
+
+Depois quando chamamos a função `_add` passando `400` como parâmetro 
+```js
+_add(400)
+// b 420
+// 440
+```
+
+Estamos passando o `400` para a função que recebe `b` desse jeito retornando o valor da nossa soma:
+
+```js
+function(b) { //400
+  return a + b; //420
+}
+```
+
+Para entender melhor como isso acontece falarei mais adiante sobre *closures*.
+
 ###High-order function
 
 - recebe uma ou mais funções como parâmetro
