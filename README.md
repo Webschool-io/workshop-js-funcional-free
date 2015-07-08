@@ -9,6 +9,8 @@ Possuimos 2 grandes paradigmas de programação:
 
 A Funcional é a mais antiga, sua primeira linguagem foi criada em 1955 (IPL) e posteriomente a mais popular LISP foi criada em 1958. Fortran e COBOL foram criadas respectivamentes em 1956 e 1959, são imperativas.
 
+[Explicar como ira funcionar o curso]
+
 
 ##O que é programação funcional?
 
@@ -19,6 +21,14 @@ Uma função pode ter ou não ter parâmetros e um simples valor de retorno. Os 
 Assim como na orientação a objetos a menor parte de um sistema é um objeto, você pode atribuir objetos a variáveis, pode passá-los por parâmetro e ter métodos retornando objetos, na programação funcional, a menor parte do seu sistema é uma função.
 
 Por exemplo, a função f(x) = x^2 + 5 é definida utilizando funções de exponenciação e adição. Do mesmo modo, a linguagem deve oferecer funções básicas que não requerem definições adicionais.
+
+[ESCREVER MAIS SOBRE]
+
+###Por que usar programação funcional?
+
+####Onde usar?
+
+####Quem está usando?
 
 ###Linguagens funcionais
 
@@ -39,6 +49,8 @@ LISP introduziu a maioria das características hoje encontradas nas modernas lin
 
 ###Lambda
 O cálculo lambda pode ser considerado a primeira linguagem de programação funcional, embora nunca tenha sido projetada para ser realmente executada em um computador. É um modelo de computação projetado por [Alonzo Church](https://pt.wikipedia.org/wiki/Alonzo_Church) nos anos 1930 que oferece um modo muito formal de descrever um cálculo de uma função.
+
+[ESCREVER MAIS SOBRE]
 
 ###Por que JavaScript é funcional?
 
