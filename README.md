@@ -243,17 +243,48 @@ E funções importantes como:
 - apply
 - call
 
-Para criarmos uma função no JavaScript é muito simples, como já vimos anteriormente, precisamos apenas utilizar a palavra `function`:
+Para criarmos uma função no JavaScript é muito simples, como já vimos anteriormente, precisamos apenas utilizar a palavra `function`.
 
 ![Homer fazendo Doh](https://cldup.com/CVvUx6Uswo.gif)
 
+Estava vendo [essa palestra](http://www.infoq.com/br/presentations/programacao-funcional-por-que-importa) aqui hoje e percebi que o jeito mais fácil de entender programação funcional é algo que sempre falei e sempre tentei seguir:
+
+>TODA FUNÇÃO PRECISA RETORNAR UM VALOR!
+
+Sabendo dessa premissa como faríamos um simples atribuição de valor como:
+
 ```js
-function add(a, b) {
-  return a + b;
-};
+var idade = 30;
+
+```
+Simples, assim:
+
+```js
+function setIdade(idade) { return idade; }
+
+```
+Nesse caso isso é uma função identidade.
+
+Logo eu posso testar se é maior de idade assim:
+
+```js
+function maioridade(idade) {
+  if(idade >= 18)
+    return true;
+  else
+    return false; }
+
 ```
 
-Podemos usar um exemplo mais simples ainda, uma função que duplica *Strings*:
+E chamamos ela da seguinte forma:
+
+```js
+maioridade(setIdade(30));
+```
+
+Bem fácil né???
+
+Vamos usar um exemplo mais simples ainda, uma função que duplica *Strings*:
 
 ```js
 var repeat = function(s) {
@@ -264,7 +295,7 @@ repeat('Na');
 // NaNA
 ```
 
-Então se chamamos apenas a função `repeat` dessa forma, teremos um resultado indesejado.
+Então se chamamos apenas a função `repeat` dessa forma, passando *String* então estará correta, porém se não fizermos isso teremos um resultado indesejado.
 
 ![Meme WAT](https://cldup.com/BOagKEB49C.gif)
 
@@ -526,5 +557,5 @@ monad.bind(alert);
 
 [MOSTRAR OUTROS EXEMPLOS DE MONADS]
 
-
+###Tail call
 
