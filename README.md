@@ -50,6 +50,76 @@ LISP introduziu a maioria das características hoje encontradas nas modernas lin
 ###Lambda
 O cálculo lambda pode ser considerado a primeira linguagem de programação funcional, embora nunca tenha sido projetada para ser realmente executada em um computador. É um modelo de computação projetado por [Alonzo Church](https://pt.wikipedia.org/wiki/Alonzo_Church) nos anos 1930 que oferece um modo muito formal de descrever um cálculo de uma função.
 
+A ideia de Church era usar a noção de “processo” ou “transformação” (função) como essencial para fundamentar a matemática, ao invés da noção de conjunto de Cantor. O lambda cálculo não deu muito certo para isso na época, mas acabou sendo importante em outra questão do tempo: a busca pela definição formal do que vem a ser um procedimento efetivo. Em termos atuais, diríamos que essa busca tentava definir formalmente o que é “computação”.
+
+(A ideia de usar o conceito de transformação como central na matemática retornou na segunda metade do século XX através da Teoria das Categorias, mas isso é outra história.)
+
+####Notação
+
+Essa notação pode parecer um pouco confusa no início, mas veremos que não é nenhum bicho de sete cabeças.
+
+![](https://cldup.com/gov3Q0J67O-1200x1200.jpeg)
+
+*Queria ter colocado o Tiamat,  mas ele tem 5 cabeças apenas :(*
+
+```
+(λx.x) y
+```
+
+Basicamente (λx.x) tem como resultado a expressão y.
+
+Onde (E = x, F = y), guardem bem essa informação E é o resultado onde x é substituído pela expressão[função?] F.
+
+Agora se F (λx.x)(λx.y) tem como resultado (λx.y), então (E = x, F = (λx.y)). E é só isso, substituição textual.
+
+A sintaxe das expressões-lambda é determinada por duas operações: abstração e aplicação (sendo que a aplicação envolve uma operação de substituição chamada conversão-β). Uma expressão-lambda pode ser uma variável, uma abstração de uma expressão, ou uma aplicação de duas expressões:
+
+- Variáveis: x, y, z, um conjunto qualquer de nomes de variáveis.
+- Abstrações: dada uma expressão-lambda E, podemos formar uma abstração de E usando λ + variável + ‘.’ + E. Por exemplo: λx.x
+- Aplicações: dadas duas expressões-lambda E e F, a expressão da aplicação é formada pela justaposição de uma ao lado da outra: E F
+
+A conversão-β é a regra de substituição que diz como a aplicação deve funcionar. 
+
+Analisemos essa expressão `(λ x. + x 1) 4` a conversão-β é:
+
+```
++ 4 1
+```
+
+**Fácil não?**
+
+![meme jackie chan](https://cldup.com/EZEjcYdurI-1200x1200.jpeg)
+
+Zuerinha vou explicar é claro, vamos lá:
+
+```
+(λ x. + x 1) 4 → + 4 1
+// (λ"variável"."E") "F"
+// variável = x
+// E = + x 1
+// F = 4
+```
+
+Nesse caso a conversão-β resulta na expressão[?] `+ 4 1` onde substituímos a variável `x` da função[?] `E` pelo valor de `F`, agora ficou fácil né?
+
+![meme meme-yeah-we-will-sse-about-that](https://cldup.com/9dhGMxmsQW-1200x1200.jpeg)
+
+
+###Teoria das Categorias
+
+A teoria das categorias é uma teoria matemática que trata de forma abstrata das estruturas matemáticas e dos relacionamentos entre elas. Ela pode ser entendida como um "jogo de setas", em que se abstrai o significado das construções.
+
+As aplicações da teoria das categorias estendem-se por áreas como álgebra, teoria da recursividade, semântica formal, etc.
+
+Uma única operação exigida em uma categoria é a **composição**. Ouviremos falar muito disso ainda.
+
+- uma classe de objetos a, b, c, ...
+- para cada par de objetos a,b, uma classe de morfismos ou setas de a para b, denotados por f:a -> b (e neste caso se diz que a é o objeto origem e b é o objeto destino da seta);
+- para cada objeto a, um morfismo chamado identidade em a, id_a:a\rightarrow a que tem origem e destino em a;
+- uma operação de composição que associa a cada par de morfismos.
+
+![](https://cldup.com/DgAjKvXx7W-1200x1200.png)
+
 [ESCREVER MAIS SOBRE]
 
 ###Por que JavaScript é funcional?
