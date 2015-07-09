@@ -311,7 +311,7 @@ repeat(1)
 
 ###Função anônima
 
-###First-class citizens
+###First-class Functions
 
 No JavaScript a função é first-class citizen, assim como objeto, entidade ou valor, porque ela suporta todas as operações comuns às outras entidades.
 
@@ -429,4 +429,53 @@ Para entender melhor como isso acontece falarei mais adiante sobre *closures*.
 ###Currying
 
 ###Monads
+
+*Monad* é um padrão de design usado para descrever computações como um série de passos. Elas são extensivamente usadas em linguagens de programação puramente funcional para gerenciar efeitos colaterais, mas também são usadas em linguagens multiparadigmas para controlar complexidade.
+
+*Monad* "empacotam" tipos dando-les um comportamento adicional. Entenderemos isso melhor com código na sequência, porém antes precisamos conhecer quais são os componentes de uma *monad*:
+
+- constructor: um recurso que cria um tipo de *monad* para o tipo subjacente. Por exemplo, ele define o tipo Maybe<number> para o tipo subjacente, *number*
+- função unit: função que "envolve" um valor de tipo subjacente em uma *monad*. Para a *monad* Maybe que envolve valor 2 do tipo *number* para o valor Maybe(2) do tipo Maybe<número>
+- função bind:  encadeia as operações da *monad*
+
+
+[Não sei se vou deixar essa parte]
+O código em TypeScript abaixo mostra as assinaturas dessas funções genéricas.
+
+Assumindo que M indica um tipo de *monad*.
+
+```java
+interface M<T> {
+​
+}
+​
+function unit<T>(value: T): M<T> {
+    // ...
+}
+​
+function bind<T, U>(instance: M<T>, transform: (value: T) => M<U>): M<U> {
+    // ...
+}
+```
+
+[Explicar mais detalhadamente como as coisas funcionam no TypeScript se for deixar]
+
+
+
+
+> Nota: A função bind function não é a mesma que a função Function.prototype.bind  Essa última é nativa do ES5 e é usada para criar uma série de funções ou funções parcialmente aplicadas com esse valor vinculado.
+
+Nas linguagens orientadas a objeto, como JavaScript, a função  `unit` pode ser representada como um construtor da função `bind` como um método de instância.
+
+####Leis da *monad*
+
+Uma *monad* deve obedecer as seguintes leis para ser válida:
+
+1. bind(unit(x), f) === f(x)
+2. bind(monad, unit) === monad
+3. bind(bind(monad, f), g) === bind(monad, function(x) { return bind(f(x), g); })
+
+
+
+
 
