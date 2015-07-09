@@ -309,6 +309,8 @@ repeat(1)
 
 [EXPLICAR MAIS]
 
+###Função anônima
+
 ###First-class citizens
 
 No JavaScript a função é first-class citizen, assim como objeto, entidade ou valor, porque ela suporta todas as operações comuns às outras entidades.
