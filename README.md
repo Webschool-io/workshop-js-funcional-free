@@ -311,6 +311,43 @@ repeat(1)
 
 ###Função anônima
 
+###Loops
+
+Antes de entrarmos nas propriedades funcionais propriamente ditas, vamos ver o porquê usar loops não é tão interessante quando possuímos o paradigma funcional em nossa linguagem.
+
+Vamos ver um clássico exemplo de um `for`:
+
+```js
+var animals = ["horse", "pig", "cow"];
+for(var i = 0, lenght = animals.length; i < length; i++) {
+  console.log("Animal: ", animals[i]);
+};
+```
+
+Vamos refatorar usando um `while` reverso:
+
+```js
+var i = animals.length;
+while(i--) {
+  console.log("Animal: ", animals[i]);
+};
+```
+
+Agora vamos usar a forma funcional de loop:
+
+```js
+animals.forEach(function(animal) {
+  console.log("Animal: ", animal);
+}) ;
+```
+
+Perceba que agora em vez de iterarmos um número "fixo" incrementando ou decrementando um contador para que ao chegar no final ele saia do loop, mas isso pode esconder efeitos colaterais.
+
+Nesse último caso o programa está explicitamente iterando **em cima** do *Array* utilizado sem precisar gerenciar nenhum contador.
+
+[FALAR MAIS SOBRE OS EFEITOS COLATERAIS]
+
+
 ###First-class Functions
 
 No JavaScript a função é first-class citizen, assim como objeto, entidade ou valor, porque ela suporta todas as operações comuns às outras entidades.
@@ -481,7 +518,7 @@ A *monad* mais simples é a identidade, a qual não adiciona nenhuma informaçã
 
 ```js
 var identity = MONAD();
-var monad = identity("JS FTW!" );
+var monad = identity("JS FTW!");
 monad.bind(alert);
 ```
 
