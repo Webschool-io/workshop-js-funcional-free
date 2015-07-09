@@ -105,6 +105,8 @@ Nesse caso a conversão-β resulta na expressão[?] `+ 4 1` onde substituímos a
 ![meme meme-yeah-we-will-sse-about-that](https://cldup.com/9dhGMxmsQW-1200x1200.jpeg)
 
 
+[Falar mais]
+
 ###Teoria das Categorias
 
 A teoria das categorias é uma teoria matemática que trata de forma abstrata das estruturas matemáticas e dos relacionamentos entre elas. Ela pode ser entendida como um "jogo de setas", em que se abstrai o significado das construções.
@@ -118,7 +120,101 @@ Uma única operação exigida em uma categoria é a **composição**. Ouviremos 
 - para cada objeto a, um morfismo chamado identidade em a, id_a:a\rightarrow a que tem origem e destino em a;
 - uma operação de composição que associa a cada par de morfismos.
 
-![](https://cldup.com/DgAjKvXx7W-1200x1200.png)
+![imagem de uma função gigante de matemática apenas porque a zuera não tem limites](https://cldup.com/DgAjKvXx7W-1200x1200.png)
+
+####Functor
+
+> A functor is a function, given a value and a function, unwraps the values to get to its inner value(s), calls the given function with the inner value(s), wraps the returned values in a new structure, and returns the new structure.
+
+Vamos entender parte por parte:
+
+- *functor* é uma função que irá receber um valor e uma função
+- desembrulha? os valores para chegar a seu(s) valor(es) interno(s)
+- chama a função dada com o(s) valor(es) interno(s)
+- envolve os valores devolvidos em uma nova estrutura
+- e retorna a nova estrutura.
+
+![meme realy?](https://cldup.com/ERM06kh3ki-2000x2000.jpeg)
+
+Sim eu sei que é basicamente a tradução do texto acima, bom então vamos aqo que interessa, *códigoooooooooooo*:
+
+```js
+function plus1(value) {
+    return value + 1
+};
+
+function plus2(value) {
+    return value + 2
+};
+```
+
+Criamos duas funções simples, `plus1` adiciona 1 ao `value` e `plus2` adiciona 2, agora vamos escrever uma função ara que possamos usar qualquer uma dessas funções como e quando necessário:
+
+```js
+function F(value, fn) {
+    return fn(value)
+};
+
+F(1, plus1); // 2
+```
+
+Essa função irá funcionar enquanto passarmos um inteiro, vamos tentar passar um *Array*:
+
+```js
+F([1, 2, 3], plus1); // '1,2,31'
+```
+
+![meme shit happens](https://cldup.com/g-9ZGuT22B-1200x1200.jpeg)
+
+E que bela **merda** aconteceu hein, passamos um *Array*, somamos com um inteiro e recebos uma *String*!!!
+
+![meme pode isso Arnaldo?](https://cldup.com/5sahDi-dC0-1200x1200.jpeg)
+
+Nós queremos que F faça o trabalho "do jeito certo" e o "jeito certo" é manter a estrutura durante a operação. Mas o que significa "manter a estrutura"?
+
+Significa que nossa função precisa "desembrulhar?" o *Array* passado e pegar seus elementos. Depois precisa chamar a função passada para cada elemento. Então "embrulhar?" os valores retornados em um novo *Array* e retorná-lo.
+
+Isso não te lembra nenhuma funçãozinha não?
+
+![meme pensando](https://cldup.com/bYyOR0OQpS-1200x1200.png)
+
+SIM! A função `map` é um *functor*!
+
+```js
+[1, 2, 3].map(plus1); // [2, 3, 4]
+```
+
+No caso do Jasvascript, *filter* é um *functor* porque retorna um *Array*, entretando o *forEach* não é pois retorna *undefined*, ou seja, ele não mantém a estrutura.
+
+*Functors* são definidos como "[homomorfismos](https://pt.wikipedia.org/wiki/Homomorfismo) entre categorias", vamos entender melhor esse significado:
+
+- homo = mesmo, igual
+- morfismos = funções que mantém estrutura
+- categoria = tipo
+
+De acordo com a teoria, a função `F` é um *functor* quando as duas funções comuns combináveis f e g, como no exemplo abaixo:
+
+```
+F(f . g) = F(f) . F(g)
+```
+
+Onde `.` indicam composição, ou seja, *functors* precisam preservar a composição.
+
+#####Array Functor
+
+Como disse que o `map` é um *functor* então vamos provar isso.
+
+```js
+function compose(f, g) {
+    return function(x) {return f(g(x))}
+}
+```
+
+Fazer composição de funções é criar uma chamada de um conjunto de funções, chamando a função seguinte, com resultados da função anterior. Note que a nossa função de composição acima funciona da direita para a esquerda. g é chamado pela primeira vez, em seguida, f.
+
+
+[Quando mostrar a composição]
+Isso lembra alguma coisa pra você? Bom logo logo verá um exemplo mais conhecido.
 
 [ESCREVER MAIS SOBRE]
 
