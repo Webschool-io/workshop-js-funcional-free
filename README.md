@@ -212,6 +212,16 @@ function compose(f, g) {
 
 Fazer composição de funções é criar uma chamada de um conjunto de funções, chamando a função seguinte, com resultados da função anterior. Note que a nossa função de composição acima funciona da direita para a esquerda. g é chamado pela primeira vez, em seguida, f.
 
+```js
+[1, 2, 3].map(compose(plus1, plus2)) // [ 4, 5, 6 ]
+
+```
+
+É o mesmo que compor usando 2 funções `map`:
+
+```js
+[1, 2, 3].map(plus2).map(plus1) // [ 4, 5, 6 ]
+```
 
 [Quando mostrar a composição]
 Isso lembra alguma coisa pra você? Bom logo logo verá um exemplo mais conhecido.
@@ -233,7 +243,7 @@ E funções importantes como:
 - apply
 - call
 
-Para criarmos uma funçõa no JavaScript é muito simples, precisamos apenas utilizar a palavra ´function´:
+Para criarmos uma função no JavaScript é muito simples, como já vimos anteriormente, precisamos apenas utilizar a palavra `function`:
 
 ![Homer fazendo Doh](https://cldup.com/CVvUx6Uswo.gif)
 
