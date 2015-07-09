@@ -92,21 +92,16 @@ Então se chamamos apenas a função `repeat` dessa forma, teremos um resultado 
 
 ![Meme WAT](https://cldup.com/BOagKEB49C.gif)
 
-E você deve se perguntar:
-
-\- *Ué cadê o erro que você falou*?
-
 Sim meu caro aluno, prete atenção no exemplo abaixo:
-
 
 ```js
 repeat(10);
 // 4
 ```
 
-> Está no momento em que você passar outro valor diferente de *String*, não é óbvio?
+Aí encontramos o problema!
 
-Nesse caso ele não mais repetindo a *String* como desejado inicialmente, agora ela está multiplicando o valor por 2 caso seja um *Number*. Isso porque não temos um contrato com uma função que retorne apenas *Strings*. Para resolver esse problema é fácil, criamos essa função abaixo:
+Nesse caso ele não está mais repetindo a *String* como desejado inicialmente, agora ela está multiplicando o valor por 2 caso seja um *Number*. Isso porque não temos um contrato com uma função que retorne apenas *Strings*. Para resolver esse problema é fácil, criamos essa função abaixo:
 
 ```js
 var str = function(s) {
