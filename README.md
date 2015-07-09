@@ -74,10 +74,69 @@ Para criarmos uma funçõa no JavaScript é muito simples, precisamos apenas uti
 ```js
 function add(a, b) {
   return a + b;
+};
+```
+
+Podemos usar um exemplo mais simples ainda, uma função que duplica *Strings*:
+
+```js
+var repeat = function(s) {
+  return s + s;
+};
+
+repeat('Na');
+// NaNA
+```
+
+Então se chamamos apenas a função `repeat` dessa forma, teremos um resultado indesejado.
+
+![Meme WAT](https://cldup.com/BOagKEB49C.gif)
+
+E você deve se perguntar:
+
+\- *Ué cadê o erro que você falou*?
+
+Sim meu caro aluno, prete atenção no exemplo abaixo:
+
+
+```js
+repeat(10);
+// 4
+```
+
+> Está no momento em que você passar outro valor diferente de *String*, não é óbvio?
+
+Nesse caso ele não mais repetindo a *String* como desejado inicialmente, agora ela está multiplicando o valor por 2 caso seja um *Number*. Isso porque não temos um contrato com uma função que retorne apenas *Strings*. Para resolver esse problema é fácil, criamos essa função abaixo:
+
+```js
+var str = function(s) {
+  if(typeof s !== 'string') {
+    throw new TypeError('Expected a string');
+  }
+  else {
+    return s;
+  }
 }
 ```
 
-Agora veremos o porquê falamos que as funções em JavaScript são *first-class citizens* .
+Agora você passa uma *String* para a função, como valor de entrada, e espera-se que seu retorno também seja uma *String*, como valor de saída.
+
+Refatorando nossa função `repeat`:
+
+```js
+var repeat = function(s) {
+  var s = str(s)
+  return s + s;
+};
+
+repeat('Na');
+// NaNA
+repeat(1)
+// TypeError: Expected a string
+```
+
+
+[EXPLICAR MAIS]
 
 ###First-class citizens
 
@@ -195,4 +254,6 @@ Para entender melhor como isso acontece falarei mais adiante sobre *closures*.
 ###Closures
 
 ###Currying
+
+###Monads
 
