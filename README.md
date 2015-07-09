@@ -485,6 +485,7 @@ var monad = identity("JS FTW!" );
 monad.bind(alert);
 ```
 
+[MOSTRAR AS LEIS DAS MONADS UAM A UMA]
 
 [MOSTRAR OUTROS EXEMPLOS DE MONADS]
 
