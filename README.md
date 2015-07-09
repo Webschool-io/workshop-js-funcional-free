@@ -430,7 +430,13 @@ Para entender melhor como isso acontece falarei mais adiante sobre *closures*.
 
 ###Monads
 
-*Monad* é um padrão de design usado para descrever computações como um série de passos. Elas são extensivamente usadas em linguagens de programação puramente funcional para gerenciar efeitos colaterais, mas também são usadas em linguagens multiparadigmas para controlar complexidade.
+> "As monads vieram para resolver um problema que não tínhamos antes." - Douglas Crockford
+
+![](https://cldup.com/S5tC18Ab_x-2000x2000.jpeg)
+
+Normalmente esse assunto *Monads* é tratado com certa "obscuridade" para quem não está familiarizado com Teoria das Categorias, mas bem na verdade ela só parece complexa na matemática.
+
+Na verdade *Monad* é um padrão de design usado para descrever computações como um série de passos. Elas são extensivamente usadas em linguagens de programação puramente funcional para gerenciar efeitos colaterais, mas também são usadas em linguagens multiparadigmas para controlar complexidade.
 
 *Monad* "empacotam" tipos dando-les um comportamento adicional. Entenderemos isso melhor com código na sequência, porém antes precisamos conhecer quais são os componentes de uma *monad*:
 
@@ -471,7 +477,16 @@ Vamos entender como esse código funciona.
 5. passando `value` para ela que foi passada na função construtora `unit`
 6. retorna a *monad*
 
+A *monad* mais simples é a identidade, a qual não adiciona nenhuma informação ao valor, o valor é passado para a função `unit` que passará para as funções ligadas.
 
-//in this for it is called the IDENTITY MONAD: the value that got passed into the unit will be the thing that gets passed into all the bind functions.
- 
+```js
+var identity = MONAD();
+var monad = identity("JS FTW!" );
+monad.bind(alert);
+```
+
+
+[MOSTRAR OUTROS EXEMPLOS DE MONADS]
+
+
 
