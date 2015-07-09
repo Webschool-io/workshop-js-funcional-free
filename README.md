@@ -195,10 +195,12 @@ No caso do Jasvascript, *filter* é um *functor* porque retorna um *Array*, entr
 De acordo com a teoria, a função `F` é um *functor* quando as duas funções comuns combináveis f e g, como no exemplo abaixo:
 
 ```
-F(f . g) = F(f) . F(g)
+F(x . y) = F(x) . F(y)
 ```
 
 Onde `.` indicam composição, ou seja, *functors* precisam preservar a composição.
+
+Veremos mais sobre composição adiante.
 
 #####Array Functor
 
@@ -224,9 +226,19 @@ Fazer composição de funções é criar uma chamada de um conjunto de funções
 ```
 
 [Quando mostrar a composição]
+
+
+
 Isso lembra alguma coisa pra você? Bom logo logo verá um exemplo mais conhecido.
 
 [ESCREVER MAIS SOBRE]
+
+###Recursion
+###For/list comprehensions
+###Immutability
+###Pure functions
+###No side effects
+
 
 ###Por que JavaScript é funcional?
 
@@ -284,7 +296,9 @@ maioridade(setIdade(30));
 
 Bem fácil né???
 
-Vamos usar um exemplo mais simples ainda, uma função que duplica *Strings*:
+Dessa forma podemos pensar que ele se assemelha muito ao *Atomic Design* onde criamos pequenos átomos independentes, nesse caso as funções e com elas vamos compondo funções maiores, **exatamente** como visto [aqui no artigo do Brad Frost](http://bradfrost.com/blog/post/atomic-web-design/).
+
+Agora vamos usar um exemplo mais simples ainda, uma função que duplica *Strings*:
 
 ```js
 var repeat = function(s) {
