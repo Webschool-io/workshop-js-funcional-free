@@ -4,10 +4,32 @@
 
 Possuimos 2 grandes paradigmas de programação: 
 
-- funcional
-- imperativo
+- funcional;
+- imperativo.
 
 A Funcional é a mais antiga, sua primeira linguagem foi criada em 1955 (IPL) e posteriomente a mais popular LISP foi criada em 1958. Fortran e COBOL foram criadas respectivamentes em 1956 e 1959, são imperativas.
+
+O paradigma imperativo é baseada na arquitetura de Von Neumann, enquanto que o funcional é baseado no cálculo lambda.
+
+##O Curso
+
+Esse curso será dividido em módulos, cada um com 4 aulas, 1 por semana de duração média de 1 hora.
+
+Não haverá um dia **FIXO** pois como sou nômade não posso sempre garantir tal data por diversos motivos, logo eu enviarei um email toda semana até Quarta-feira para avisar qual dia a aula ocorrerá sendo entre Quinta e Sábado.
+
+O turno será o noturno, ainda farei uma pesquisa para ver se preferem as 21 ou 23 horas e as dúvidas deverão ser feitas em um canal, avisarei posteriormente qual, para que eu possa respondê-las e quiçá fazer uma aula avulsa para responder algumas perguntas.
+
+###Custo
+
+**R$ 0**
+
+###Local
+
+**ONLINE** via Hangouts on Air
+
+###Data e Hora
+
+Entre Quinta e Sábado sendo ou as 21 ou as 23 horas(se a maioria dos alunos for estudante de faculdade provavelmente preferirá esse), Sábado podendo ser a tarde.
 
 [Explicar como ira funcionar o curso]
 
@@ -22,16 +44,22 @@ Assim como na orientação a objetos a menor parte de um sistema é um objeto, v
 
 Por exemplo, a função f(x) = x^2 + 5 é definida utilizando funções de exponenciação e adição. Do mesmo modo, a linguagem deve oferecer funções básicas que não requerem definições adicionais.
 
+Vamos conhecer alguns fundamentos:
+
+- não existe conceito de variáveis ou atribuição
+- iterações devem ser construídas com recursão
+
+
 [ESCREVER MAIS SOBRE]
 
 ###Por que usar programação funcional?
 
 Temos 3 grandes motivos para usar programação funcional, são eles:
 
-- concorrência: não temos deadlocks ou race conditions simplesmente porque não precisamos de locks - o dado é imutávels
-- testes: criar testes unitários sem se preocupar com o estado simplesmente porque não existe estado. Devemos preocupar apenas com os argumentos das funções que nós testamos
-- debugging: rastrear algum valor no stack trace é bem simples
-- base teórica: linguagens funcionais são baseados no cálculo lambda, que é um sistema formal. Esta fundamentação teórica faz a prova para correção dos programas seja muito simples (por exemplo, usando indução)
+- concorrência: não temos deadlocks ou race conditions simplesmente porque não precisamos de locks - o dado é imutávels;
+- testes: criar testes unitários sem se preocupar com o estado simplesmente porque não existe estado. Devemos preocupar apenas com os argumentos das funções que nós testamos;
+- debugging: rastrear algum valor no stack trace é bem simples;
+- base teórica: linguagens funcionais são baseados no cálculo lambda, que é um sistema formal. Esta fundamentação teórica faz a prova para correção dos programas seja muito simples (por exemplo, usando indução).
 
 ####Concorrência
 
@@ -43,8 +71,8 @@ A concorrência nas linguagens imperativas tradicionais é relativamente complex
 
 Entretanto, as linguagens funcionais nos oferece oportunidades para a concorrência:
 
-- A partir do momento em que uma função tem mais de um parâmetro, estes parâmetros devem em princípio ser avaliados simultaneamente (note que os parâmetros seriam as funções correspondentes às tarefas a serem executadas)
-- A partir deste ponto, a responsabilidade pela sincronização das tarefas passa do programador para o compilador
+- A partir do momento em que uma função tem mais de um parâmetro, estes parâmetros devem em princípio ser avaliados simultaneamente (note que os parâmetros seriam as funções correspondentes às tarefas a serem executadas);
+- A partir deste ponto, a responsabilidade pela sincronização das tarefas passa do programador para o compilador.
 
 Todavia, as linguagens funcionais orientadas a multitarefa permitem ao programador trabalhar em um nível muito mais elevado do que as linguagens imperativas destinadas a este mesmo fim.
 
@@ -64,13 +92,13 @@ Spark, Netflix, Google, Facebook, sistemas de avião como da família Airbus A34
 
 Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos usando Erlang, como por exemplo:
 
-- Facebook, no backend de seu sistema de chat, lidando com 100 milhõs de usuários ativos
-- Delicious, que tem mais de 5 milhões de usuários e mais de 150 milhões de bookmarks
+- Facebook, no backend de seu sistema de chat, lidando com 100 milhõs de usuários ativos;
+- Delicious, que tem mais de 5 milhões de usuários e mais de 150 milhões de bookmarks;
 - Amazon SimpleDB, o serviço de dados do poderoso Amazon EC2;
-- GitHub, no seu sistema de backend, lidando com milhares de transações concorrentes
-- Motorola
-- CouchDB
-- RabbitMQ
+- GitHub, no seu sistema de backend, lidando com milhares de transações concorrentes;
+- Motorola;
+- CouchDB;
+- RabbitMQ.
 
 Dados retirados daqui: [http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto](http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto)
 
@@ -80,14 +108,14 @@ Hoje em dia com o aumento na necessidade de sistemas concorrentes as linguagens 
 
 Linguagens mais conhecidas:
 
-- Erlang
-- F#
-- Haskell
-- Lisp
-- OCaml
-- R
-- Scala
-- Scheme
+- Erlang;
+- F#;
+- Haskell;
+- Lisp;
+- OCaml;
+- R;
+- Scala;
+- Scheme.
 
 LISP introduziu a maioria das características hoje encontradas nas modernas linguagens de programação funcional. Scheme foi uma tentativa posterior de simplificar e melhorar LISP. Haskell foi lançada no fim dos anos 1980 numa tentativa de juntar muitas ideias na pesquisa de programação funcional.
 
@@ -110,19 +138,19 @@ Essa notação pode parecer um pouco confusa no início, mas veremos que não é
 (λx.x) y
 ```
 
-Basicamente (λx.x) tem como resultado a expressão y.
+Basicamente `(λx.x)` tem como resultado a expressão `y`.
 
-Onde (E = x, F = y), guardem bem essa informação E é o resultado onde x é substituído pela expressão[função?] F.
+Onde `(E = x, F = y)`, guardem bem essa informação `E` é o resultado onde `x` é substituído pela expressão[função?] `F`.
 
-Agora se F (λx.x)(λx.y) tem como resultado (λx.y), então (E = x, F = (λx.y)). E é só isso, substituição textual.
+Agora se `F(λx.x)(λx.y)` tem como resultado `(λx.y)`, então `(E = x, F = (λx.y))`. E é só isso, substituição textual.
 
 A sintaxe das expressões-lambda é determinada por duas operações: abstração e aplicação (sendo que a aplicação envolve uma operação de substituição chamada conversão-β). Uma expressão-lambda pode ser uma variável, uma abstração de uma expressão, ou uma aplicação de duas expressões:
 
 - Variáveis: x, y, z, um conjunto qualquer de nomes de variáveis.
-- Abstrações: dada uma expressão-lambda E, podemos formar uma abstração de E usando λ + variável + ‘.’ + E. Por exemplo: λx.x
-- Aplicações: dadas duas expressões-lambda E e F, a expressão da aplicação é formada pela justaposição de uma ao lado da outra: E F
+- Abstrações: dada uma expressão-lambda E, podemos formar uma abstração de E usando `λ + variável + ‘.’ + E`. Por exemplo: `λx.x`
+- Aplicações: dadas duas expressões-lambda `E` e `F`, a expressão da aplicação é formada pela justaposição de uma ao lado da outra: E F
 
-A conversão-β é a regra de substituição que diz como a aplicação deve funcionar. 
+A conversão-β é a regra de substituição que diz como a aplicação deve funcionar.
 
 Analisemos essa expressão `(λ x. + x 1) 4` a conversão-β é:
 
@@ -159,9 +187,9 @@ As aplicações da teoria das categorias estendem-se por áreas como álgebra, t
 
 Uma única operação exigida em uma categoria é a **composição**. Ouviremos falar muito disso ainda.
 
-- uma classe de objetos a, b, c, ...
-- para cada par de objetos a,b, uma classe de morfismos ou setas de a para b, denotados por f:a -> b (e neste caso se diz que a é o objeto origem e b é o objeto destino da seta);
-- para cada objeto a, um morfismo chamado identidade em a, id_a:a\rightarrow a que tem origem e destino em a;
+- uma classe de objetos `a`, `b`, `c`, ...;
+- para cada par de objetos a,b, uma classe de morfismos ou setas de a para b, denotados por `f:a -> b` (e neste caso se diz que a é o objeto origem e b é o objeto destino da seta);
+- para cada objeto a, um morfismo chamado identidade em a, `id_a:a -> a` que tem origem e destino em `a`;
 - uma operação de composição que associa a cada par de morfismos.
 
 ![imagem de uma função gigante de matemática apenas porque a zuera não tem limites](https://cldup.com/DgAjKvXx7W-1200x1200.png)
@@ -172,10 +200,10 @@ Uma única operação exigida em uma categoria é a **composição**. Ouviremos 
 
 Vamos entender parte por parte:
 
-- *functor* é uma função que irá receber um valor e uma função
-- desembrulha? os valores para chegar a seu(s) valor(es) interno(s)
-- chama a função dada com o(s) valor(es) interno(s)
-- envolve os valores devolvidos em uma nova estrutura
+- *functor* é uma função que irá receber um valor e uma função;
+- desembrulha? os valores para chegar a seu(s) valor(es) interno(s);
+- chama a função dada com o(s) valor(es) interno(s);
+- envolve os valores devolvidos em uma nova estrutura;
 - e retorna a nova estrutura.
 
 ![meme realy?](https://cldup.com/ERM06kh3ki-2000x2000.jpeg)
@@ -228,7 +256,7 @@ SIM! A função `map` é um *functor*!
 [1, 2, 3].map(plus1); // [2, 3, 4]
 ```
 
-No caso do Jasvascript, *filter* é um *functor* porque retorna um *Array*, entretando o *forEach* não é pois retorna *undefined*, ou seja, ele não mantém a estrutura.
+No caso do Jasvascript, `filter` é um *functor* porque retorna um *Array*, entretando o `forEach` não é pois retorna `undefined`, ou seja, ele não mantém a estrutura.
 
 *Functors* são definidos como "[homomorfismos](https://pt.wikipedia.org/wiki/Homomorfismo) entre categorias", vamos entender melhor esse significado:
 
@@ -236,7 +264,7 @@ No caso do Jasvascript, *filter* é um *functor* porque retorna um *Array*, entr
 - morfismos = funções que mantém estrutura
 - categoria = tipo
 
-De acordo com a teoria, a função `F` é um *functor* quando as duas funções comuns combináveis f e g, como no exemplo abaixo:
+De acordo com a teoria, a função `F` é um *functor* quando as duas funções comuns combináveis `f` e `g`, como no exemplo abaixo:
 
 ```
 F(x . y) = F(x) . F(y)
@@ -256,7 +284,7 @@ function compose(f, g) {
 }
 ```
 
-Fazer composição de funções é criar uma chamada de um conjunto de funções, chamando a função seguinte, com resultados da função anterior. Note que a nossa função de composição acima funciona da direita para a esquerda. g é chamado pela primeira vez, em seguida, f.
+Fazer composição de funções é criar uma chamada de um conjunto de funções, chamando a função seguinte, com resultados da função anterior. Note que a nossa função de composição acima funciona da direita para a esquerda. `g` é chamado pela primeira vez, em seguida, `f`.
 
 ```js
 [1, 2, 3].map(compose(plus1, plus2)) // [ 4, 5, 6 ]
