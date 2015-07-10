@@ -4,7 +4,7 @@
 
 Possuimos 2 grandes paradigmas de programação: 
 
-- funcional;
+- funcional
 - imperativo.
 
 A Funcional é a mais antiga, sua primeira linguagem foi criada em 1955 (IPL) e posteriomente a mais popular LISP foi criada em 1958. Fortran e COBOL foram criadas respectivamentes em 1956 e 1959, são imperativas.
@@ -108,13 +108,13 @@ Hoje em dia com o aumento na necessidade de sistemas concorrentes as linguagens 
 
 Linguagens mais conhecidas:
 
-- Erlang;
-- F#;
-- Haskell;
-- Lisp;
-- OCaml;
-- R;
-- Scala;
+- Erlang
+- F#
+- Haskell
+- Lisp
+- OCaml
+- R
+- Scala
 - Scheme.
 
 LISP introduziu a maioria das características hoje encontradas nas modernas linguagens de programação funcional. Scheme foi uma tentativa posterior de simplificar e melhorar LISP. Haskell foi lançada no fim dos anos 1980 numa tentativa de juntar muitas ideias na pesquisa de programação funcional.
@@ -244,7 +244,7 @@ E que bela **merda** aconteceu hein, passamos um *Array*, somamos com um inteiro
 
 Nós queremos que F faça o trabalho "do jeito certo" e o "jeito certo" é manter a estrutura durante a operação. Mas o que significa "manter a estrutura"?
 
-Significa que nossa função precisa "desembrulhar?" o *Array* passado e pegar seus elementos. Depois precisa chamar a função passada para cada elemento. Então "embrulhar?" os valores retornados em um novo *Array* e retorná-lo.
+Significa que nossa função precisa "desembrulhar?" o *Array* passado e pegar seus elementos. Depois precisa chamar a função passada para cada elemento. Então encapsula os valores retornados em um novo *Array* e retorná-lo.
 
 Isso não te lembra nenhuma funçãozinha não?
 
@@ -592,9 +592,9 @@ Normalmente esse assunto *Monads* é tratado com certa "obscuridade" para quem n
 
 Na verdade *Monad* é um padrão de design usado para descrever computações como um série de passos. Elas são extensivamente usadas em linguagens de programação puramente funcional para gerenciar efeitos colaterais, mas também são usadas em linguagens multiparadigmas para controlar complexidade.
 
-*Monad* "empacotam" tipos dando-les um comportamento adicional. Entenderemos isso melhor com código na sequência, porém antes precisamos conhecer quais são os componentes de uma *monad*:
+*Monad* encapsulam tipos dando-les um comportamento adicional. Entenderemos isso melhor com código na sequência, porém antes precisamos conhecer quais são os componentes de uma *monad*:
 
-- unit: função que "envolve" um valor em um tipo aceitado pelas funções compostas
+- unit: função que encpapsula um valor em um tipo aceitado pelas funções compostas
 - bind: função que transforma qualquer função para que aceite o mesmo tipo que ela retorna, deixando-a pronta para composição
 
 > Nota: A função bind function não é a mesma que a função Function.prototype.bind  Essa última é nativa do ES5 e é usada para criar uma série de funções ou funções parcialmente aplicadas com esse valor vinculado.
