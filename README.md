@@ -26,9 +26,53 @@ Por exemplo, a função f(x) = x^2 + 5 é definida utilizando funções de expon
 
 ###Por que usar programação funcional?
 
+Temos 3 grandes motivos para usar programação funcional, são eles:
+
+- concorrência: não temos deadlocks ou race conditions simplesmente porque não precisamos de locks - o dado é imutávels
+- testes: criar testes unitários sem se preocupar com o estado simplesmente porque não existe estado. Devemos preocupar apenas com os argumentos das funções que nós testamos
+- debugging: rastrear algum valor no stack trace é bem simples
+- base teórica: linguagens funcionais são baseados no cálculo lambda, que é um sistema formal. Esta fundamentação teórica faz a prova para correção dos programas seja muito simples (por exemplo, usando indução)
+
+####Concorrência
+
+Os processadores multicore estão presentes em praticamente todos os computadores modernos, inclusive em dispositivos móveis como telefones celular e tablets. Porém, pouco desse poder de processamento, provido pelos múltiplos núcleos, é aproveitado de maneira efetiva pelas aplicações devido à dificuldade de se escrever sistemas concorrentes.
+
+Com o objetivo de tornar o desenvolvimento desse tipo de sistema mais palpável, alguns novos mecanismos de sincronização e paralelismo vem sendo propostos em linguagens de programação funcional. Esse tipo de linguagem prega um estilo de programação baseado em funções puras e dados imutáveis que facilita o desenvolvimento de programas concorrentes.
+
+A concorrência nas linguagens imperativas tradicionais é relativamente complexa, o programador é o responsável pela sincronização de todas as tarefas.
+
+Entretanto, as linguagens funcionais nos oferece oportunidades para a concorrência:
+
+- A partir do momento em que uma função tem mais de um parâmetro, estes parâmetros devem em princípio ser avaliados simultaneamente (note que os parâmetros seriam as funções correspondentes às tarefas a serem executadas)
+- A partir deste ponto, a responsabilidade pela sincronização das tarefas passa do programador para o compilador
+
+Todavia, as linguagens funcionais orientadas a multitarefa permitem ao programador trabalhar em um nível muito mais elevado do que as linguagens imperativas destinadas a este mesmo fim.
+
+####Testes
+####Debugging
+####Base teórica
+
 ####Onde usar?
 
+BI, Sistemas concorrentes
+
 ####Quem está usando?
+
+Spark, Netflix, Google, Facebook, sistemas de avião como da família Airbus A340.
+
+#####Erlang
+
+Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos usando Erlang, como por exemplo:
+
+- Facebook, no backend de seu sistema de chat, lidando com 100 milhõs de usuários ativos
+- Delicious, que tem mais de 5 milhões de usuários e mais de 150 milhões de bookmarks
+- Amazon SimpleDB, o serviço de dados do poderoso Amazon EC2;
+- GitHub, no seu sistema de backend, lidando com milhares de transações concorrentes
+- Motorola
+- CouchDB
+- RabbitMQ
+
+Dados retirados daqui: [http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto](http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto)
 
 ###Linguagens funcionais
 
@@ -570,6 +614,8 @@ monad.bind(alert);
 [MOSTRAR AS LEIS DAS MONADS UAM A UMA]
 
 [MOSTRAR OUTROS EXEMPLOS DE MONADS]
+
+###Pattern matching
 
 ###Tail call
 
