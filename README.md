@@ -56,7 +56,7 @@ Vamos conhecer alguns fundamentos:
 
 Temos 3 grandes motivos para usar programação funcional, são eles:
 
-- concorrência: não temos deadlocks ou race conditions simplesmente porque não precisamos de locks - o dado é imutávels;
+- concorrência: não temos deadlocks ou race conditions simplesmente porque não precisamos de locks - o dado é imutável;
 - testes: criar testes unitários sem se preocupar com o estado simplesmente porque não existe estado. Devemos preocupar apenas com os argumentos das funções que nós testamos;
 - debugging: rastrear algum valor no stack trace é bem simples;
 - base teórica: linguagens funcionais são baseados no cálculo lambda, que é um sistema formal. Esta fundamentação teórica faz a prova para correção dos programas seja muito simples (por exemplo, usando indução).
