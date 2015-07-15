@@ -131,7 +131,7 @@ Spark, Netflix, Google, Facebook, sistemas de avião como da família Airbus A34
 
 Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos usando Erlang, como por exemplo:
 
-- Facebook, no backend de seu sistema de chat, lidando com 100 milhõs de usuários ativos;
+- Facebook, no backend de seu sistema de chat, lidando com 100 milhões de usuários ativos;
 - Delicious, que tem mais de 5 milhões de usuários e mais de 150 milhões de bookmarks;
 - Amazon SimpleDB, o serviço de dados do poderoso Amazon EC2;
 - GitHub, no seu sistema de backend, lidando com milhares de transações concorrentes;
@@ -143,7 +143,7 @@ Dados retirados daqui: [http://www.infoq.com/br/news/2010/02/erlang-proximo-gran
 
 ###Linguagens funcionais
 
-Hoje em dia com o aumento na necessidade de sistemas concorrentes as linguagens funcionais estão voltando para o mercado comercial. Vemos muito grandes empresas usares: Erlang, Haskell, Scala, etc.
+Hoje em dia com o aumento na necessidade de sistemas concorrentes as linguagens funcionais estão voltando para o mercado comercial. Vemos muito grandes empresas usarem: Erlang, Haskell, Scala, etc.
 
 Linguagens mais conhecidas:
 
