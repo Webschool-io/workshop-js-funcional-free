@@ -1,41 +1,38 @@
 ![Logo da Webschool e do Curso JS Funcional](https://cldup.com/bn_CJFPZce-2000x2000.png)
 
-#JS Funcional
+# JS Funcional
 
 Possuimos 2 grandes paradigmas de programação: 
 
-- funcional
-- imperativo.
+- Funcional
+- Imperativo.
 
 A Funcional é a mais antiga, sua primeira linguagem foi criada em 1955 (IPL) e posteriomente a mais popular LISP foi criada em 1958. Fortran e COBOL foram criadas respectivamentes em 1956 e 1959, são imperativas.
 
 O paradigma imperativo é baseada na arquitetura de Von Neumann, enquanto que o funcional é baseado no cálculo lambda.
 
-##O Curso
-
+## O Curso
 Esse curso será dividido em módulos, cada um com 4 aulas, 1 por semana de duração média de 1 hora.
 
 Não haverá um dia **FIXO** pois como sou nômade não posso sempre garantir tal data por diversos motivos, logo eu enviarei um email toda semana até Quarta-feira para avisar qual dia a aula ocorrerá sendo entre Quinta e Sábado.
 
 O turno será o noturno, ainda farei uma pesquisa para ver se preferem as 21 ou 23 horas e as dúvidas deverão ser feitas em um canal, avisarei posteriormente qual, para que eu possa respondê-las e quiçá fazer uma aula avulsa para responder algumas perguntas.
 
-###Custo
+### Custo
 
-**R$ 0**
+**FREE ... 0800 ... R$ 0** (mas aceito doações de cerva bem gelada)
 
 ###Local
 
 **ONLINE** via Hangouts on Air
 
-###Data e Hora
-
+### Data e Hora
 Entre Quinta e Sábado sendo ou as 21 ou as 23 horas(se a maioria dos alunos for estudante de faculdade provavelmente preferirá esse), Sábado podendo ser a tarde.
 
 [Explicar como ira funcionar o curso]
 
 
-##O que é programação funcional?
-
+## O que é programação funcional?
 Programação funcional é um paradigma de programação que trata a computação como uma avaliação de funções matemáticas e evita estados ou dados mutáveis. Utiliza a aplicação de funções, em contraste da programação imperativa, que enfatiza mudanças no estado do programa.
 
 Uma função pode ter ou não ter parâmetros e um simples valor de retorno. Os parâmetros são os valores de entrada da função, e o valor de retorno é o resultado da função. A definição de uma função descreve como a função será avaliada em termos de outras funções.
@@ -46,23 +43,21 @@ Por exemplo, a função f(x) = x^2 + 5 é definida utilizando funções de expon
 
 Vamos conhecer alguns fundamentos:
 
-- não existe conceito de variáveis ou atribuição
-- iterações devem ser construídas com recursão
+- Não existe conceito de variáveis ou atribuição
+- Interações devem ser construídas com recursão
 
 
 [ESCREVER MAIS SOBRE]
 
-###Por que usar programação funcional?
+### Por que usar programação funcional?
+Temos 4 grandes motivos para usar programação funcional, são eles:
 
-Temos 3 grandes motivos para usar programação funcional, são eles:
+- Concorrência: não temos deadlocks ou race conditions simplesmente porque não precisamos de locks - o dado é imutável;
+- Testes: criar testes unitários sem se preocupar com o estado simplesmente porque não existe estado. Devemos preocupar apenas com os argumentos das funções que nós testamos;
+- Debugging: rastrear algum valor no stack trace é bem simples;
+- Base teórica: linguagens funcionais são baseados no cálculo lambda, que é um sistema formal. Esta fundamentação teórica faz a prova para correção dos programas seja muito simples (por exemplo, usando indução).
 
-- concorrência: não temos deadlocks ou race conditions simplesmente porque não precisamos de locks - o dado é imutável;
-- testes: criar testes unitários sem se preocupar com o estado simplesmente porque não existe estado. Devemos preocupar apenas com os argumentos das funções que nós testamos;
-- debugging: rastrear algum valor no stack trace é bem simples;
-- base teórica: linguagens funcionais são baseados no cálculo lambda, que é um sistema formal. Esta fundamentação teórica faz a prova para correção dos programas seja muito simples (por exemplo, usando indução).
-
-####Concorrência
-
+#### Concorrência
 Os processadores multicore estão presentes em praticamente todos os computadores modernos, inclusive em dispositivos móveis como telefones celular e tablets. Porém, pouco desse poder de processamento, provido pelos múltiplos núcleos, é aproveitado de maneira efetiva pelas aplicações devido à dificuldade de se escrever sistemas concorrentes.
 
 Com o objetivo de tornar o desenvolvimento desse tipo de sistema mais palpável, alguns novos mecanismos de sincronização e paralelismo vem sendo propostos em linguagens de programação funcional. Esse tipo de linguagem prega um estilo de programação baseado em funções puras e dados imutáveis que facilita o desenvolvimento de programas concorrentes.
@@ -76,23 +71,23 @@ Entretanto, as linguagens funcionais nos oferece oportunidades para a concorrên
 
 Todavia, as linguagens funcionais orientadas a multitarefa permitem ao programador trabalhar em um nível muito mais elevado do que as linguagens imperativas destinadas a este mesmo fim.
 
-####Testes
-####Debugging
-####Base teórica
+#### Testes
 
-####Onde usar?
+#### Debugging
+
+#### Base teórica
+
+#### Onde usar?
 
 BI, Sistemas concorrentes
 
-####Quem está usando?
-
+#### Quem está usando?
 Spark, Netflix, Google, Facebook, sistemas de avião como da família Airbus A340.
 
-#####Erlang
-
+### Erlang
 Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos usando Erlang, como por exemplo:
 
-- Facebook, no backend de seu sistema de chat, lidando com 100 milhõs de usuários ativos;
+- Facebook, no backend de seu sistema de chat, lidando com 100 milhões de usuários ativos;
 - Delicious, que tem mais de 5 milhões de usuários e mais de 150 milhões de bookmarks;
 - Amazon SimpleDB, o serviço de dados do poderoso Amazon EC2;
 - GitHub, no seu sistema de backend, lidando com milhares de transações concorrentes;
@@ -102,8 +97,7 @@ Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos us
 
 Dados retirados daqui: [http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto](http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto)
 
-###Linguagens funcionais
-
+### Linguagens funcionais
 Hoje em dia com o aumento na necessidade de sistemas concorrentes as linguagens funcionais estão voltando para o mercado comercial. Vemos muito grandes empresas usares: Erlang, Haskell, Scala, etc.
 
 Linguagens mais conhecidas:
@@ -119,14 +113,14 @@ Linguagens mais conhecidas:
 
 LISP introduziu a maioria das características hoje encontradas nas modernas linguagens de programação funcional. Scheme foi uma tentativa posterior de simplificar e melhorar LISP. Haskell foi lançada no fim dos anos 1980 numa tentativa de juntar muitas ideias na pesquisa de programação funcional.
 
-###Lambda
+### Lambda
 O cálculo lambda pode ser considerado a primeira linguagem de programação funcional, embora nunca tenha sido projetada para ser realmente executada em um computador. É um modelo de computação projetado por [Alonzo Church](https://pt.wikipedia.org/wiki/Alonzo_Church) nos anos 1930 que oferece um modo muito formal de descrever um cálculo de uma função.
 
 A ideia de Church era usar a noção de “processo” ou “transformação” (função) como essencial para fundamentar a matemática, ao invés da noção de conjunto de Cantor. O lambda cálculo não deu muito certo para isso na época, mas acabou sendo importante em outra questão do tempo: a busca pela definição formal do que vem a ser um procedimento efetivo. Em termos atuais, diríamos que essa busca tentava definir formalmente o que é “computação”.
 
 (A ideia de usar o conceito de transformação como central na matemática retornou na segunda metade do século XX através da Teoria das Categorias, mas isso é outra história.)
 
-####Notação
+#### Notação
 
 Essa notação pode parecer um pouco confusa no início, mas veremos que não é nenhum bicho de sete cabeças.
 
@@ -179,7 +173,7 @@ Nesse caso a conversão-β resulta na expressão[?] `+ 4 1` onde substituímos a
 
 [Falar mais]
 
-###Teoria das Categorias
+### Teoria das Categorias
 
 A teoria das categorias é uma teoria matemática que trata de forma abstrata das estruturas matemáticas e dos relacionamentos entre elas. Ela pode ser entendida como um "jogo de setas", em que se abstrai o significado das construções.
 
@@ -187,24 +181,24 @@ As aplicações da teoria das categorias estendem-se por áreas como álgebra, t
 
 Uma única operação exigida em uma categoria é a **composição**. Ouviremos falar muito disso ainda.
 
-- uma classe de objetos `a`, `b`, `c`, ...;
-- para cada par de objetos a,b, uma classe de morfismos ou setas de a para b, denotados por `f:a -> b` (e neste caso se diz que a é o objeto origem e b é o objeto destino da seta);
-- para cada objeto a, um morfismo chamado identidade em a, `id_a:a -> a` que tem origem e destino em `a`;
-- uma operação de composição que associa a cada par de morfismos.
+- Uma classe de objetos `a`, `b`, `c`, ...;
+- Para cada par de objetos a,b, uma classe de morfismos ou setas de a para b, denotados por `f:a -> b` (e neste caso se diz que a é o objeto origem e b é o objeto destino da seta);
+- Para cada objeto a, um morfismo chamado identidade em a, `id_a:a -> a` que tem origem e destino em `a`;
+- Uma operação de composição que associa a cada par de morfismos.
 
 ![imagem de uma função gigante de matemática apenas porque a zuera não tem limites](https://cldup.com/DgAjKvXx7W-1200x1200.png)
 
-####Functor
+#### Functor
 
 > A functor is a function, given a value and a function, unwraps the values to get to its inner value(s), calls the given function with the inner value(s), wraps the returned values in a new structure, and returns the new structure.
 
 Vamos entender parte por parte:
 
 - *functor* é uma função que irá receber um valor e uma função;
-- desembrulha? os valores para chegar a seu(s) valor(es) interno(s);
-- chama a função dada com o(s) valor(es) interno(s);
-- envolve os valores devolvidos em uma nova estrutura;
-- e retorna a nova estrutura.
+- Desembrulha? os valores para chegar a seu(s) valor(es) interno(s);
+- Chama a função dada com o(s) valor(es) interno(s);
+- Envolve os valores devolvidos em uma nova estrutura;
+- Retorna a nova estrutura.
 
 ![meme realy?](https://cldup.com/ERM06kh3ki-2000x2000.jpeg)
 
@@ -248,8 +242,6 @@ Significa que nossa função precisa "desembrulhar?" o *Array* passado e pegar s
 
 Isso não te lembra nenhuma funçãozinha não?
 
-![meme pensando](https://cldup.com/bYyOR0OQpS-1200x1200.png)
-
 SIM! A função `map` é um *functor*!
 
 ```js
@@ -260,9 +252,9 @@ No caso do Jasvascript, `filter` é um *functor* porque retorna um *Array*, entr
 
 *Functors* são definidos como "[homomorfismos](https://pt.wikipedia.org/wiki/Homomorfismo) entre categorias", vamos entender melhor esse significado:
 
-- homo = mesmo, igual
-- morfismos = funções que mantém estrutura
-- categoria = tipo
+- Homo = mesmo, igual
+- Morfismos = funções que mantém estrutura
+- Categoria = tipo
 
 De acordo com a teoria, a função `F` é um *functor* quando as duas funções comuns combináveis `f` e `g`, como no exemplo abaixo:
 
@@ -274,8 +266,7 @@ Onde `.` indicam composição, ou seja, *functors* precisam preservar a composi�
 
 Veremos mais sobre composição adiante.
 
-#####Array Functor
-
+##### Array Functor
 Como disse que o `map` é um *functor* então vamos provar isso.
 
 ```js
@@ -305,16 +296,16 @@ Isso lembra alguma coisa pra você? Bom logo logo verá um exemplo mais conhecid
 
 [ESCREVER MAIS SOBRE]
 
-###Recursion
-###For/list comprehensions
-###Immutability
-###Pure functions
-###No side effects
+### Recursion
+### For/list comprehensions
+### Immutability
+### Pure functions
+### No side effects
 
 
-###Por que JavaScript é funcional?
+### Por que JavaScript é funcional?
 
-##Funções
+## Funções
 
 No JavaScript uma função nada mais é que um objeto que possui atributos como:
 
@@ -426,9 +417,9 @@ repeat(1)
 
 [EXPLICAR MAIS]
 
-###Função anônima
+### Função anônima
 
-###Loops
+### Loops
 
 Antes de entrarmos nas propriedades funcionais propriamente ditas, vamos ver o porquê usar loops não é tão interessante quando possuímos o paradigma funcional em nossa linguagem.
 
@@ -465,17 +456,15 @@ Nesse último caso o programa está explicitamente iterando **em cima** do *Arra
 [FALAR MAIS SOBRE OS EFEITOS COLATERAIS]
 
 
-###First-class Functions
+### First-class Functions
 
 No JavaScript a função é first-class citizen, assim como objeto, entidade ou valor, porque ela suporta todas as operações comuns às outras entidades.
 
-![Hein!?](https://cldup.com/Oul_G5l7FB.gif)
-
 Essas operações incluem:
 
-- assinada a uma variável
-- retornada de uma função
-- ser passada por parâmetro
+- Assinada a uma variável
+- Retornada de uma função
+- Ser passada por parâmetro
 
 Vamos mostrar cada uma dessas operações com o exemplo anterior:
 
@@ -573,16 +562,16 @@ function(b) { //400
 
 Para entender melhor como isso acontece falarei mais adiante sobre *closures*.
 
-###High-order function
+### High-order function
 
 - recebe uma ou mais funções como parâmetro
 - retorna uma função
 
-###Closures
+### Closures
 
-###Currying
+### Currying
 
-###Monads
+### Monads
 
 > "As monads vieram para resolver um problema que não tínhamos antes." - Douglas Crockford
 
@@ -599,7 +588,7 @@ Na verdade *Monad* é um padrão de design usado para descrever computações co
 
 > Nota: A função bind function não é a mesma que a função Function.prototype.bind  Essa última é nativa do ES5 e é usada para criar uma série de funções ou funções parcialmente aplicadas com esse valor vinculado.
 
-####Leis da *monad*
+#### Leis da *monad*
 
 Uma *monad* deve obedecer as seguintes leis para ser válida:
 
@@ -643,7 +632,7 @@ monad.bind(alert);
 
 [MOSTRAR OUTROS EXEMPLOS DE MONADS]
 
-###Pattern matching
+### Pattern matching
 
-###Tail call
+### Tail call
 
