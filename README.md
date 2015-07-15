@@ -1,6 +1,20 @@
 ![Logo da Webschool e do Curso JS Funcional](https://cldup.com/bn_CJFPZce-2000x2000.png)
 
+#Índice
 - [JS Funcional](#js-funcional)
+  - [O Curso](#o-curso)
+    - [Custo](#custo)
+    - [Data e Hora](#data-e-hora)
+  - [O que é programação funcional?](#o-que-é-programação-funcional)
+    - [Por que usar programação funcional?](#custo)
+      - [Concorrência](#concorrência)
+      - [Testes](#testes)
+      - [Debugging](#debugging)
+      - [Base teórica](#base-teórica)
+      - [Onde usar?](#onde-usar)
+      - [Quem está usando?](#quem-está-usando)
+  - [O Curso](#o-curso)
+  - [O Curso](#o-curso)
   - [O Curso](#o-curso)
 
 #JS Funcional
