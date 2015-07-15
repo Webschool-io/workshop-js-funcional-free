@@ -13,9 +13,32 @@
       - [Base teórica](#base-teórica)
       - [Onde usar?](#onde-usar)
       - [Quem está usando?](#quem-está-usando)
-  - [O Curso](#o-curso)
-  - [O Curso](#o-curso)
-  - [O Curso](#o-curso)
+    - [Linguagens funcionais](#linguagens-funcionais)
+    - [Lambda](#lambda)
+    - [Teoria das Categorias](#teoria-das-ctegorias)
+      - [Functor](#functor)
+        - [Array Functor](#array-functor)
+    - [Recursion](#recursion)
+    - [For/list comprehensions](#forlist-comprehensions)
+    - [Immutability](#immutability)
+    - [Pure functions](#pure-functions)
+    - [No side effects](#No-side-effects)
+    - [Por que JavaScript é funcional?](#por-que-JavaScript-é-funcional)
+  - [Funções](#funções)
+    - [Função anônima](#função-anônima)
+  - [Loops](#loops)
+  - [First-class Function](#first-class-function)
+  - [High-order Function](#high-order-function)
+  - [Closures](#closures)
+  - [Currying](#currying)
+  - [Monads](#monads)
+    - [Leis da *monad*](#Leis-da-monad)
+  - [Pattern matching](#pattern-matching)
+  - [Tail call](#tail-call)
+
+
+____
+
 
 #JS Funcional
 
@@ -616,7 +639,7 @@ Na verdade *Monad* é um padrão de design usado para descrever computações co
 
 > Nota: A função bind function não é a mesma que a função Function.prototype.bind  Essa última é nativa do ES5 e é usada para criar uma série de funções ou funções parcialmente aplicadas com esse valor vinculado.
 
-####Leis da *monad*
+####Leis da *Monad*
 
 Uma *monad* deve obedecer as seguintes leis para ser válida:
 
