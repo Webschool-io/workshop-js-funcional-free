@@ -93,7 +93,7 @@ Vamos conhecer alguns fundamentos:
 
 ###Por que usar programação funcional?
 
-Temos 3 grandes motivos para usar programação funcional, são eles:
+Temos 4 grandes motivos para usar programação funcional, são eles:
 
 - concorrência: não temos deadlocks ou race conditions simplesmente porque não precisamos de locks - o dado é imutável;
 - testes: criar testes unitários sem se preocupar com o estado simplesmente porque não existe estado. Devemos preocupar apenas com os argumentos das funções que nós testamos;
@@ -139,7 +139,7 @@ Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos us
 - CouchDB;
 - RabbitMQ.
 
-Dados retirados daqui: [http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto](http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto)
+Dados retirados daqui: <http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto>
 
 ###Linguagens funcionais
 
