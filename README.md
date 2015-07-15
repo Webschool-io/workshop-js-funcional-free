@@ -1,7 +1,7 @@
 ![Logo da Webschool e do Curso JS Funcional](https://cldup.com/bn_CJFPZce-2000x2000.png)
 
-[JS Funcional](#js-funcional)
-- [O Curso](#o-curso)
+- [JS Funcional](#js-funcional)
+  - [O Curso](#o-curso)
 
 #JS Funcional
 
