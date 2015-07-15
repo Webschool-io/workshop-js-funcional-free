@@ -54,7 +54,7 @@ Vamos conhecer alguns fundamentos:
 
 ###Por que usar programação funcional?
 
-Temos 3 grandes motivos para usar programação funcional, são eles:
+Temos 4 grandes motivos para usar programação funcional, são eles:
 
 - concorrência: não temos deadlocks ou race conditions simplesmente porque não precisamos de locks - o dado é imutável;
 - testes: criar testes unitários sem se preocupar com o estado simplesmente porque não existe estado. Devemos preocupar apenas com os argumentos das funções que nós testamos;
@@ -92,7 +92,7 @@ Spark, Netflix, Google, Facebook, sistemas de avião como da família Airbus A34
 
 Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos usando Erlang, como por exemplo:
 
-- Facebook, no backend de seu sistema de chat, lidando com 100 milhõs de usuários ativos;
+- Facebook, no backend de seu sistema de chat, lidando com 100 milhões de usuários ativos;
 - Delicious, que tem mais de 5 milhões de usuários e mais de 150 milhões de bookmarks;
 - Amazon SimpleDB, o serviço de dados do poderoso Amazon EC2;
 - GitHub, no seu sistema de backend, lidando com milhares de transações concorrentes;
@@ -100,7 +100,7 @@ Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos us
 - CouchDB;
 - RabbitMQ.
 
-Dados retirados daqui: [http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto](http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto)
+Dados retirados daqui: <http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto>
 
 ###Linguagens funcionais
 
