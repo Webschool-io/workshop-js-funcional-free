@@ -1,5 +1,8 @@
 ![Logo da Webschool e do Curso JS Funcional](https://cldup.com/bn_CJFPZce-2000x2000.png)
 
+[JS Funcional](#js-funcional)
+- [O Curso](#o-curso)
+
 #JS Funcional
 
 Possuimos 2 grandes paradigmas de programação: 
@@ -21,11 +24,11 @@ O turno será o noturno, ainda farei uma pesquisa para ver se preferem as 21 ou 
 
 ###Custo
 
-**R$ 0**
+> Gratuitamente de graça
 
 ###Local
 
-**ONLINE** via Hangouts on Air
+**ONLINE** via Hangout on Air
 
 ###Data e Hora
 
