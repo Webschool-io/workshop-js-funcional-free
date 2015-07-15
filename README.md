@@ -25,10 +25,12 @@
   * [Por que JavaScript é funcional?](#por-que-JavaScript-é-funcional)
 * [Funções](#funções)
   * [Função anônima](#função-anônima)
+  * [IIFE](#IIFE)
 * [Loops](#loops)
 * [First-class Function](#first-class-function)
 * [High-order Function](#high-order-function)
 * [Closures](#closures)
+  * [Hoisting](#hoisting)
 * [Currying](#currying)
 * [Monads](#monads)
   * [Leis da *monad*](#Leis-da-monad)
@@ -465,7 +467,8 @@ repeat(1)
 
 [EXPLICAR MAIS]
 
-###Função anônima
+####Função anônima
+####IIFE
 
 ###Loops
 
@@ -618,6 +621,7 @@ Para entender melhor como isso acontece falarei mais adiante sobre *closures*.
 - retorna uma função
 
 ###Closures
+####Hoisting
 
 ###Currying
 
