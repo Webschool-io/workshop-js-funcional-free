@@ -14,14 +14,6 @@
     * [Quem está usando?](#quem-está-usando)
   * [Linguagens funcionais](#linguagens-funcionais)
   * [Lambda](#lambda)
-  * [Teoria das Categorias](#teoria-das-ctegorias)
-    * [Functor](#Functor)
-      * [Array Functor](#array-Functor)
-  * [Recursion](#recursion)
-  * [For/list comprehensions](#forlist-comprehensions)
-  * [Immutability](#immutability)
-  * [Pure functions](#pure-functions)
-  * [No side effects](#No-side-effects)
   * [Por que JavaScript é funcional?](#por-que-JavaScript-é-funcional)
 * [Funções](#funções)
   * [Função anônima](#função-anônima)
@@ -32,7 +24,15 @@
 * [Closures](#closures)
   * [Hoisting](#hoisting)
 * [Currying](#currying)
++ [Recursion](#recursion)
++ [For/list comprehensions](#forlist-comprehensions)
++ [Immutability](#immutability)
++ [Pure functions](#pure-functions)
++ [No side effects](#No-side-effects)
 * [Memoization](#memoization)
+* [Teoria das Categorias](#teoria-das-ctegorias)
+  + [Functor](#Functor)
+    + [Array Functor](#array-Functor)
 * [Monads](#monads)
   * [Leis da *monad*](#Leis-da-monad)
 * [Pattern matching](#pattern-matching)
@@ -41,7 +41,7 @@
 
 ____
 
-
+[COMEÇO AULA 1]
 # JS Funcional
 
 Possuimos 2 grandes paradigmas de programação: 
@@ -301,6 +301,271 @@ Nesse caso a conversão-β resulta na expressão `+ 4 1` onde substituímos a va
 [Falar mais]
 
 Nós usaremos esse tipo de notação apenas para exemplos, pois o Javascript não possui essa sintaxe.
+
+
+### Por que JavaScript é funcional?
+
+## Funções
+
+No JavaScript uma função nada mais é que um objeto que possui atributos como:
+
+- arguments
+- name
+- length
+
+E funções importantes como:
+
+- apply
+- call
+
+Para criarmos uma função no JavaScript é muito simples, como já vimos anteriormente, precisamos apenas utilizar a palavra `function`.
+
+![Homer fazendo Doh](https://cldup.com/CVvUx6Uswo.gif)
+
+Estava vendo [essa palestra](http://www.infoq.com/br/presentations/programacao-funcional-por-que-importa) aqui hoje e percebi que o jeito mais fácil de entender programação funcional é algo que sempre falei e sempre tentei seguir:
+
+>TODA FUNÇÃO PRECISA RETORNAR UM VALOR!
+
+Sabendo dessa premissa como faríamos um simples atribuição de valor como:
+
+```js
+var idade = 30;
+
+```
+Simples, assim:
+
+```js
+function setIdade(idade) { return idade; }
+
+```
+Nesse caso isso é uma função identidade.
+
+Logo eu posso testar se é maior de idade assim:
+
+```js
+function maioridade(idade) {
+  if(idade >= 18)
+    return true;
+  else
+    return false; }
+
+```
+
+E chamamos ela da seguinte forma:
+
+```js
+maioridade(setIdade(30));
+```
+
+Bem fácil né???
+
+Dessa forma podemos pensar que ele se assemelha muito ao *Atomic Design* onde criamos pequenos átomos independentes, nesse caso as funções e com elas vamos compondo funções maiores, **exatamente** como visto [aqui no artigo do Brad Frost](http://bradfrost.com/blog/post/atomic-web-design/).
+
+Agora vamos usar um exemplo mais simples ainda, uma função que duplica *Strings*:
+
+```js
+var repeat = function(s) {
+  return s + s;
+};
+
+repeat('Na');
+// NaNa
+```
+
+Então se chamamos apenas a função `repeat` dessa forma, passando *String* então estará correta, porém se não fizermos isso teremos um resultado indesejado.
+
+![Meme WAT](https://cldup.com/BOagKEB49C.gif)
+
+Sim meu caro aluno, prete atenção no exemplo abaixo:
+
+```js
+repeat(10);
+// 4
+```
+
+Aí encontramos o problema!
+
+Nesse caso ele não está mais repetindo a *String* como desejado inicialmente, agora ela está multiplicando o valor por 2 caso seja um *Number*. Isso porque não temos um contrato com uma função que retorne apenas *Strings*. Para resolver esse problema é fácil, criamos essa função abaixo:
+
+```js
+var str = function(s) {
+  if(typeof s !== 'string') {
+    throw new TypeError('Expected a string');
+  }
+  else {
+    return s;
+  }
+}
+```
+
+Agora você passa uma *String* para a função, como valor de entrada, e espera-se que seu retorno também seja uma *String*, como valor de saída.
+
+Refatorando nossa função `repeat`:
+
+```js
+var repeat = function(s) {
+  var s = str(s)
+  return s + s;
+};
+
+repeat('Na');
+// NaNa
+repeat(1)
+// TypeError: Expected a string
+```
+
+
+[EXPLICAR MAIS]
+
+#### Função anônima
+#### IIFE
+
+### First-class Functions
+
+No JavaScript a função é first-class citizen, assim como objeto, entidade ou valor, porque ela suporta todas as operações comuns às outras entidades.
+
+![Hein!?](https://cldup.com/Oul_G5l7FB.gif)
+
+Essas operações incluem:
+
+- assinada a uma variável
+- retornada de uma função
+- ser passada por parâmetro
+
+Vamos mostrar cada uma dessas operações com o exemplo anterior:
+
+```js
+// assinada a uma variável
+var add = function (a, b) {
+  return a + b;
+}
+
+add(400, 20); // 420
+```
+
+```js
+// retornada de uma função
+function adder(a) {
+  return function(b) {
+    return a + b;
+  }
+}
+
+var _add =  adder(20);
+_add(400) // 420
+_add(646) // 666
+```
+
+Podemos melhorar esse exemplo e criarmos a função de multiplicar.
+
+```js
+// retornada de uma função
+function multiply(a) {
+  var sum = 0;
+  return function(b) {
+    sum = b;
+    for(i=1; i<a; i++){
+      sum += b;
+    }
+    return sum;
+  };
+}
+
+multiply(2)(333); //666
+```
+
+Você deve ter percebido que podemos utilizar 2 formas de passagem de parâmetros, correto?
+
+Vamos entender melhor como isso funciona, vamos analisar o exemplo coma soma por sem mais simples, porém desta vez vendo os valores dos parâmetros.
+
+```js
+// retornada de uma função
+function adder(a) {
+  console.log('a', a);
+  return function(b) {
+    console.log('b', b);
+    return a + b;
+  }
+}
+
+var _add =  adder(20);
+_add(400) // 420
+_add(646) // 666
+```
+
+Na linha:
+
+```js
+var _add =  adder(20);
+// a 20
+```
+
+Basicamente a função está apenas instanciando o valor de `a` e retornando a função com a soma já usando o `a`, falaremos mais disso posteriormente, logo `_add` não recebe o valor de `a`, mas sim a funçao da soma:
+
+```js
+function adder(a) {
+  var a = a; // 20
+  return function(b) {
+    return a + b;
+  }
+}
+```
+
+Depois quando chamamos a função `_add` passando `400` como parâmetro 
+```js
+_add(400)
+// b 420
+// 440
+```
+
+Estamos passando o `400` para a função que recebe `b` desse jeito retornando o valor da nossa soma:
+
+```js
+function(b) { //400
+  return a + b; //420
+}
+```
+
+Para entender melhor como isso acontece falarei mais adiante sobre *closures*.
+
+Uma situação bem interessante do porquê é interessante usarmos funções de primeira classe é para não ficarmos nos perocupando com os parâmetros passados, caso usemos uma função anônima.
+
+Vamos ver o exemlo abaixo:
+
+```js
+httpPost('/beer', function(json){
+  return renderPost(json);
+});
+```
+
+Se o `httpPost` precisa enviar um possível **erro**, nós teríamos que ir lá na função anônima e mudá-la:
+
+```js
+httpPost('/beer', function(json, err){
+  return renderPost(json, err);
+});
+```
+
+Agora se re-escrevermos como função de primeira classe ficará assim:
+
+```js
+httpPost('/beer', renderPost);
+```
+
+Dessa forma não precisamos nos preocupar mais com os argumentos, pois isso sempre será trabalho unica e exclusivamente da função `renderPost`.
+
+### High-order function
+
+- recebe uma ou mais funções como parâmetro
+- retorna uma função
+
+### Closures
+
+#### Hoisting
+
+### Currying
+
+[FIM AULA 1]
 
 ### Teoria das Categorias
 
@@ -624,267 +889,6 @@ Because a valid implementation of id is error "Not implemented!". As Peteris poi
 
 http://davidwalsh.name/preventing-sideeffects-javascript
 
-### Por que JavaScript é funcional?
-
-## Funções
-
-No JavaScript uma função nada mais é que um objeto que possui atributos como:
-
-- arguments
-- name
-- length
-
-E funções importantes como:
-
-- apply
-- call
-
-Para criarmos uma função no JavaScript é muito simples, como já vimos anteriormente, precisamos apenas utilizar a palavra `function`.
-
-![Homer fazendo Doh](https://cldup.com/CVvUx6Uswo.gif)
-
-Estava vendo [essa palestra](http://www.infoq.com/br/presentations/programacao-funcional-por-que-importa) aqui hoje e percebi que o jeito mais fácil de entender programação funcional é algo que sempre falei e sempre tentei seguir:
-
->TODA FUNÇÃO PRECISA RETORNAR UM VALOR!
-
-Sabendo dessa premissa como faríamos um simples atribuição de valor como:
-
-```js
-var idade = 30;
-
-```
-Simples, assim:
-
-```js
-function setIdade(idade) { return idade; }
-
-```
-Nesse caso isso é uma função identidade.
-
-Logo eu posso testar se é maior de idade assim:
-
-```js
-function maioridade(idade) {
-  if(idade >= 18)
-    return true;
-  else
-    return false; }
-
-```
-
-E chamamos ela da seguinte forma:
-
-```js
-maioridade(setIdade(30));
-```
-
-Bem fácil né???
-
-Dessa forma podemos pensar que ele se assemelha muito ao *Atomic Design* onde criamos pequenos átomos independentes, nesse caso as funções e com elas vamos compondo funções maiores, **exatamente** como visto [aqui no artigo do Brad Frost](http://bradfrost.com/blog/post/atomic-web-design/).
-
-Agora vamos usar um exemplo mais simples ainda, uma função que duplica *Strings*:
-
-```js
-var repeat = function(s) {
-  return s + s;
-};
-
-repeat('Na');
-// NaNa
-```
-
-Então se chamamos apenas a função `repeat` dessa forma, passando *String* então estará correta, porém se não fizermos isso teremos um resultado indesejado.
-
-![Meme WAT](https://cldup.com/BOagKEB49C.gif)
-
-Sim meu caro aluno, prete atenção no exemplo abaixo:
-
-```js
-repeat(10);
-// 4
-```
-
-Aí encontramos o problema!
-
-Nesse caso ele não está mais repetindo a *String* como desejado inicialmente, agora ela está multiplicando o valor por 2 caso seja um *Number*. Isso porque não temos um contrato com uma função que retorne apenas *Strings*. Para resolver esse problema é fácil, criamos essa função abaixo:
-
-```js
-var str = function(s) {
-  if(typeof s !== 'string') {
-    throw new TypeError('Expected a string');
-  }
-  else {
-    return s;
-  }
-}
-```
-
-Agora você passa uma *String* para a função, como valor de entrada, e espera-se que seu retorno também seja uma *String*, como valor de saída.
-
-Refatorando nossa função `repeat`:
-
-```js
-var repeat = function(s) {
-  var s = str(s)
-  return s + s;
-};
-
-repeat('Na');
-// NaNa
-repeat(1)
-// TypeError: Expected a string
-```
-
-
-[EXPLICAR MAIS]
-
-#### Função anônima
-#### IIFE
-
-### First-class Functions
-
-No JavaScript a função é first-class citizen, assim como objeto, entidade ou valor, porque ela suporta todas as operações comuns às outras entidades.
-
-![Hein!?](https://cldup.com/Oul_G5l7FB.gif)
-
-Essas operações incluem:
-
-- assinada a uma variável
-- retornada de uma função
-- ser passada por parâmetro
-
-Vamos mostrar cada uma dessas operações com o exemplo anterior:
-
-```js
-// assinada a uma variável
-var add = function (a, b) {
-  return a + b;
-}
-
-add(400, 20); // 420
-```
-
-```js
-// retornada de uma função
-function adder(a) {
-  return function(b) {
-    return a + b;
-  }
-}
-
-var _add =  adder(20);
-_add(400) // 420
-_add(646) // 666
-```
-
-Podemos melhorar esse exemplo e criarmos a função de multiplicar.
-
-```js
-// retornada de uma função
-function multiply(a) {
-  var sum = 0;
-  return function(b) {
-    sum = b;
-    for(i=1; i<a; i++){
-      sum += b;
-    }
-    return sum;
-  };
-}
-
-multiply(2)(333); //666
-```
-
-Você deve ter percebido que podemos utilizar 2 formas de passagem de parâmetros, correto?
-
-Vamos entender melhor como isso funciona, vamos analisar o exemplo coma soma por sem mais simples, porém desta vez vendo os valores dos parâmetros.
-
-```js
-// retornada de uma função
-function adder(a) {
-  console.log('a', a);
-  return function(b) {
-    console.log('b', b);
-    return a + b;
-  }
-}
-
-var _add =  adder(20);
-_add(400) // 420
-_add(646) // 666
-```
-
-Na linha:
-
-```js
-var _add =  adder(20);
-// a 20
-```
-
-Basicamente a função está apenas instanciando o valor de `a` e retornando a função com a soma já usando o `a`, falaremos mais disso posteriormente, logo `_add` não recebe o valor de `a`, mas sim a funçao da soma:
-
-```js
-function adder(a) {
-  var a = a; // 20
-  return function(b) {
-    return a + b;
-  }
-}
-```
-
-Depois quando chamamos a função `_add` passando `400` como parâmetro 
-```js
-_add(400)
-// b 420
-// 440
-```
-
-Estamos passando o `400` para a função que recebe `b` desse jeito retornando o valor da nossa soma:
-
-```js
-function(b) { //400
-  return a + b; //420
-}
-```
-
-Para entender melhor como isso acontece falarei mais adiante sobre *closures*.
-
-Uma situação bem interessante do porquê é interessante usarmos funções de primeira classe é para não ficarmos nos perocupando com os parâmetros passados, caso usemos uma função anônima.
-
-Vamos ver o exemlo abaixo:
-
-```js
-httpPost('/beer', function(json){
-  return renderPost(json);
-});
-```
-
-Se o `httpPost` precisa enviar um possível **erro**, nós teríamos que ir lá na função anônima e mudá-la:
-
-```js
-httpPost('/beer', function(json, err){
-  return renderPost(json, err);
-});
-```
-
-Agora se re-escrevermos como função de primeira classe ficará assim:
-
-```js
-httpPost('/beer', renderPost);
-```
-
-Dessa forma não precisamos nos preocupar mais com os argumentos, pois isso sempre será trabalho unica e exclusivamente da função `renderPost`.
-
-### High-order function
-
-- recebe uma ou mais funções como parâmetro
-- retorna uma função
-
-### Closures
-
-#### Hoisting
-
-### Currying
 
 ### Memoization
 
