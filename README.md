@@ -141,6 +141,16 @@ Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos us
 
 Dados retirados daqui: <http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto>
 
+#####Elixir
+
+Como a sintaxe de Erlang pode não ser convidativa para desenvolvedores "modernos", por isso José Valim desenvolveu o Elixir, linguágem com sintaxe moderna que roda dentro da madura VM do Erlang.
+
+Atualmente na versão 1.0, com sua framework web(Phoenix) dando os primeiros passos.
+
+Saiba mais em:
+Elixir: <http://elixir-lang.org/>
+Phoenix: <http://www.phoenixframework.org/>
+
 ###Linguagens funcionais
 
 Hoje em dia com o aumento na necessidade de sistemas concorrentes as linguagens funcionais estão voltando para o mercado comercial. Vemos muito grandes empresas usarem: Erlang, Haskell, Scala, etc.
