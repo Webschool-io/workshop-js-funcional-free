@@ -72,7 +72,11 @@ O turno será o noturno, ainda farei uma pesquisa para ver se preferem as 21 ou 
 
 Entre Quinta e Sábado sendo ou as 21 ou as 23 horas(se a maioria dos alunos for estudante de faculdade provavelmente preferirá esse), Sábado podendo ser a tarde.
 
-[Explicar como ira funcionar o curso]
+Cada aula terá uma média de 1 hora, sendo 4 aulas por mês.
+
+Data e hora podem ser modificados mediante divulgação 12 horas antes.
+
+Ele acontecerá **AO VIVO** semanalmente, mas caso você não consiga ver ao vivo ele ficará gravado [no nosso canal no Youtube.](https://www.youtube.com/channel/UCKdo1RaF8gzfhvkOdZv_ojg/videos)
 
 
 ##O que é programação funcional?
