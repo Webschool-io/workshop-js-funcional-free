@@ -55,7 +55,7 @@ O paradigma imperativo é baseada na arquitetura de Von Neumann, enquanto que o 
 
 ## O Curso
 
-Esse curso será dividido em módulos, cada um com 4 aulas, 1 por semana de duração média de 1 hora.
+Esse curso será dividido em módulos, cada um com 4 aulas, 1 por semana de duração máxima de 1 hora e mínima de meia hora.
 
 Não haverá um dia **FIXO** pois como sou nômade não posso sempre garantir tal data por diversos motivos, logo eu enviarei um email toda semana até Quarta-feira para avisar qual dia a aula ocorrerá sendo entre Quinta e Sábado.
 
