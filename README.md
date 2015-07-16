@@ -438,11 +438,45 @@ var inputs = [].slice.call(document.getElementsByTagName('input'), 0),
 ### Immutability
 
 http://www.sitepoint.com/immutability-javascript/
+https://medium.com/javascript-scene/the-dao-of-immutability-9f91a70c88cd
+
+[Falar do immutable.js http://www.infoq.com/news/2014/11/immutable-javascript-functional]
+
 [Falar do conts em ES6]
 
 ### Pure functions
+
+http://nicoespeon.com/en/2015/01/pure-functions-javascript/
+http://stackoverflow.com/questions/14353978/how-to-parse-pure-functions
+
+Para leitura posterior abaixo, do link: http://programmers.stackexchange.com/questions/176761/compute-if-a-function-is-pure
+```
+In JavaScript, you can tell if a function is pure by the following criteria:
+
+It only reads parameters and locals;
+
+It only writes locals;
+
+On non-locals, it calls only pure functions;
+
+All functions it calls implicitly are pure, e.g., toString; and
+
+It only writes properties of locals if they do not alias non-locals.
+
+Aliasing is not possible to determine in JavaScript in the general case, because you can always look up properties of an object dynamically (object["property"]). Provided you never do that, and you have the source of the whole program, then I think the problem is tractable. You would also need information about which native functions have side-effects, such as console.log or most anything involving the DOM.
+
+The term “pure” could also use some clarification. Even in a strongly, statically typed, purely functional programming language, where all functions are referentially transparent, a function can still fail to terminate. So when we talk about id :: a -> a, what we’re really saying is not:
+
+Given some value of type a, the function id produces a value of type a.
+But rather:
+
+Given some value of type a, the function id does not produce a value which is not of type a.
+Because a valid implementation of id is error "Not implemented!". As Peteris points out, this nontotality could be seen as a kind of impurity. Koka is a functional programming language—with syntax modelled on JavaScript—which can infer possible effects such as divergence (nontermination), referential transparency, throwing of exceptions, and I/O actions.
+```
+
 ### No side effects
 
+http://davidwalsh.name/preventing-sideeffects-javascript
 
 ### Por que JavaScript é funcional?
 
@@ -770,3 +804,7 @@ monad.bind(alert);
 
 ### Tail call
 
+## ES6
+### Array Comprehension
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Array_comprehensions
+http://ariya.ofilabs.com/2013/01/es6-and-array-comprehension.html
