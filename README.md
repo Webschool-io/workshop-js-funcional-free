@@ -201,6 +201,47 @@ Essa notação pode parecer um pouco confusa no início, mas veremos que não é
 
 *Queria ter colocado o Tiamat,  mas ele tem 5 cabeças apenas :(*
 
+Normalmente em uma linguagem tipada e imperativa nós faríamos isso:
+
+```c#
+int x;
+
+int f(int x) {
+  return x;
+}
+```
+
+Porém quando começamos a trabalhar com linguagens funcionais acabamos vendo uma outra forma de se escrever a mesma coisa.
+
+```
+x: int
+f: int -> int
+_______________
+x: a
+f: a -> a
+```
+
+Ai você se pergunta:
+
+- *Mas por que assim?*
+
+Lembra que falei que toda a base é matemática? Então.
+
+O tipo de uma variável é o conjunto de valores em que ele está limitado, na matemática falamos que:
+
+```
+x E Z
+```
+
+> x pertence ao conjunto dos inteiros
+> função f recebe um inteiro e retorna um inteiro.
+
+ps: se fosse apenas os inteiros positivos falaríamos que pertence aos naturais.
+
+Logo dessa forma fica bem mais "matemático" de se ler. No exemplo em que usamos o `a`, ele significa **qualquer** tipo.
+
+Agora vamos ver a notação do cálculo lambda.
+
 ```haskell
 (λx.x) y
 ```
@@ -257,6 +298,8 @@ Nesse caso a conversão-β resulta na expressão `+ 4 1` onde substituímos a va
 
 
 [Falar mais]
+
+Nós usaremos esse tipo de notação apenas para exemplos, pois o Javascript não possui essa sintaxe.
 
 ### Teoria das Categorias
 
