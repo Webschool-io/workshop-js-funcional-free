@@ -127,7 +127,7 @@ BI, Sistemas concorrentes
 
 ####Quem está usando?
 
-Spark, Netflix, Google, Facebook, sistemas de avião como da família Airbus A340.
+Spark, Netflix, Google, Facebook, [Amazon (Amazon Lambda)](http://www.infoworld.com/article/2847466/amazon-web-services/amazon-lambda-bridges-functional-programming-and-cloud.html), sistemas de avião como da família Airbus A340.
 
 #####Erlang
 
