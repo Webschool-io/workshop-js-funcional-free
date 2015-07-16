@@ -138,6 +138,8 @@ Todavia, as linguagens funcionais orientadas a multitarefa permitem ao programad
 
 BI, Sistemas concorrentes
 
+![Diagrama de Map e REduce do Hadoop](https://cldup.com/GxuJ2yHNnS-1200x1200.png)
+
 #### Quem está usando?
 
 Spark, Netflix, Google, Facebook, [Amazon (Amazon Lambda)](http://www.infoworld.com/article/2847466/amazon-web-services/amazon-lambda-bridges-functional-programming-and-cloud.html), sistemas de avião como da família Airbus A340.
