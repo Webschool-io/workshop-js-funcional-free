@@ -427,7 +427,7 @@ var repeat = function(s) {
 };
 
 repeat('Na');
-// NaNA
+// NaNa
 ```
 
 Então se chamamos apenas a função `repeat` dessa forma, passando *String* então estará correta, porém se não fizermos isso teremos um resultado indesejado.
@@ -467,7 +467,7 @@ var repeat = function(s) {
 };
 
 repeat('Na');
-// NaNA
+// NaNa
 repeat(1)
 // TypeError: Expected a string
 ```
