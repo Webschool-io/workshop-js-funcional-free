@@ -66,10 +66,9 @@ O turno será o noturno, ainda farei uma pesquisa para ver se preferem as 21 ou 
 
 ### Doação
 
-Caso você seja uma pessoa muito legal e deseja contribuir para esse e outros projetos gratuitos que faço, por exemplo o [JS4Girls](), e pela continuidade de mais m´odulos mensais como: ES6, Node.js, AngularJs, React e outros.
+Caso você seja uma pessoa muito legal e deseja contribuir para esse e outros projetos gratuitos que faço, por exemplo o [JS4Girls](), e pela continuidade de mais módulos mensais como: ES6, Node.js, AngularJs, React e outros.
 
 [Para doar basta clickar no botão do PagSeguro no site oficial desse curso.](http://webschool.io/curso-javascript-funcional) Ou mandar email diretamente para webschool.cursos[at]gmail[dot]com pedindo a conta para depósito ou transfêrencia.
-
 ### Local
 
 **ONLINE** via Hangout on Air.
@@ -125,7 +124,7 @@ Entretanto, as linguagens funcionais nos oferece oportunidades para a concorrên
 - A partir do momento em que uma função tem mais de um parâmetro, estes parâmetros devem em princípio ser avaliados simultaneamente (note que os parâmetros seriam as funções correspondentes às tarefas a serem executadas);
 - A partir deste ponto, a responsabilidade pela sincronização das tarefas passa do programador para o compilador.
 
-Se você pensar que um dos pilares da programação funcional é compor várias funç~oes de uma s´o vez, nesse caso fazendo-as serem processadas em paralelo.
+Se você pensar que um dos pilares da programação funcional é compor várias funç~oes de uma só vez, nesse caso fazendo-as serem processadas em paralelo.
 
 Todavia, as linguagens funcionais orientadas a multitarefa permitem ao programador trabalhar em um nível muito mais elevado do que as linguagens imperativas destinadas a este mesmo fim.
 
@@ -213,6 +212,7 @@ Onde `(E = x e F = y)`, guardem bem essa informação `E` é o resultado onde `x
 ```haskell
 (λx.E) F
 ```
+
 O x será nosso para^ametro q entrará na função E com o valor de F.
 
 Agora se `F(λx.x)(λx.y)` tem como resultado `(λx.y)`, então `(E = x, F = (λx.y))`. E é só isso, substituição textual.
@@ -336,7 +336,6 @@ Isso não te lembra nenhuma funçãozinha não?
 No caso do JasvaScript, `filter` é um *Functor* porque retorna um *Array*, entretando o `forEach` não é pois retorna `undefined`, ou seja, ele não mantém a estrutura.
 
 ```js
-
 [1, 2, 3].map(plus1);
 [2, 3, 4]
 [1, 2, 3].filter(plus1)
@@ -386,7 +385,6 @@ function plus1(value) {
 
 [1, 2, 3].map(compose(plus1, plus2)); // [ 4, 5, 6 ]
 
-/**
 plus2 value enter: 1
 plus1 value enter: 3
 plus2 value enter: 2
@@ -394,7 +392,7 @@ plus1 value enter: 4
 plus2 value enter: 3
 plus1 value enter: 5
 [ 4, 5, 6 ]
-*/
+
 
 ```
 
@@ -407,6 +405,7 @@ Percebeu o que aconteceu? Não? Vou separar melhor então:
 ]
 [ 4, 5, 6 ]
 ```
+
 Agora sim né?
 
 É o mesmo que compor usando 2 funções `map`:
@@ -414,14 +413,6 @@ Agora sim né?
 ```js
 [1, 2, 3].map(plus2).map(plus1); // [ 4, 5, 6 ]
 ```
-
-[Quando mostrar a composição]
-
-
-
-Isso lembra alguma coisa pra você? Bom logo logo verá um exemplo mais conhecido.
-
-[ESCREVER MAIS SOBRE]
 
 ### Loops
 
