@@ -41,7 +41,7 @@
 ____
 
 
-#JS Funcional
+# JS Funcional
 
 Possuimos 2 grandes paradigmas de programação: 
 
@@ -52,7 +52,7 @@ A Funcional é a mais antiga, sua primeira linguagem foi criada em 1955 (IPL) e 
 
 O paradigma imperativo é baseada na arquitetura de Von Neumann, enquanto que o funcional é baseado no cálculo lambda.
 
-##O Curso
+## O Curso
 
 Esse curso será dividido em módulos, cada um com 4 aulas, 1 por semana de duração média de 1 hora.
 
@@ -60,15 +60,15 @@ Não haverá um dia **FIXO** pois como sou nômade não posso sempre garantir ta
 
 O turno será o noturno, ainda farei uma pesquisa para ver se preferem as 21 ou 23 horas e as dúvidas deverão ser feitas em um canal, avisarei posteriormente qual, para que eu possa respondê-las e quiçá fazer uma aula avulsa para responder algumas perguntas.
 
-###Custo
+### Custo
 
 > Gratuitamente de graça
 
-###Local
+### Local
 
 **ONLINE** via Hangout on Air
 
-###Data e Hora
+### Data e Hora
 
 Entre Quinta e Sábado sendo ou as 21 ou as 23 horas(se a maioria dos alunos for estudante de faculdade provavelmente preferirá esse), Sábado podendo ser a tarde.
 
@@ -79,7 +79,7 @@ Data e hora podem ser modificados mediante divulgação 12 horas antes.
 Ele acontecerá **AO VIVO** semanalmente, mas caso você não consiga ver ao vivo ele ficará gravado [no nosso canal no Youtube.](https://www.youtube.com/channel/UCKdo1RaF8gzfhvkOdZv_ojg/videos)
 
 
-##O que é programação funcional?
+## O que é programação funcional?
 
 Programação funcional é um paradigma de programação que trata a computação como uma avaliação de funções matemáticas e evita estados ou dados mutáveis. Utiliza a aplicação de funções, em contraste da programação imperativa, que enfatiza mudanças no estado do programa.
 
@@ -97,7 +97,7 @@ Vamos conhecer alguns fundamentos:
 
 [ESCREVER MAIS SOBRE]
 
-###Por que usar programação funcional?
+### Por que usar programação funcional?
 
 Temos 4 grandes motivos para usar programação funcional, são eles:
 
@@ -106,7 +106,7 @@ Temos 4 grandes motivos para usar programação funcional, são eles:
 - debugging: rastrear algum valor no stack trace é bem simples;
 - base teórica: linguagens funcionais são baseados no cálculo lambda, que é um sistema formal. Esta fundamentação teórica faz a prova para correção dos programas seja muito simples (por exemplo, usando indução).
 
-####Concorrência
+#### Concorrência
 
 Os processadores multicore estão presentes em praticamente todos os computadores modernos, inclusive em dispositivos móveis como telefones celular e tablets. Porém, pouco desse poder de processamento, provido pelos múltiplos núcleos, é aproveitado de maneira efetiva pelas aplicações devido à dificuldade de se escrever sistemas concorrentes.
 
@@ -121,19 +121,19 @@ Entretanto, as linguagens funcionais nos oferece oportunidades para a concorrên
 
 Todavia, as linguagens funcionais orientadas a multitarefa permitem ao programador trabalhar em um nível muito mais elevado do que as linguagens imperativas destinadas a este mesmo fim.
 
-####Testes
-####Debugging
-####Base teórica
+#### Testes
+#### Debugging
+#### Base teórica
 
-####Onde usar?
+#### Onde usar?
 
 BI, Sistemas concorrentes
 
-####Quem está usando?
+#### Quem está usando?
 
 Spark, Netflix, Google, Facebook, [Amazon (Amazon Lambda)](http://www.infoworld.com/article/2847466/amazon-web-services/amazon-lambda-bridges-functional-programming-and-cloud.html), sistemas de avião como da família Airbus A340.
 
-#####Erlang
+##### Erlang
 
 Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos usando Erlang, como por exemplo:
 
@@ -147,7 +147,7 @@ Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos us
 
 Dados retirados daqui: <http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto>
 
-#####Elixir
+##### Elixir
 
 Como a sintaxe de Erlang pode não ser convidativa para desenvolvedores "modernos", por isso José Valim desenvolveu o Elixir, linguágem com sintaxe moderna que roda dentro da madura VM do Erlang.
 
@@ -157,7 +157,7 @@ Saiba mais em:
 Elixir: <http://elixir-lang.org/>
 Phoenix: <http://www.phoenixframework.org/>
 
-###Linguagens funcionais
+### Linguagens funcionais
 
 Hoje em dia com o aumento na necessidade de sistemas concorrentes as linguagens funcionais estão voltando para o mercado comercial. Vemos muito grandes empresas usarem: Erlang, Haskell, Scala, etc.
 
@@ -174,14 +174,14 @@ Linguagens mais conhecidas:
 
 LISP introduziu a maioria das características hoje encontradas nas modernas linguagens de programação funcional. Scheme foi uma tentativa posterior de simplificar e melhorar LISP. Haskell foi lançada no fim dos anos 1980 numa tentativa de juntar muitas ideias na pesquisa de programação funcional.
 
-###Lambda
+### Lambda
 O cálculo lambda pode ser considerado a primeira linguagem de programação funcional, embora nunca tenha sido projetada para ser realmente executada em um computador. É um modelo de computação projetado por [Alonzo Church](https://pt.wikipedia.org/wiki/Alonzo_Church) nos anos 1930 que oferece um modo muito formal de descrever um cálculo de uma função.
 
 A ideia de Church era usar a noção de “processo” ou “transformação” (função) como essencial para fundamentar a matemática, ao invés da noção de conjunto de Cantor. O lambda cálculo não deu muito certo para isso na época, mas acabou sendo importante em outra questão do tempo: a busca pela definição formal do que vem a ser um procedimento efetivo. Em termos atuais, diríamos que essa busca tentava definir formalmente o que é “computação”.
 
 (A ideia de usar o conceito de transformação como central na matemática retornou na segunda metade do século XX através da Teoria das Categorias, mas isso é outra história.)
 
-####Notação
+#### Notação
 
 Essa notação pode parecer um pouco confusa no início, mas veremos que não é nenhum bicho de sete cabeças.
 
@@ -234,7 +234,7 @@ Nesse caso a conversão-β resulta na expressão[?] `+ 4 1` onde substituímos a
 
 [Falar mais]
 
-###Teoria das Categorias
+### Teoria das Categorias
 
 A teoria das categorias é uma teoria matemática que trata de forma abstrata das estruturas matemáticas e dos relacionamentos entre elas. Ela pode ser entendida como um "jogo de setas", em que se abstrai o significado das construções.
 
@@ -249,7 +249,7 @@ Uma única operação exigida em uma categoria é a **composição**. Ouviremos 
 
 ![imagem de uma função gigante de matemática apenas porque a zuera não tem limites](https://cldup.com/DgAjKvXx7W-1200x1200.png)
 
-####Functor
+#### Functor
 
 > A functor is a function, given a value and a function, unwraps the values to get to its inner value(s), calls the given function with the inner value(s), wraps the returned values in a new structure, and returns the new structure.
 
@@ -329,7 +329,7 @@ Onde `.` indicam composição, ou seja, *functors* precisam preservar a composi�
 
 Veremos mais sobre composição adiante.
 
-#####Array Functor
+##### Array Functor
 
 Como disse que o `map` é um *functor* então vamos provar isso.
 
@@ -360,7 +360,7 @@ Isso lembra alguma coisa pra você? Bom logo logo verá um exemplo mais conhecid
 
 [ESCREVER MAIS SOBRE]
 
-###Loops
+### Loops
 
 Antes de entrarmos nas propriedades funcionais propriamente ditas, vamos ver o porquê usar loops não é tão interessante quando possuímos o paradigma funcional em nossa linguagem.
 
@@ -397,19 +397,56 @@ Nesse último caso o programa está explicitamente iterando **em cima** do *Arra
 [FALAR MAIS SOBRE OS EFEITOS COLATERAIS]
 
 
-###Recursion
+### Recursion
 
 [Mostrar recursão em vez de loops]
 
 ###For/list comprehensions
-###Immutability
-###Pure functions
-###No side effects
+
+Material interessante em http://stackoverflow.com/questions/4964456/make-javascript-do-list-comprehension
+
+[Pegar ideias daqui]
+```
+
+A list comprehension has a few parts to it.
+
+Selecting a set of something
+From a set of Something
+Filtered by Something
+In JavaScript, as of ES5 (so I think that's supported in IE9+, Chrome and FF) you can use the map and filter functions on an array.
+
+You can do this with map and filter:
+
+var list = [1,2,3,4,5].filter(function(x){ return x < 4; })
+               .map(function(x) { return 'foo ' + x; });
+
+console.log(list); //["foo 1", "foo 2", "foo 3"]
+That's about as good as it's going to get without setting up additional methods or using another framework.
+
+As for the specific question...
+
+With jQuery:
+
+$('input').map(function(i, x) { return x.name; });
+Without jQuery:
+
+var inputs = [].slice.call(document.getElementsByTagName('input'), 0),
+    names = inputs.map(function(x) { return x.name; });
+[].slice.call() is just to convert the NodeList to an Array.
+```
+
+### Immutability
+
+http://www.sitepoint.com/immutability-javascript/
+[Falar do conts em ES6]
+
+### Pure functions
+### No side effects
 
 
-###Por que JavaScript é funcional?
+### Por que JavaScript é funcional?
 
-##Funções
+## Funções
 
 No JavaScript uma função nada mais é que um objeto que possui atributos como:
 
@@ -521,10 +558,10 @@ repeat(1)
 
 [EXPLICAR MAIS]
 
-####Função anônima
-####IIFE
+#### Função anônima
+#### IIFE
 
-###First-class Functions
+### First-class Functions
 
 No JavaScript a função é first-class citizen, assim como objeto, entidade ou valor, porque ela suporta todas as operações comuns às outras entidades.
 
@@ -658,19 +695,17 @@ httpPost('/beer', renderPost);
 
 Dessa forma não precisamos nos preocupar mais com os argumentos, pois isso sempre será trabalho unica e exclusivamente da função `renderPost`.
 
-```
-
-###High-order function
+### High-order function
 
 - recebe uma ou mais funções como parâmetro
 - retorna uma função
 
-###Closures
-####Hoisting
+### Closures
+#### Hoisting
 
-###Currying
+### Currying
 
-###Monads
+### Monads
 
 > "As monads vieram para resolver um problema que não tínhamos antes." - Douglas Crockford
 
@@ -687,7 +722,7 @@ Na verdade *Monad* é um padrão de design usado para descrever computações co
 
 > Nota: A função bind function não é a mesma que a função Function.prototype.bind  Essa última é nativa do ES5 e é usada para criar uma série de funções ou funções parcialmente aplicadas com esse valor vinculado.
 
-####Leis da *Monad*
+#### Leis da *Monad*
 
 Uma *monad* deve obedecer as seguintes leis para ser válida:
 
@@ -731,7 +766,7 @@ monad.bind(alert);
 
 [MOSTRAR OUTROS EXEMPLOS DE MONADS]
 
-###Pattern matching
+### Pattern matching
 
-###Tail call
+### Tail call
 
