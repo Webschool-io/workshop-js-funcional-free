@@ -32,6 +32,7 @@
 * [Closures](#closures)
   * [Hoisting](#hoisting)
 * [Currying](#currying)
+* [Memoization](#memoization)
 * [Monads](#monads)
   * [Leis da *monad*](#Leis-da-monad)
 * [Pattern matching](#pattern-matching)
@@ -880,9 +881,12 @@ Dessa forma não precisamos nos preocupar mais com os argumentos, pois isso semp
 - retorna uma função
 
 ### Closures
+
 #### Hoisting
 
 ### Currying
+
+### Memoization
 
 ### Monads
 
