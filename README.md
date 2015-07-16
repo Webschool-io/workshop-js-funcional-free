@@ -64,11 +64,11 @@ O turno será o noturno, ainda farei uma pesquisa para ver se preferem as 21 ou 
 
 > Gratuitamente de graça
 
-### Doaç~ao
+### Doação
 
-Caso voc^e seja uma pessoa muito legal e deseja contribuir para esse e outros projetos gratuitos que faço, por exemplo o [JS4Girls](), e pela continuidade de mais m´odulos mensais como: ES6, Node.js, AngularJs, React e outros.
+Caso você seja uma pessoa muito legal e deseja contribuir para esse e outros projetos gratuitos que faço, por exemplo o [JS4Girls](), e pela continuidade de mais módulos mensais como: ES6, Node.js, AngularJs, React e outros.
 
-[Botar dados da conta ou o botao de doaç~ao do pagseguro]
+[Botar dados da conta ou o botao de doação do pagseguro]
 
 ### Local
 
@@ -125,7 +125,7 @@ Entretanto, as linguagens funcionais nos oferece oportunidades para a concorrên
 - A partir do momento em que uma função tem mais de um parâmetro, estes parâmetros devem em princípio ser avaliados simultaneamente (note que os parâmetros seriam as funções correspondentes às tarefas a serem executadas);
 - A partir deste ponto, a responsabilidade pela sincronização das tarefas passa do programador para o compilador.
 
-Se voc^e pensar que um dos pilares da programaç~ao funcional ´e compor v´arias funç~oes de uma s´o vez, nesse caso fazendo-as serem processadas em paralelo.
+Se você pensar que um dos pilares da programação funcional é compor várias funções de uma só vez, nesse caso fazendo-as serem processadas em paralelo.
 
 Todavia, as linguagens funcionais orientadas a multitarefa permitem ao programador trabalhar em um nível muito mais elevado do que as linguagens imperativas destinadas a este mesmo fim.
 
@@ -206,18 +206,18 @@ Essa notação pode parecer um pouco confusa no início, mas veremos que não é
 
 Basicamente `(λx.x)` tem como resultado a expressão `y`.
 
-[Achar uma forma mais f´acil de explicar]
+[Achar uma forma mais fácil de explicar]
 
 Onde `(E = x e F = y)`, guardem bem essa informação `E` é o resultado onde `x` é substituído pela expressão `F`.
 
 ```haskell
 (λx.E) F
 ```
-O x ser´a nosso para^ametro q entrar´a na funç~ao E com o valor de F.
+O x será nosso parâmetro q entrará na função E com o valor de F.
 
 Agora se `F(λx.x)(λx.y)` tem como resultado `(λx.y)`, então `(E = x, F = (λx.y))`. E é só isso, substituição textual.
 
-**[Achar uma forma mais f´acil de explicar]**
+**[Achar uma forma mais fácil de explicar]**
 
 A sintaxe das expressões-lambda é determinada por duas operações: abstração e aplicação (sendo que a aplicação envolve uma operação de substituição chamada conversão-β). Uma expressão-lambda pode ser uma variável, uma abstração de uma expressão, ou uma aplicação de duas expressões:
 
@@ -398,7 +398,7 @@ plus1 value enter: 5
 
 ```
 
-Percebeu o que aconteceu? N~ao? Vou separar melhor ent~ao:
+Percebeu o que aconteceu? Não? Vou separar melhor então:
 
 ```
 [ plus2 value enter: 1 (+ 2 = 3) & plus1 value enter: 3 (+ 1 = 4), // 4
@@ -407,7 +407,7 @@ Percebeu o que aconteceu? N~ao? Vou separar melhor ent~ao:
 ]
 [ 4, 5, 6 ]
 ```
-Agora sim n´e?
+Agora sim né?
 
 É o mesmo que compor usando 2 funções `map`:
 
