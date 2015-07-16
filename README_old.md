@@ -15,8 +15,8 @@
   * [Linguagens funcionais](#linguagens-funcionais)
   * [Lambda](#lambda)
   * [Teoria das Categorias](#teoria-das-ctegorias)
-    * [Functor](#Functor)
-      * [Array Functor](#array-Functor)
+    * [Functor](#functor)
+      * [Array Functor](#array-functor)
   * [Recursion](#recursion)
   * [For/list comprehensions](#forlist-comprehensions)
   * [Immutability](#immutability)
@@ -45,8 +45,8 @@ ____
 
 Possuimos 2 grandes paradigmas de programação: 
 
-- Funcional
-- Imperativo.
+- funcional
+- imperativo.
 
 A Funcional é a mais antiga, sua primeira linguagem foi criada em 1955 (IPL) e posteriomente a mais popular LISP foi criada em 1958. Fortran e COBOL foram criadas respectivamentes em 1956 e 1959, são imperativas.
 
@@ -64,15 +64,9 @@ O turno será o noturno, ainda farei uma pesquisa para ver se preferem as 21 ou 
 
 > Gratuitamente de graça
 
-### Doação
-
-Caso você seja uma pessoa muito legal e deseja contribuir para esse e outros projetos gratuitos que faço, por exemplo o [JS4Girls](), e pela continuidade de mais m´odulos mensais como: ES6, Node.js, AngularJs, React e outros.
-
-[Para doar basta clickar no botão do PagSeguro no site oficial desse curso.](http://webschool.io/curso-javascript-funcional) Ou mandar email diretamente para webschool.cursos[at]gmail[dot]com pedindo a conta para depósito ou transfêrencia.
-
 ### Local
 
-**ONLINE** via Hangout on Air.
+**ONLINE** via Hangout on Air
 
 ### Data e Hora
 
@@ -107,10 +101,10 @@ Vamos conhecer alguns fundamentos:
 
 Temos 4 grandes motivos para usar programação funcional, são eles:
 
-- Concorrência: não temos deadlocks ou race conditions simplesmente porque não precisamos de locks - o dado é imutável;
-- Testes: criar testes unitários sem se preocupar com o estado simplesmente porque não existe estado. Devemos preocupar apenas com os argumentos das funções que nós testamos;
-- Debugging: rastrear algum valor no stack trace é bem simples;
-- Base teórica: linguagens funcionais são baseados no cálculo lambda, que é um sistema formal. Esta fundamentação teórica faz a prova para correção dos programas seja muito simples (por exemplo, usando indução).
+- concorrência: não temos deadlocks ou race conditions simplesmente porque não precisamos de locks - o dado é imutável;
+- testes: criar testes unitários sem se preocupar com o estado simplesmente porque não existe estado. Devemos preocupar apenas com os argumentos das funções que nós testamos;
+- debugging: rastrear algum valor no stack trace é bem simples;
+- base teórica: linguagens funcionais são baseados no cálculo lambda, que é um sistema formal. Esta fundamentação teórica faz a prova para correção dos programas seja muito simples (por exemplo, usando indução).
 
 #### Concorrência
 
@@ -125,11 +119,7 @@ Entretanto, as linguagens funcionais nos oferece oportunidades para a concorrên
 - A partir do momento em que uma função tem mais de um parâmetro, estes parâmetros devem em princípio ser avaliados simultaneamente (note que os parâmetros seriam as funções correspondentes às tarefas a serem executadas);
 - A partir deste ponto, a responsabilidade pela sincronização das tarefas passa do programador para o compilador.
 
-Se você pensar que um dos pilares da programação funcional é compor várias funç~oes de uma s´o vez, nesse caso fazendo-as serem processadas em paralelo.
-
 Todavia, as linguagens funcionais orientadas a multitarefa permitem ao programador trabalhar em um nível muito mais elevado do que as linguagens imperativas destinadas a este mesmo fim.
-
-[Confirmar dados sobre WebWorker em JS p/ concurrencia]
 
 #### Testes
 #### Debugging
@@ -142,6 +132,30 @@ BI, Sistemas concorrentes
 #### Quem está usando?
 
 Spark, Netflix, Google, Facebook, [Amazon (Amazon Lambda)](http://www.infoworld.com/article/2847466/amazon-web-services/amazon-lambda-bridges-functional-programming-and-cloud.html), sistemas de avião como da família Airbus A340.
+
+##### Erlang
+
+Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos usando Erlang, como por exemplo:
+
+- Facebook, no backend de seu sistema de chat, lidando com 100 milhões de usuários ativos;
+- Delicious, que tem mais de 5 milhões de usuários e mais de 150 milhões de bookmarks;
+- Amazon SimpleDB, o serviço de dados do poderoso Amazon EC2;
+- GitHub, no seu sistema de backend, lidando com milhares de transações concorrentes;
+- Motorola;
+- CouchDB;
+- RabbitMQ.
+
+Dados retirados daqui: <http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto>
+
+##### Elixir
+
+Como a sintaxe de Erlang pode não ser convidativa para desenvolvedores "modernos", por isso José Valim desenvolveu o Elixir, linguágem com sintaxe moderna que roda dentro da madura VM do Erlang.
+
+Atualmente na versão 1.0, com sua framework web(Phoenix) dando os primeiros passos.
+
+Saiba mais em:
+Elixir: <http://elixir-lang.org/>
+Phoenix: <http://www.phoenixframework.org/>
 
 ### Linguagens funcionais
 
@@ -160,35 +174,10 @@ Linguagens mais conhecidas:
 
 LISP introduziu a maioria das características hoje encontradas nas modernas linguagens de programação funcional. Scheme foi uma tentativa posterior de simplificar e melhorar LISP. Haskell foi lançada no fim dos anos 1980 numa tentativa de juntar muitas ideias na pesquisa de programação funcional.
 
-
-##### Erlang
-
-Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos usando Erlang, como por exemplo:
-
-- Facebook, no backend de seu sistema de chat, lidando com 100 milhões de usuários ativos;
-- Delicious, que tem mais de 5 milhões de usuários e mais de 150 milhões de bookmarks;
-- Amazon SimpleDB, o serviço de dados do poderoso Amazon EC2;
-- GitHub, no seu sistema de backend, lidando com milhares de transações concorrentes;
-- Motorola;
-- CouchDB;
-- RabbitMQ.
-
-Dados retirados daqui: <http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto>
-
-##### Elixir
-
-Como a sintaxe de Erlang pode não ser convidativa para desenvolvedores "modernos", por isso José Valim desenvolveu o Elixir, linguagem com sintaxe moderna que roda dentro da madura VM do Erlang.
-
-Atualmente na versão 1.0, com sua framework web(Phoenix) dando os primeiros passos.
-
-Saiba mais em:
-Elixir: <http://elixir-lang.org/>
-Phoenix: <http://www.phoenixframework.org/>
-
 ### Lambda
 O cálculo lambda pode ser considerado a primeira linguagem de programação funcional, embora nunca tenha sido projetada para ser realmente executada em um computador. É um modelo de computação projetado por [Alonzo Church](https://pt.wikipedia.org/wiki/Alonzo_Church) nos anos 1930 que oferece um modo muito formal de descrever um cálculo de uma função.
 
-A ideia de Church era usar a noção de “processo” ou “transformação” (função) como essencial para fundamentar a matemática, ao invés da noção de [conjunto de Cantor](https://pt.wikipedia.org/wiki/Conjunto_de_Cantor). O cálculo lambda  não deu muito certo para isso na época, mas acabou sendo importante em outra questão do tempo: a busca pela definição formal do que vem a ser um procedimento efetivo. Em termos atuais, diríamos que essa busca tentava definir formalmente o que é “computação”.
+A ideia de Church era usar a noção de “processo” ou “transformação” (função) como essencial para fundamentar a matemática, ao invés da noção de conjunto de Cantor. O lambda cálculo não deu muito certo para isso na época, mas acabou sendo importante em outra questão do tempo: a busca pela definição formal do que vem a ser um procedimento efetivo. Em termos atuais, diríamos que essa busca tentava definir formalmente o que é “computação”.
 
 (A ideia de usar o conceito de transformação como central na matemática retornou na segunda metade do século XX através da Teoria das Categorias, mas isso é outra história.)
 
@@ -196,36 +185,25 @@ A ideia de Church era usar a noção de “processo” ou “transformação” 
 
 Essa notação pode parecer um pouco confusa no início, mas veremos que não é nenhum bicho de sete cabeças.
 
-![bicho de sete cabeças](https://cldup.com/gov3Q0J67O-1200x1200.jpeg)
+![](https://cldup.com/gov3Q0J67O-1200x1200.jpeg)
 
 *Queria ter colocado o Tiamat,  mas ele tem 5 cabeças apenas :(*
 
-```haskell
+```
 (λx.x) y
 ```
 
 Basicamente `(λx.x)` tem como resultado a expressão `y`.
 
-[Achar uma forma mais fácil de explicar]
-
-Onde `(E = x e F = y)`, guardem bem essa informação `E` é o resultado onde `x` é substituído pela expressão `F`.
-
-```haskell
-(λx.E) F
-```
-O x será nosso para^ametro q entrará na função E com o valor de F.
+Onde `(E = x, F = y)`, guardem bem essa informação `E` é o resultado onde `x` é substituído pela expressão[função?] `F`.
 
 Agora se `F(λx.x)(λx.y)` tem como resultado `(λx.y)`, então `(E = x, F = (λx.y))`. E é só isso, substituição textual.
-
-**[Achar uma forma mais fácil de explicar]**
 
 A sintaxe das expressões-lambda é determinada por duas operações: abstração e aplicação (sendo que a aplicação envolve uma operação de substituição chamada conversão-β). Uma expressão-lambda pode ser uma variável, uma abstração de uma expressão, ou uma aplicação de duas expressões:
 
 - Variáveis: x, y, z, um conjunto qualquer de nomes de variáveis.
 - Abstrações: dada uma expressão-lambda E, podemos formar uma abstração de E usando `λ + variável + ‘.’ + E`. Por exemplo: `λx.x`
-- Aplicações: dadas duas expressões-lambda `E` e `F`, a expressão da aplicação é formada pela justaposição de uma ao lado da outra: E F, por exemplo `(λx.x)(λx.y)` **[CONFIRMAR EXEMPLO]**
-
-**[MELHORAR COM EXEMPLOS SIMPLES]**
+- Aplicações: dadas duas expressões-lambda `E` e `F`, a expressão da aplicação é formada pela justaposição de uma ao lado da outra: E F
 
 A conversão-β é a regra de substituição que diz como a aplicação deve funcionar.
 
@@ -241,7 +219,7 @@ Analisemos essa expressão `(λ x. + x 1) 4` a conversão-β é:
 
 Zuerinha vou explicar é claro, vamos lá:
 
-```haskell
+```
 (λ x. + x 1) 4 → + 4 1
 // (λ"variável"."E") "F"
 // variável = x
@@ -249,7 +227,7 @@ Zuerinha vou explicar é claro, vamos lá:
 // F = 4
 ```
 
-Nesse caso a conversão-β resulta na expressão `+ 4 1` onde substituímos a variável `x` da expressão `E` pelo valor de `F`, agora ficou fácil né?
+Nesse caso a conversão-β resulta na expressão[?] `+ 4 1` onde substituímos a variável `x` da função[?] `E` pelo valor de `F`, agora ficou fácil né?
 
 ![meme meme-yeah-we-will-sse-about-that](https://cldup.com/9dhGMxmsQW-1200x1200.jpeg)
 
@@ -264,40 +242,40 @@ As aplicações da teoria das categorias estendem-se por áreas como álgebra, t
 
 Uma única operação exigida em uma categoria é a **composição**. Ouviremos falar muito disso ainda.
 
-- Uma classe de objetos `a`, `b`, `c`, ...;
-- Para cada par de objetos a,b, uma classe de morfismos ou setas de a para b, denotados por `f:a -> b` (e neste caso se diz que a é o objeto origem e b é o objeto destino da seta);
-- Para cada objeto a, um morfismo chamado identidade em a, `id_a:a -> a` que tem origem e destino em `a`;
-- Uma operação de composição que associa a cada par de morfismos.
+- uma classe de objetos `a`, `b`, `c`, ...;
+- para cada par de objetos a,b, uma classe de morfismos ou setas de a para b, denotados por `f:a -> b` (e neste caso se diz que a é o objeto origem e b é o objeto destino da seta);
+- para cada objeto a, um morfismo chamado identidade em a, `id_a:a -> a` que tem origem e destino em `a`;
+- uma operação de composição que associa a cada par de morfismos.
 
 ![imagem de uma função gigante de matemática apenas porque a zuera não tem limites](https://cldup.com/DgAjKvXx7W-1200x1200.png)
 
 #### Functor
 
-> A Functor is a function, given a value and a function, unwraps the values to get to its inner value(s), calls the given function with the inner value(s), wraps the returned values in a new structure, and returns the new structure.
+> A functor is a function, given a value and a function, unwraps the values to get to its inner value(s), calls the given function with the inner value(s), wraps the returned values in a new structure, and returns the new structure.
 
 Vamos entender parte por parte:
 
-- *Functor* é uma função que irá receber um valor e uma função;
-- Desencapsula[?] os valores para chegar a seu(s) valor(es) interno(s);
-- Chama a função repassada com o(s) valor(es) interno(s);
-- Encapsula os valores devolvidos em uma nova estrutura;
+- *functor* é uma função que irá receber um valor e uma função;
+- desembrulha? os valores para chegar a seu(s) valor(es) interno(s);
+- chama a função dada com o(s) valor(es) interno(s);
+- envolve os valores devolvidos em uma nova estrutura;
 - e retorna a nova estrutura.
 
 ![meme realy?](https://cldup.com/ERM06kh3ki-2000x2000.jpeg)
 
-Sim eu sei que é basicamente a tradução do texto acima, bom então vamos ao que interessa, *códigoooooooooooo*:
+Sim eu sei que é basicamente a tradução do texto acima, bom então vamos aqo que interessa, *códigoooooooooooo*:
 
 ```js
 function plus1(value) {
-  return value + 1
+    return value + 1
 };
 
 function plus2(value) {
-  return value + 2
+    return value + 2
 };
 ```
 
-Criamos duas funções simples, `plus1` adiciona 1 ao `value` e `plus2` adiciona 2, agora vamos escrever uma função para que possamos usar qualquer uma dessas funções como e quando necessário:
+Criamos duas funções simples, `plus1` adiciona 1 ao `value` e `plus2` adiciona 2, agora vamos escrever uma função ara que possamos usar qualquer uma dessas funções como e quando necessário:
 
 ```js
 function F(value, fn) {
@@ -319,100 +297,59 @@ E que bela **merda** aconteceu hein, passamos um *Array*, somamos com um inteiro
 
 ![meme pode isso Arnaldo?](https://cldup.com/5sahDi-dC0-1200x1200.jpeg)
 
-Nós queremos que F faça o trabalho "do jeito certo" e o "jeito certo" é manter a estrutura durante a operação. Mas o que significa **"manter a estrutura"**?
+Nós queremos que F faça o trabalho "do jeito certo" e o "jeito certo" é manter a estrutura durante a operação. Mas o que significa "manter a estrutura"?
 
-Significa que **nossa função precisa "desencapsular"** o *Array* passado **e pegar seus elementos**. Depois precisa **chamar a função passada para cada elemento**. Então **encapsula os valores retornados em um novo *Array* e retorná-lo**.
+Significa que nossa função precisa "desembrulhar?" o *Array* passado e pegar seus elementos. Depois precisa chamar a função passada para cada elemento. Então encapsula os valores retornados em um novo *Array* e retorná-lo.
 
 Isso não te lembra nenhuma funçãozinha não?
 
 ![meme pensando](https://cldup.com/bYyOR0OQpS-1200x1200.png)
 
-**SIM!** A função `map` é um *Functor*!
+SIM! A função `map` é um *functor*!
 
 ```js
 [1, 2, 3].map(plus1); // [2, 3, 4]
 ```
 
-No caso do JasvaScript, `filter` é um *Functor* porque retorna um *Array*, entretando o `forEach` não é pois retorna `undefined`, ou seja, ele não mantém a estrutura.
+No caso do Jasvascript, `filter` é um *functor* porque retorna um *Array*, entretando o `forEach` não é pois retorna `undefined`, ou seja, ele não mantém a estrutura.
 
-```js
+*Functors* são definidos como "[homomorfismos](https://pt.wikipedia.org/wiki/Homomorfismo) entre categorias", vamos entender melhor esse significado:
 
-[1, 2, 3].map(plus1);
-[2, 3, 4]
-[1, 2, 3].filter(plus1)
-[1, 2, 3]
-[1, 2, 3].forEach(plus1);
-undefined
-```
+- homo = mesmo, igual
+- morfismos = funções que mantém estrutura
+- categoria = tipo
 
-*Functors* são definidos como **"[homomorfismos](https://pt.wikipedia.org/wiki/Homomorfismo) entre categorias"**, vamos entender melhor esse significado:
-
-- Homo = mesmo, igual
-- Morfismos = funções que mantém estrutura
-- Categoria = tipo
-
-De acordo com a teoria, a função `F` é um *Functor* quando as duas funções comuns combináveis `f` e `g`, como no exemplo abaixo:
+De acordo com a teoria, a função `F` é um *functor* quando as duas funções comuns combináveis `f` e `g`, como no exemplo abaixo:
 
 ```
 F(x . y) = F(x) . F(y)
 ```
 
-Onde `.` indicam composição, ou seja, *Functors* precisam preservar a composição.
+Onde `.` indicam composição, ou seja, *functors* precisam preservar a composição.
 
 Veremos mais sobre composição adiante.
 
 ##### Array Functor
 
-Como disse que o `map` é um *Functor* então vamos provar isso.
+Como disse que o `map` é um *functor* então vamos provar isso.
 
 ```js
 function compose(f, g) {
-  return function(x) {return f(g(x))}
+    return function(x) {return f(g(x))}
 }
 ```
 
 Fazer composição de funções é criar uma chamada de um conjunto de funções, chamando a função seguinte, com resultados da função anterior. Note que a nossa função de composição acima funciona da direita para a esquerda. `g` é chamado pela primeira vez, em seguida, `f`.
 
 ```js
-function plus2(value) {
-  console.log('plus2 value enter:', value);
-  return value + 2;
-};
-
-function plus1(value) {
-  console.log('plus1 value enter:', value);
-  return value + 1;
-};
-
-[1, 2, 3].map(compose(plus1, plus2)); // [ 4, 5, 6 ]
-
-/**
-plus2 value enter: 1
-plus1 value enter: 3
-plus2 value enter: 2
-plus1 value enter: 4
-plus2 value enter: 3
-plus1 value enter: 5
-[ 4, 5, 6 ]
-*/
+[1, 2, 3].map(compose(plus1, plus2)) // [ 4, 5, 6 ]
 
 ```
-
-Percebeu o que aconteceu? Não? Vou separar melhor então:
-
-```
-[ plus2 value enter: 1 (+ 2 = 3) & plus1 value enter: 3 (+ 1 = 4), // 4
-  plus2 value enter: 2 (+ 2 = 4) & plus1 value enter: 4 (+ 1 = 5), // 5
-  plus2 value enter: 3 (+ 2 = 5) & plus1 value enter: 5 (+ 1 = 6)  // 6
-]
-[ 4, 5, 6 ]
-```
-Agora sim né?
 
 É o mesmo que compor usando 2 funções `map`:
 
 ```js
-[1, 2, 3].map(plus2).map(plus1); // [ 4, 5, 6 ]
+[1, 2, 3].map(plus2).map(plus1) // [ 4, 5, 6 ]
 ```
 
 [Quando mostrar a composição]
@@ -431,7 +368,7 @@ Vamos ver um clássico exemplo de um `for`:
 
 ```js
 var animals = ["horse", "pig", "cow"];
-for(var i = 0, l = animals.length; i < l; i++) {
+for(var i = 0, lenght = animals.length; i < length; i++) {
   console.log("Animal: ", animals[i]);
 };
 ```
@@ -455,53 +392,7 @@ animals.forEach(function(animal) {
 
 Perceba que agora em vez de iterarmos um número "fixo" incrementando ou decrementando um contador para que ao chegar no final ele saia do loop, mas isso pode esconder efeitos colaterais.
 
-Nesse último caso o programa está explicitamente iterando **em cima** do *Array* utilizado sem precisar gerenciar nenhum contador. E principalmente quando passamos variáveis como parametros.
-
-```js
-var Webschool = [
-  {name: 'Suissa', course: 'JS Funcional', price: 0},
-  {name: 'Suissa', course: 'Be MEAN', price: 600},
-  {name: 'Caio Cutrim', course: 'Node.js', price: 0}
-];
-
-function presentation(obj) {
-  return console.log( 'O professor ' + obj.name + ' dá o curso ' + obj.course + '.' );
-}
-
-function getPresentations(obj) {
-  for(var i = 0, l = obj.length; i < l; i++) {
-    presentation(obj[i]);
-  };
-};
-
-getPresentations(Webschool);
-// O professor Suissa dá o curso JS Funcional.
-// O professor Suissa dá o curso Be MEAN.
-// O professor Caio Cutrim dá o curso Node.js.
-```
-
-Bom mas até ai sem problemas né? Porém e se agora eu queira adicionar um parametro novo nessa função `presentation` para que ela me mostre o valor do curso também, nesse caso passarei um `Boolean`.
-
-```js
-function presentation(obj, showPrice) {
-  var msg = 'O professor ' + obj.name + ' dá o curso ' + obj.course + '.';
-  if(showPrice){
-    msg = 'O professor ' + obj.name + ' dá o curso ' + obj.course + ' que custa R$' + obj.price + '.';
-  }
-  return console.log(msg);
-};
-
-function getPresentations(obj, showPrice) {
-  for(var i = 0, l = obj.length; i < l; i++) {
-    presentation(obj[i], showPrice);
-  };
-};
-
-getPresentations(Webschool, true);
-```
-
-[ESCREVER EXEMPLO COM FOREACH]
-
+Nesse último caso o programa está explicitamente iterando **em cima** do *Array* utilizado sem precisar gerenciar nenhum contador.
 
 [FALAR MAIS SOBRE OS EFEITOS COLATERAIS]
 
