@@ -629,6 +629,34 @@ function(b) { //400
 
 Para entender melhor como isso acontece falarei mais adiante sobre *closures*.
 
+Uma situação bem interessante do porquê é interessante usarmos funções de primeira classe é para não ficarmos nos perocupando com os parâmetros passados, caso usemos uma função anônima.
+
+Vamos ver o exemlo abaixo:
+
+```js
+httpPost('/beer', function(json){
+  return renderPost(json);
+});
+```
+
+Se o `httpPost` precisa enviar um possível **erro**, nós teríamos que ir lá na função anônima e mudá-la:
+
+```js
+httpPost('/beer', function(json, err){
+  return renderPost(json, err);
+});
+```
+
+Agora se re-escrevermos como função de primeira classe ficará assim:
+
+```js
+httpPost('/beer', renderPost);
+```
+
+Dessa forma não precisamos nos preocupar mais com os argumentos, pois isso sempre será trabalho unica e exclusivamente da função `renderPost`.
+
+```
+
 ###High-order function
 
 - recebe uma ou mais funções como parâmetro
