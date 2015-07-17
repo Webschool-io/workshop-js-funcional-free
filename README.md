@@ -171,11 +171,12 @@ Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos us
 - Delicious, que tem mais de 5 milhões de usuários e mais de 150 milhões de bookmarks;
 - Amazon SimpleDB, o serviço de dados do poderoso Amazon EC2;
 - GitHub, no seu sistema de backend, lidando com milhares de transações concorrentes;
+- Whatsapp, utiliza a linguagem no backend de seus aplicativos;
 - Motorola;
 - CouchDB;
 - RabbitMQ.
-
-Dados retirados daqui: <http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto>
+Dados retirados daqui: <http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto>, <http://blog.whatsapp.com/196/1-million-is-so-2011?
+>
 
 ##### Elixir
 
