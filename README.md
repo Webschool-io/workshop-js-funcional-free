@@ -44,7 +44,7 @@ ____
 [COMEÇO AULA 1]
 # JS Funcional
 
-Possuimos 2 grandes paradigmas de programação: 
+Possuimos 2 grandes paradigmas de programação:
 
 - Funcional
 - Imperativo.
@@ -129,7 +129,7 @@ Se você pensar que um dos pilares da programação funcional é compor várias 
 
 Todavia, as linguagens funcionais orientadas a multitarefa permitem ao programador trabalhar em um nível muito mais elevado do que as linguagens imperativas destinadas a este mesmo fim.
 
-[Confirmar dados sobre WebWorker em JS p/ concurrencia]
+[Confirmar dados sobre WebWorker em JS p/ concorrência]
 
 #### Testes
 #### Debugging
@@ -151,13 +151,13 @@ Hoje em dia com o aumento na necessidade de sistemas concorrentes as linguagens 
 
 Linguagens mais conhecidas:
 
-- Erlang
-- F#
-- Haskell
-- Lisp
-- OCaml
-- R
-- Scala
+- Erlang;
+- F#;
+- Haskell;
+- Lisp;
+- OCaml;
+- R;
+- Scala;
 - Scheme.
 
 LISP introduziu a maioria das características hoje encontradas nas modernas linguagens de programação funcional. Scheme foi uma tentativa posterior de simplificar e melhorar LISP. Haskell foi lançada no fim dos anos 1980 numa tentativa de juntar muitas ideias na pesquisa de programação funcional.
@@ -476,7 +476,7 @@ multiply(2)(333); //666
 
 Você deve ter percebido que podemos utilizar 2 formas de passagem de parâmetros, correto?
 
-Vamos entender melhor como isso funciona, vamos analisar o exemplo coma soma por sem mais simples, porém desta vez vendo os valores dos parâmetros.
+Vamos entender melhor como isso funciona, vamos analisar o exemplo com a soma por ser mais simples, porém desta vez vendo os valores dos parâmetros.
 
 ```js
 // retornada de uma função
@@ -511,7 +511,7 @@ function adder(a) {
 }
 ```
 
-Depois quando chamamos a função `_add` passando `400` como parâmetro 
+Depois quando chamamos a função `_add` passando `400` como parâmetro
 ```js
 _add(400)
 // b 420
@@ -936,8 +936,8 @@ Vamos entender como esse código funciona.
 
 1. a função `MONAD` retorna a função `unit` passando `value` como parâmetro
 2. cria uma `monad` que não herda nada
-3. adiciona o método `bind` na *monad* que recebe uma função `func` como parâmetro 
-4. e retorna a chamada dessa função `func` 
+3. adiciona o método `bind` na *monad* que recebe uma função `func` como parâmetro
+4. e retorna a chamada dessa função `func`
 5. passando `value` para ela que foi passada na função construtora `unit`
 6. retorna a *monad*
 
