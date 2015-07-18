@@ -159,6 +159,20 @@ Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos us
 
 Dados retirados daqui: <http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto>
 
+##### Haskell
+
+Muitas empresas (grandes) também têm utilizado Haskell para uma boa variedade de projetos, incluindo:
+
+- AT&T, na divisão de Segurança de Rede para automatizar o processamento de queixas de abuso de internet;
+- Facebook, que usa Haskell para desenvolvimento de algumas ferramentas internas, como, por exemplo, o [lex-pass](https://github.com/facebookarchive/lex-pass/tree/master), uma ferramenta que era usada para manipulação de bases de código PHP;
+- Google, que é usado em alguns projetos internos, relacionados principalmente a infra-estrutura de TI - como o projeto [Ganeti](https://code.google.com/p/ganeti/), que é uma ferramenta para gerenciamento de clusters de servidores virtuais construídos em cima de Xen e KVM;
+- Intel, em pesquisas envolvendo paralelismo multicore em escala - artigo disponível [aqui](http://www.leafpetersen.com/leaf/publications/hs2013/hrc-paper.pdf);
+- Microsoft, em seu sistema de serialização produção, [Bond](https://github.com/Microsoft/bond) - que é amplamente utilizado na Microsoft em serviços de alta escala;
+- The New York Times, onde foi usado no processamento de imagens de grande eventos, como a New York Fashion Week de 2013 - e foi escolhido, dentre outros motivos, pela facilidade de paralelização;
+- NVIDIA, onde há uma grande quantidade de ferramentas internas que são escritas em Haskell
+
+Dados retirados daqui: <https://wiki.haskell.org/Haskell_in_industry>
+
 ### Linguagens funcionais
 
 Hoje em dia com o aumento na necessidade de sistemas concorrentes as linguagens funcionais estão voltando para o mercado comercial. Vemos muito grandes empresas usarem: Erlang, Haskell, Scala, etc.
