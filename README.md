@@ -132,6 +132,9 @@ Todavia, as linguagens funcionais orientadas a multitarefa permitem ao programad
 [Confirmar dados sobre WebWorker em JS p/ concurrencia]
 
 #### Testes
+
+Com funções puras os testes ficam muito mais fáceis, não precisamos *mockar* um meio de pagamento ou testes de estado em cada teste. Nós simplesmente passamos uma entrada e validamos uma saída.
+
 #### Debugging
 #### Base teórica
 
@@ -240,6 +243,37 @@ x E Z
 ps: se fosse apenas os inteiros positivos falaríamos que pertence aos naturais.
 
 Logo dessa forma fica bem mais "matemático" de se ler. No exemplo em que usamos o `a`, ele significa **qualquer** tipo.
+
+Vamos ver como fica a notação de composição.
+
+
+```
+x: a
+f: a -> a
+g: a -> a
+```
+
+Para começar vamos chamar essas duas funções juntas:
+
+```js
+f(g(a))
+```
+
+Nesse caso estamos dizendo que quero executar a função `g` com o argumento `a` e sua resposta será passada para a chamada da função `f`.
+
+Agora usando a notação de composição ficará:
+
+```
+(f . g) = h
+```
+
+Agora `h` é uma nova função, que tem qual tipo? O tipo que definimos em `g` que é `a`.
+
+```
+(f . g) = h : a -> a
+```
+
+Logo a função `h` precisa receber um valor do tipo `a` e retornar um valor do tipo `a`.
 
 Agora vamos ver a notação do cálculo lambda.
 
@@ -561,6 +595,64 @@ Dessa forma não precisamos nos preocupar mais com os argumentos, pois isso semp
 
 ### Closures
 
+É importantíssimo que você entenda como funciona o escopo no JavaScript para que não fique confuso ao ver closures e currying.
+
+Como na maioria das linguagens do mercado, uma variável declarada em um escopo maior é visível em um escopo menor, enquanto o contrário não é verdadeiro. Basicamente isso:
+
+```js
+var name = 'Suissa';
+function foo() {
+  console.log(name);
+}
+
+foo();
+// Saída:   Suissa
+```
+
+Significa também que uma variável local só é vista dentro do escopo em que foi criada, mesmo que tenha o mesmo nome de uma variável global:
+
+```js
+var x = 1;
+
+function bar() {
+  var x = 420;
+  var y = 666
+
+  console.log(x, y);
+}
+
+bar();
+// 420 666
+
+console.log(x);
+// 1
+console.log(y);
+// ReferenceError: y is not defined
+```
+
+Quando uma função altera o valor de uma variável global, isso afeta toda a aplicação. Por isso o uso de variáveis globais não é considerado uma boa prática. Porém, uma variável global passada por parâmetro para uma função não tem o seu valor alterado:
+
+```js
+var x = 1;
+var y = 11;
+
+function meh(x) {
+  console.log("Dentro: ", x, y);
+  x++;
+
+  y++;
+console.log("Dentro: ", x, y);
+
+}
+
+meh(x);
+// Dentro:  1 11
+// Dentro:  2 12
+
+console.log("Fora: ", x, y);
+// Fora:  1 12
+```
+
 #### Hoisting
 
 ### Currying
@@ -857,6 +949,10 @@ https://medium.com/javascript-scene/the-dao-of-immutability-9f91a70c88cd
 
 ### Pure functions
 
+Funções puras são funções que se receberem um argumento retornarão o mesmo valor sem modificações, dado uma entrada ela sempre retornará o mesmo valor.
+
+Por exemplo uma função que retorna um timestampm sempre retornará um valor novo/diferente, logo ela **não é uma função pura**.
+
 http://nicoespeon.com/en/2015/01/pure-functions-javascript/
 http://stackoverflow.com/questions/14353978/how-to-parse-pure-functions
 
@@ -891,6 +987,8 @@ http://davidwalsh.name/preventing-sideeffects-javascript
 
 
 ### Memoization
+
+### Monoid
 
 ### Monads
 
