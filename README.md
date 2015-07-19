@@ -140,7 +140,7 @@ Com funções puras os testes ficam muito mais fáceis, não precisamos *mockar*
 
 #### Onde usar?
 
-BI, Sistemas concorrentes
+BI, Sistemas concorrentes.
 
 ![Diagrama de Map e REduce do Hadoop](https://cldup.com/GxuJ2yHNnS-1200x1200.png)
 
@@ -154,13 +154,13 @@ Hoje em dia com o aumento na necessidade de sistemas concorrentes as linguagens 
 
 Linguagens mais conhecidas:
 
-- Erlang
-- F#
-- Haskell
-- Lisp
-- OCaml
-- R
-- Scala
+- Erlang;
+- F#;
+- Haskell;
+- Lisp;
+- OCaml;
+- R;
+- Scala;
 - Scheme.
 
 LISP introduziu a maioria das características hoje encontradas nas modernas linguagens de programação funcional. Scheme foi uma tentativa posterior de simplificar e melhorar LISP. Haskell foi lançada no fim dos anos 1980 numa tentativa de juntar muitas ideias na pesquisa de programação funcional.
@@ -364,7 +364,6 @@ Sabendo dessa premissa como faríamos um simples atribuição de valor como:
 
 ```js
 var idade = 30;
-
 ```
 Simples, assim:
 
@@ -372,17 +371,15 @@ Simples, assim:
 function setIdade(idade) { return idade; }
 
 ```
+
 Nesse caso isso é uma função identidade.
 
 Logo eu posso testar se é maior de idade assim:
 
 ```js
 function maioridade(idade) {
-  if(idade >= 18)
-    return true;
-  else
-    return false; }
-
+  return idade >= 18;
+}
 ```
 
 E chamamos ela da seguinte forma:
@@ -590,8 +587,19 @@ Dessa forma não precisamos nos preocupar mais com os argumentos, pois isso semp
 
 ### High-order function
 
+Uma função é chamada de *high-order* quando ela faz duas coisas:
+
 - recebe uma ou mais funções como parâmetro
 - retorna uma função
+
+Basicamente é uma função que recebe outra função como parâmetro ou devolve uma função como resultado. Quando você usa callbacks no JavaScript e no jQuery, você está fazendo uso de high order functions.
+
+```js
+$("#alert-this-shit").click(function() {
+  alert("Hello World");
+});
+
+```
 
 ### Closures
 
@@ -940,51 +948,110 @@ var inputs = [].slice.call(document.getElementsByTagName('input'), 0),
 
 ### Immutability
 
-http://www.sitepoint.com/immutability-javascript/
-https://medium.com/javascript-scene/the-dao-of-immutability-9f91a70c88cd
 
-[Falar do immutable.js http://www.infoq.com/news/2014/11/immutable-javascript-functional]
 
-[Falar do conts em ES6]
 
 ### Pure functions
 
-Funções puras são funções que se receberem um argumento retornarão o mesmo valor sem modificações, dado uma entrada ela sempre retornará o mesmo valor.
+Funções puras são funções que se receberem um argumento retornarão o mesmo valor sem modificações, dado uma entrada ela sempre retornará o mesmo valor. Ela não pode modificar nenhum argumento passado nem gravar nenhum estado.
 
-Por exemplo uma função que retorna um timestampm sempre retornará um valor novo/diferente, logo ela **não é uma função pura**.
+Outra coisa muito boa de se trabalhar com *pure functions* é a transparência referecial. Um código será transparente referencialmente quando ele pode ser substituído pelo valor avaliado, sem alterar o comportamento do programa. 
 
-http://nicoespeon.com/en/2015/01/pure-functions-javascript/
-http://stackoverflow.com/questions/14353978/how-to-parse-pure-functions
+Vamos ver um exemplo ([retirado daqui](https://github.com/Webschool-io/mostly-adequate-guide/blob/master/ch3.md)):
 
-Para leitura posterior abaixo, do link: http://programmers.stackexchange.com/questions/176761/compute-if-a-function-is-pure
+```js
+var decrementHP = function(player) {
+  return player.set("hp", player.hp-1);
+};
+
+var isSameTeam = function(player1, player2) {
+  return player1.team === player2.team;
+};
+
+var punch = function(player, target) {
+  if(isSameTeam(player, target)) {
+    return target;
+  } else {
+    return decrementHP(target);
+  }
+};
+
+var jobe = Immutable.Map({name:"Jobe", hp:20, team: "red"});
+var michael = Immutable.Map({name:"Michael", hp:20, team: "green"});
+
+punch(jobe, michael);
+  //=> Immutable.Map({name:"Michael", hp:19, team: "green"})
 ```
-In JavaScript, you can tell if a function is pure by the following criteria:
 
-It only reads parameters and locals;
+`decrementHP`, `isSameTeam` e `punch` são todos puros e, portanto, referencialmente transparente. Podemos usar uma técnica chamada de raciocínio equacional em que um substitutos "é igual para igual" raciocinar sobre o código. É um pouco como avaliar manualmente o código sem ter em conta as peculiaridades de avaliação programática. Usando transparência referencial, vamos jogar com este código um pouco.
 
-It only writes locals;
+Primeiro vamos trocar a função isSameTeam:
 
-On non-locals, it calls only pure functions;
+```js
+var punch = function(player, target) {
+  if(player.team === target.team) {
+    return target;
+  } else {
+    return decrementHP(target);
+  }
+};
+```
 
-All functions it calls implicitly are pure, e.g., toString; and
+Desde os nossos dados sãp imutáveis, podemos simplesmente substituir as equipes com o seu valor real:
 
-It only writes properties of locals if they do not alias non-locals.
+```js
+var punch = function(player, target) {
+  if("red" === "green") {
+    return target;
+  } else {
+    return decrementHP(target);
+  }
+};
+```
 
-Aliasing is not possible to determine in JavaScript in the general case, because you can always look up properties of an object dynamically (object["property"]). Provided you never do that, and you have the source of the whole program, then I think the problem is tractable. You would also need information about which native functions have side-effects, such as console.log or most anything involving the DOM.
+Nós vemos que ela é falsa, neste caso, para que possamos remover o todo o código que não será executado:
 
-The term “pure” could also use some clarification. Even in a strongly, statically typed, purely functional programming language, where all functions are referentially transparent, a function can still fail to terminate. So when we talk about id :: a -> a, what we’re really saying is not:
+```js
+var punch = function(player, target) {
+  return decrementHP(target);
+};
+```
 
-Given some value of type a, the function id produces a value of type a.
-But rather:
+E se nós sequenciarmos `decrementHP`, vemos que, neste caso, torna-se uma chamada de `punch` para diminuir o `hp` por um.
 
-Given some value of type a, the function id does not produce a value which is not of type a.
-Because a valid implementation of id is error "Not implemented!". As Peteris points out, this nontotality could be seen as a kind of impurity. Koka is a functional programming language—with syntax modelled on JavaScript—which can infer possible effects such as divergence (nontermination), referential transparency, throwing of exceptions, and I/O actions.
+```js
+var punch = function(player, target) {
+  return target.set("hp", target.hp-1);
+};
 ```
 
 ### No side effects
 
 http://davidwalsh.name/preventing-sideeffects-javascript
 
+O que é um efeito colateral (*side effect*)? Um pedaço de código segundo o qual uma variável é criada e está disponível ao longo de uma extensão quando ele não precisa de ser. Deixe-me mostrar-lhe alguns exemplos e como evitar esses efeitos colaterais indesejados:
+
+>Array.prototype.forEach() instead of for(var x = ...)
+
+Loop através de um *array* em JavaScript é tradicionalmente feito através de um *loop* `for`:
+
+```js
+var myArray = [1, 2, 3];
+
+for(var x=0, length = myArray.length; x < length; x++) {
+  // ...
+}
+
+// "x" and "length" são efeitos colaterais
+```
+
+O efeito colateral deste padrão é, no mínimo, o índice incremental `x`, se não o `length`, elas estão disponíveis em todo o escopo. Métodos do *prototype* do *Array* como map, foreach, e outros nos evitam esses efeitos colaterais:
+
+```js
+[1, 2, 3].forEach(function(item, index, array) {
+  // No side effects! :)
+});
+```
 
 ### Memoization
 
