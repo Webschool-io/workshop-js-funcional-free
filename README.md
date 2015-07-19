@@ -350,6 +350,7 @@ No JavaScript uma função nada mais é que um objeto que possui atributos como:
 E funções importantes como:
 
 - apply
+- bind
 - call
 
 Para criarmos uma função no JavaScript é muito simples, como já vimos anteriormente, precisamos apenas utilizar a palavra `function`.
