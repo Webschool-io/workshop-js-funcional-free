@@ -34,7 +34,7 @@
   + [Functor](#Functor)
     + [Array Functor](#array-Functor)
 * [Monads](#monads)
-  * [Leis da *monad*](#Leis-da-monad)
+  * [Leis da *Monad*](#Leis-da-monad)
 * [Pattern matching](#pattern-matching)
 * [Tail call](#tail-call)
 
