@@ -93,7 +93,7 @@ Uma função pode ter ou não ter parâmetros e um simples valor de retorno. Os 
 
 Assim como na orientação a objetos a menor parte de um sistema é um objeto, você pode atribuir objetos a variáveis, pode passá-los por parâmetro e ter métodos retornando objetos, na programação funcional, a menor parte do seu sistema é uma função.
 
-Por exemplo, a função f(x) = x^2 + 5 é definida utilizando funções de exponenciação e adição. Do mesmo modo, a linguagem deve oferecer funções básicas que não requerem definições adicionais.
+Por exemplo, a função f(x) = x^2 + 5 é definida utilizando funções de potência e adição. Do mesmo modo, a linguagem deve oferecer funções básicas que não requerem definições adicionais.
 
 Vamos conhecer alguns fundamentos:
 
