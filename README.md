@@ -1030,9 +1030,64 @@ var punch = function(player, target) {
 
 ### No side effects
 
-http://davidwalsh.name/preventing-sideeffects-javascript
+>A pure function is a function that, given the same input, will always return the same output and does not have any observable side effect.
 
-O que é um efeito colateral (*side effect*)? Um pedaço de código segundo o qual uma variável é criada e está disponível ao longo de uma extensão quando ele não precisa de ser. Deixe-me mostrar-lhe alguns exemplos e como evitar esses efeitos colaterais indesejados:
+Vamos ilustrar essa afirmação utilizando como exemplo nossos conhecidos: `slice` e `splice`:
+
+```js
+var xs = [1,2,3,4,5];
+
+// pure
+xs.slice(0,3);
+//=> [1,2,3]
+
+xs.slice(0,3);
+//=> [1,2,3]
+
+xs.slice(0,3);
+//=> [1,2,3]
+
+
+// impure
+xs.splice(0,3);
+//=> [1,2,3]
+
+xs.splice(0,3);
+//=> [4,5]
+
+xs.splice(0,3);
+//=> []
+```
+
+Vamos ver outro exemplo:
+
+```js
+// impure
+var minimum = 21;
+
+var checkAge = function(age) {
+  return age >= minimum;
+};
+
+// pure
+var checkAge = function(age) {
+  var minimum = 21;
+  return age >= minimum;
+};
+
+```
+
+[EXPLICAR]
+
+```js
+var immutableState = Object.freeze({
+  minimum: 21
+});
+```
+
+[EXPLICAR]
+
+Mas o que é um efeito colateral (*side effect*)? Um pedaço de código segundo o qual uma variável é criada e está disponível ao longo de uma extensão quando ele não precisa de ser. Deixe-me mostrar-lhe alguns exemplos e como evitar esses efeitos colaterais indesejados:
 
 >Array.prototype.forEach() instead of for(var x = ...)
 
@@ -1055,6 +1110,25 @@ O efeito colateral deste padrão é, no mínimo, o índice incremental `x`, se n
   // No side effects! :)
 });
 ```
+
+[LER mais aqui  http://davidwalsh.name/preventing-sideeffects-javascript]
+
+
+>A *side effect* is a change of system state or *observable interaction* with the outside world that occurs during the calculation of a result.
+
+Efeitos colaterais podem incluir:
+
++ changing the file system
++ inserting a record into a database
++ making an http call
++ mutations
++ printing to the screen / logging
++ obtaining user input
++ querying the DOM
++ accessing system state
+
+Efeitos colaterais desqualificam uma função de ser pura e isso faz sentido: funções puras, por definição, precisa sempre retornar a mesma saída dada a mesma entrada, o que não é posível garantir quando lidamos com *coisas* fora da nossa função. Vamos analisar porque devemos ter sempre a mesma saída com a mesma entrada, vamos ver um pouco de Matemática <3 básica.
+
 
 ### Memoization
 
