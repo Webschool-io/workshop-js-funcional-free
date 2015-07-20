@@ -44,7 +44,7 @@ ____
 **[COMEÇO AULA 1]**
 # JS Funcional
 
-Possuimos 2 grandes paradigmas de programação: 
+Possuimos 2 grandes paradigmas de programação:
 
 - Funcional
 - Imperativo.
@@ -93,7 +93,7 @@ Uma função pode ter ou não ter parâmetros e um simples valor de retorno. Os 
 
 Assim como na orientação a objetos a menor parte de um sistema é um objeto, você pode atribuir objetos a variáveis, pode passá-los por parâmetro e ter métodos retornando objetos, na programação funcional, a menor parte do seu sistema é uma função.
 
-Por exemplo, a função f(x) = x^2 + 5 é definida utilizando funções de exponenciação e adição. Do mesmo modo, a linguagem deve oferecer funções básicas que não requerem definições adicionais.
+Por exemplo, a função f(x) = x^2 + 5 é definida utilizando funções de potência e adição. Do mesmo modo, a linguagem deve oferecer funções básicas que não requerem definições adicionais.
 
 Vamos conhecer alguns fundamentos:
 
@@ -129,7 +129,7 @@ Se você pensar que um dos pilares da programação funcional é compor várias 
 
 Todavia, as linguagens funcionais orientadas a multitarefa permitem ao programador trabalhar em um nível muito mais elevado do que as linguagens imperativas destinadas a este mesmo fim.
 
-[Confirmar dados sobre WebWorker em JS p/ concurrencia]
+[Confirmar dados sobre WebWorker em JS p/ concorrência]
 
 #### Testes
 
@@ -174,11 +174,12 @@ Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos us
 - Delicious, que tem mais de 5 milhões de usuários e mais de 150 milhões de bookmarks;
 - Amazon SimpleDB, o serviço de dados do poderoso Amazon EC2;
 - GitHub, no seu sistema de backend, lidando com milhares de transações concorrentes;
+- Whatsapp, utiliza a linguagem no backend de seus aplicativos;
 - Motorola;
 - CouchDB;
 - RabbitMQ.
-
-Dados retirados daqui: <http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto>
+Dados retirados daqui: <http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto>, <http://blog.whatsapp.com/196/1-million-is-so-2011?
+>
 
 ##### Elixir
 
@@ -510,7 +511,7 @@ multiply(2)(333); //666
 
 Você deve ter percebido que podemos utilizar 2 formas de passagem de parâmetros, correto?
 
-Vamos entender melhor como isso funciona, vamos analisar o exemplo coma soma por sem mais simples, porém desta vez vendo os valores dos parâmetros.
+Vamos entender melhor como isso funciona, vamos analisar o exemplo com a soma por ser mais simples, porém desta vez vendo os valores dos parâmetros.
 
 ```js
 // retornada de uma função
@@ -545,7 +546,7 @@ function adder(a) {
 }
 ```
 
-Depois quando chamamos a função `_add` passando `400` como parâmetro 
+Depois quando chamamos a função `_add` passando `400` como parâmetro
 ```js
 _add(400)
 // b 420
@@ -1178,8 +1179,8 @@ Vamos entender como esse código funciona.
 
 1. a função `MONAD` retorna a função `unit` passando `value` como parâmetro
 2. cria uma `monad` que não herda nada
-3. adiciona o método `bind` na *monad* que recebe uma função `func` como parâmetro 
-4. e retorna a chamada dessa função `func` 
+3. adiciona o método `bind` na *monad* que recebe uma função `func` como parâmetro
+4. e retorna a chamada dessa função `func`
 5. passando `value` para ela que foi passada na função construtora `unit`
 6. retorna a *monad*
 
