@@ -44,7 +44,7 @@ ____
 **[COMEÇO AULA 1]**
 # JS Funcional
 
-Possuimos 2 grandes paradigmas de programação: 
+Possuimos 2 grandes paradigmas de programação:
 
 - Funcional
 - Imperativo.
@@ -148,6 +148,34 @@ BI, Sistemas concorrentes.
 
 Spark, Netflix, Google, Facebook, [Amazon (Amazon Lambda)](http://www.infoworld.com/article/2847466/amazon-web-services/amazon-lambda-bridges-functional-programming-and-cloud.html), sistemas de avião como da família Airbus A340.
 
+##### Erlang
+
+Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos usando Erlang, como por exemplo:
+
+- Facebook, no backend de seu sistema de chat, lidando com 100 milhões de usuários ativos;
+- Delicious, que tem mais de 5 milhões de usuários e mais de 150 milhões de bookmarks;
+- Amazon SimpleDB, o serviço de dados do poderoso Amazon EC2;
+- GitHub, no seu sistema de backend, lidando com milhares de transações concorrentes;
+- Motorola;
+- CouchDB;
+- RabbitMQ.
+
+Dados retirados daqui: <http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto>
+
+##### Haskell
+
+Muitas empresas (grandes) também têm utilizado Haskell para uma boa variedade de projetos, incluindo:
+
+- AT&T, na divisão de Segurança de Rede para automatizar o processamento de queixas de abuso de internet;
+- Facebook, que usa Haskell para desenvolvimento de algumas ferramentas internas, como, por exemplo, o [lex-pass](https://github.com/facebookarchive/lex-pass/tree/master), uma ferramenta que era usada para manipulação de bases de código PHP;
+- Google, que é usado em alguns projetos internos, relacionados principalmente a infra-estrutura de TI - como o projeto [Ganeti](https://code.google.com/p/ganeti/), que é uma ferramenta para gerenciamento de clusters de servidores virtuais construídos em cima de Xen e KVM;
+- Intel, em pesquisas envolvendo paralelismo multicore em escala - artigo disponível [aqui](http://www.leafpetersen.com/leaf/publications/hs2013/hrc-paper.pdf);
+- Microsoft, em seu sistema de serialização produção, [Bond](https://github.com/Microsoft/bond) - que é amplamente utilizado na Microsoft em serviços de alta escala;
+- The New York Times, onde foi usado no processamento de imagens de grande eventos, como a New York Fashion Week de 2013 - e foi escolhido, dentre outros motivos, pela facilidade de paralelização;
+- NVIDIA, onde há uma grande quantidade de ferramentas internas que são escritas em Haskell
+
+Dados retirados daqui: <https://wiki.haskell.org/Haskell_in_industry>
+
 ### Linguagens funcionais
 
 Hoje em dia com o aumento na necessidade de sistemas concorrentes as linguagens funcionais estão voltando para o mercado comercial. Vemos muito grandes empresas usarem: Erlang, Haskell, Scala, etc.
@@ -164,21 +192,6 @@ Linguagens mais conhecidas:
 - Scheme.
 
 LISP introduziu a maioria das características hoje encontradas nas modernas linguagens de programação funcional. Scheme foi uma tentativa posterior de simplificar e melhorar LISP. Haskell foi lançada no fim dos anos 1980 numa tentativa de juntar muitas ideias na pesquisa de programação funcional.
-
-
-##### Erlang
-
-Além da Ericsson, é lógico, há algumas outras grandes empresas e projetos usando Erlang, como por exemplo:
-
-- Facebook, no backend de seu sistema de chat, lidando com 100 milhões de usuários ativos;
-- Delicious, que tem mais de 5 milhões de usuários e mais de 150 milhões de bookmarks;
-- Amazon SimpleDB, o serviço de dados do poderoso Amazon EC2;
-- GitHub, no seu sistema de backend, lidando com milhares de transações concorrentes;
-- Motorola;
-- CouchDB;
-- RabbitMQ.
-
-Dados retirados daqui: <http://www.infoq.com/br/news/2010/02/erlang-proximo-grande-projeto>
 
 ##### Elixir
 
@@ -545,7 +558,7 @@ function adder(a) {
 }
 ```
 
-Depois quando chamamos a função `_add` passando `400` como parâmetro 
+Depois quando chamamos a função `_add` passando `400` como parâmetro
 ```js
 _add(400)
 // b 420
@@ -1104,8 +1117,8 @@ Vamos entender como esse código funciona.
 
 1. a função `MONAD` retorna a função `unit` passando `value` como parâmetro
 2. cria uma `monad` que não herda nada
-3. adiciona o método `bind` na *monad* que recebe uma função `func` como parâmetro 
-4. e retorna a chamada dessa função `func` 
+3. adiciona o método `bind` na *monad* que recebe uma função `func` como parâmetro
+4. e retorna a chamada dessa função `func`
 5. passando `value` para ela que foi passada na função construtora `unit`
 6. retorna a *monad*
 
