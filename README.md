@@ -41,7 +41,7 @@
 
 ____
 
-[COMEÇO AULA 1]
+**[COMEÇO AULA 1]**
 # JS Funcional
 
 Possuimos 2 grandes paradigmas de programação: 
@@ -447,9 +447,11 @@ repeat(1)
 ```
 
 
-[EXPLICAR MAIS]
+**[FIM AULA 1]**
 
+**[COMEÇO AULA 2]**
 #### Função anônima
+
 #### IIFE
 
 ### First-class Functions
