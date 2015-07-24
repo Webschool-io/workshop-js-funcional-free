@@ -1204,3 +1204,9 @@ monad.bind(alert);
 ### Array Comprehension
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Array_comprehensions
 http://ariya.ofilabs.com/2013/01/es6-and-array-comprehension.html
+
+
+## Alunos
+
+Quem utilizar esse material para estudo, peço que mande um pull request adicionado o seu nome na lista abaixo:
+
