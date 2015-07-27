@@ -208,7 +208,7 @@ Essa notação pode parecer um pouco confusa no início, mas veremos que não é
 
 Normalmente em uma linguagem tipada e imperativa nós faríamos isso:
 
-```c#
+```c
 int x;
 
 int f(int x) {
@@ -247,7 +247,6 @@ Logo dessa forma fica bem mais "matemático" de se ler. No exemplo em que usamos
 
 Vamos ver como fica a notação de composição.
 
-
 ```
 x: a
 f: a -> a
@@ -276,15 +275,65 @@ Agora `h` é uma nova função, que tem qual tipo? O tipo que definimos em `g` q
 
 Logo a função `h` precisa receber um valor do tipo `a` e retornar um valor do tipo `a`.
 
-Agora vamos ver a notação do cálculo lambda.
+#### Expressão Lambda
+
+Agora vamos ver como é uma expressão lambda:
+
+```haskell
+(λx.x)
+```
+
+Convertendo isso em Javascript para entendermos melhor fica:
+
+```js
+function(x) {
+  return x;
+}
+```
+
+Porém isso aqui não é uma expressão lambda:
+
+
+```haskell
+(λy.x)
+```
+
+Porque o `x` é uma variável livre, ele não está ligado à função `λy`, ficando assim em JavaScript:
+
+```js
+function(y) {
+  return x;
+}
+```
+
+Para usarmos o `y` corretamente faremos o seguinte:
+
+```haskell
+(λx.(λy.x))
+```
+
+O sparentêsis não são necessários, coloquei apenas para demonstrar que o `x` é livre na expressão interior `(λy.x)` e ligada na expressão externa, ficando assim:
+
+
+```haskell
+λx.λy.x
+
+```
+
+Fica em JavaScript:
+
+```js
+function(x) {
+  return function(y) {
+    return x;
+  }
+}
+```
 
 ```haskell
 (λx.x) y
 ```
-
 Basicamente `(λx.x)` tem como resultado a expressão `y`.
-
-[Achar uma forma mais fácil de explicar]
 
 Onde `(E = x e F = y)`, guardem bem essa informação `E` é o resultado onde `x` é substituído pela expressão `F`.
 
@@ -292,11 +341,41 @@ Onde `(E = x e F = y)`, guardem bem essa informação `E` é o resultado onde `x
 (λx.E) F
 ```
 
-O x será nosso para^ametro q entrará na função E com o valor de F.
+#### Aplicação Lambda
 
-Agora se `F(λx.x)(λx.y)` tem como resultado `(λx.y)`, então `(E = x, F = (λx.y))`. E é só isso, substituição textual.
+```haskell
+λx.x UNICORNIO -> UNICORNIO
+```
 
-**[Achar uma forma mais fácil de explicar]**
+
+```js
+function(x) {
+  return x;
+}(UNICORN);
+```
+
+
+```haskell
+λx.λy.x UNICORNIO -> λy.UNICORNIO
+```
+
+Essa função recebe um arguento e retorna uma função que retorna o mesmo valor.
+
+**EXERCICIO**
+
+Escrever essa função.
+
+
+##### Self-application
+```haskell
+λs.(s s) -> UNICORNIO
+```
+
+```js
+function(f) {
+  return f(f);
+}
+```
 
 A sintaxe das expressões-lambda é determinada por duas operações: abstração e aplicação (sendo que a aplicação envolve uma operação de substituição chamada conversão-β). Uma expressão-lambda pode ser uma variável, uma abstração de uma expressão, ou uma aplicação de duas expressões:
 
