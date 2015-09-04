@@ -746,6 +746,24 @@ httpPost('/beer', renderPost);
 
 Dessa forma não precisamos nos preocupar mais com os argumentos, pois isso sempre será trabalho única e exclusivamente da função `renderPost`.
 
+Além disso, no JavaScript, uma função também pode ser 
+
+```js
+var plus1 = new Function( 'a', ' return a + 1;');
+
+```
+
+Podemos passar mais parâmetros dessa forma:
+
+```js
+var sum = new Function( 'a', 'b', ' return a + b;');
+
+```
+
+Sabendo disso vamos ao nosso exercício:
+
+
+
 ### High-order function
 
 Uma função é chamada de *high-order* quando ela faz duas coisas:
@@ -756,7 +774,7 @@ Uma função é chamada de *high-order* quando ela faz duas coisas:
 Basicamente é uma função que recebe outra função como parâmetro ou devolve uma função como resultado. Quando você usa callbacks no JavaScript e no jQuery, você está fazendo uso de high order functions.
 
 ```js
-$("#alert-this-shit").click(function() {
+$("#alert-this-shit").on('click', function() {
   alert("Hello World");
 });
 
@@ -792,6 +810,8 @@ calcular(dividir, 840, 2); // 420
 ```
 
 Nesse caso criamos apenas as operações básicas da aritmética e apenas utilizamos elas como argumento da função `calcular`, falei que usaremos muito esse exemplo no curso, pois são de fácil assimilação quando chegarmos em composição para criarmos funções mais complexas.
+
+Perceba que a função `calcular` retorna a chamada da função `op` que é passada via parâmetro, por isso ela é uma *High-order function*.
 
 ### Closures
 
