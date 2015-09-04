@@ -330,16 +330,22 @@ function(x) {
 }
 ```
 
+Vamos ver agora como fica uma expressão lambda, onde teremos agora qual o valor que será passado para a expressão.
+
 ```haskell
 (λx.x) y
 ```
-Basicamente `(λx.x)` tem como resultado a expressão `y`.
+Basicamente `(λx.x)` tem como resultado a expressão avaliada passando o `y` como valor.
 
-Onde `(E = x e F = y)`, guardem bem essa informação `E` é o resultado onde `x` é substituído pela expressão `F`.
+Também podemos ver uma expressão lambda dessa maneira:
+
 
 ```haskell
 (λx.E) F
 ```
+
+Onde `(E = x e F = y)`, guardem bem essa informação `E` é o resultado onde `x` é substituído pela expressão `F`.
+
 
 #### Aplicação Lambda
 
@@ -363,9 +369,10 @@ Essa função recebe um arguento e retorna uma função que retorna o mesmo valo
 
 **EXERCICIO**
 
-Escrever essa função.
+Escrever essa função `λx.λy.x UNICORNIO -> λy.UNICORNIO` em JavaScript.
 
 
+**Não está nos slides**
 ##### Self-application
 ```haskell
 λs.(s s) -> UNICORNIO
@@ -379,9 +386,9 @@ function(f) {
 
 A sintaxe das expressões-lambda é determinada por duas operações: abstração e aplicação (sendo que a aplicação envolve uma operação de substituição chamada conversão-β). Uma expressão-lambda pode ser uma variável, uma abstração de uma expressão, ou uma aplicação de duas expressões:
 
-- Variáveis: x, y, z, um conjunto qualquer de nomes de variáveis.
-- Abstrações: dada uma expressão-lambda E, podemos formar uma abstração de E usando `λ + variável + ‘.’ + E`. Por exemplo: `λx.x`
-- Aplicações: dadas duas expressões-lambda `E` e `F`, a expressão da aplicação é formada pela justaposição de uma ao lado da outra: E F, por exemplo `(λx.x)(λx.y)` **[CONFIRMAR EXEMPLO]**
+- Variáveis: x, y, z, um conjunto qualquer de nomes de variáveis;
+- Abstrações: dada uma expressão-lambda E, podemos formar uma abstração de E usando `λ + variável + ‘.’ + E`. Por exemplo: `λx.x`;
+- Aplicações: dadas duas expressões-lambda `E` e `F`, a expressão da aplicação é formada pela justaposição de uma ao lado da outra: E F.
 
 **[MELHORAR COM EXEMPLOS SIMPLES]**
 
@@ -504,9 +511,7 @@ var str = function(s) {
   if(typeof s !== 'string') {
     throw new TypeError('Expected a string');
   }
-  else {
-    return s;
-  }
+  return s;
 }
 ```
 
@@ -527,12 +532,84 @@ repeat(1)
 ```
 
 
-**[FIM AULA 1]**
-
-**[COMEÇO AULA 2]**
 #### Função anônima
 
-#### IIFE
+Como vimos na parte de lambda a função anônima é apenas a chamada do `function` sem nomeá-la, sendo o lambda uma função anônima que aceita apenas um parâmetro.
+
+```js
+function(nome) {
+  return "Ola " + nome;
+};
+```
+
+Mas ai você deve se perguntar:
+
+**\-Tá mas como eu faço para rodar essa função?**
+
+Então uma função anônima serve para que você passe uma função como parâmetro sem precisar guardar ela em uma variável, como nesse exemplo abaixo:
+
+```js
+$.ajax('http://cors-server.getup.io/url/api.redtube.com/?data=redtube.Videos.searchVideos&search=Sasha%20Gray')
+.done(function(data) {console.log(data)});
+```
+**É LARGAMENTE UTILIZADO NO JAVASCRIPT!**
+
+#### IIFE - Immediately-Invoked Function Expression
+
+No JavScript cada vez que você executa uma função você cria um escopo fechado para ela de onde as variáveis não podem "sair", tendo assim um mecanismo simples de privacidade.
+
+```js
+function makeCounter() {
+  var i = 0;
+
+  return function() {
+    console.log( ++i );
+  };
+}
+
+// Note que `counter` e `counter2` cada uma tem um escopo separado para `i`.
+
+var counter = makeCounter();
+counter(); // 1
+counter(); // 2
+
+var counter2 = makeCounter();
+counter2(); // 1
+counter2(); // 2
+
+i; // ReferenceError: i is not defined (só existe dentro de makeCounter)
+```
+
+Bom se para executarmos uma função basta colocar `()` após o nome da função, podemos então substituir o noe da função pela própria declaração dela.
+
+Hein?
+
+Bom fica mais fácil olhando o código a seguir:
+
+```js
+function(){ /* code */ }(); // SyntaxError: Unexpected token (
+```
+
+O problema aqui é que quando o interpretador do javaScript encontra a palavra `function` ele trata como uma declaração de função, para resolver esse problemas nós só precisamos encapsular ela entre `()`.
+
+
+```js
+(function(){ /* code */ }());
+(function(){ /* code */ })();
+
+```
+
+Uma outra forma de ver isso é assim:
+
+```js
+function foo() { foo(); }
+```
+
+Já para eu executar uma função anônima eu faço:
+
+```js
+var foo = function() { arguments.callee(); };
+``
 
 ### First-class Functions
 
@@ -626,6 +703,7 @@ function adder(a) {
 ```
 
 Depois quando chamamos a função `_add` passando `400` como parâmetro
+
 ```js
 _add(400)
 // b 420
@@ -642,7 +720,7 @@ function(b) { //400
 
 Para entender melhor como isso acontece falarei mais adiante sobre *closures*.
 
-Uma situação bem interessante do porquê é interessante usarmos funções de primeira classe é para não ficarmos nos perocupando com os parâmetros passados, caso usemos uma função anônima.
+Uma situação bem interessante do porquê é interessante usarmos funções de primeira classe é para não ficarmos nos preocupando com os parâmetros passados, caso usemos uma função anônima.
 
 Vamos ver o exemlo abaixo:
 
@@ -666,7 +744,7 @@ Agora se re-escrevermos como função de primeira classe ficará assim:
 httpPost('/beer', renderPost);
 ```
 
-Dessa forma não precisamos nos preocupar mais com os argumentos, pois isso sempre será trabalho unica e exclusivamente da função `renderPost`.
+Dessa forma não precisamos nos preocupar mais com os argumentos, pois isso sempre será trabalho única e exclusivamente da função `renderPost`.
 
 ### High-order function
 
@@ -683,6 +761,37 @@ $("#alert-this-shit").click(function() {
 });
 
 ```
+
+Vamos ver um exemplo bem simples que ainda re-usaremos muito nesse curso:
+
+```js
+function somar(x, y) {
+  return x + y;
+};
+
+function subtrair(x, y) {
+  return x - y;
+};
+
+function multiplicar(x, y) {
+  return x * y;
+};
+
+function dividir(x, y) {
+  return x / y;
+};
+
+function calcular(op, x, y) {
+  return op(x, y);
+};
+
+calcular(somar, 400, 20); // 420
+calcular(subtrair, 700, 34); // 666
+calcular(multiplicar, 333, 2); // 666
+calcular(dividir, 840, 2); // 420
+```
+
+Nesse caso criamos apenas as operações básicas da aritmética e apenas utilizamos elas como argumento da função `calcular`, falei que usaremos muito esse exemplo no curso, pois são de fácil assimilação quando chegarmos em composição para criarmos funções mais complexas.
 
 ### Closures
 
