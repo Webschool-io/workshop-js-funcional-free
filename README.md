@@ -613,7 +613,7 @@ Já para eu executar uma função anônima eu faço:
 
 ```js
 var foo = function() { arguments.callee(); };
-``
+```
 
 ### First-class Functions
 
@@ -726,7 +726,7 @@ Para entender melhor como isso acontece falarei mais adiante sobre *closures*.
 
 Uma situação bem interessante do porquê é interessante usarmos funções de primeira classe é para não ficarmos nos preocupando com os parâmetros passados, caso usemos uma função anônima.
 
-Vamos ver o exemlo abaixo:
+Vamos ver o exemplo abaixo:
 
 ```js
 httpPost('/beer', function(json){
@@ -750,7 +750,7 @@ httpPost('/beer', renderPost);
 
 Dessa forma não precisamos nos preocupar mais com os argumentos, pois isso sempre será trabalho única e exclusivamente da função `renderPost`.
 
-Além disso, no JavaScript, uma função também pode ser 
+Além disso, no JavaScript, uma função também pode ser um objeto:
 
 ```js
 var plus1 = new Function( 'a', ' return a + 1;');
@@ -764,9 +764,18 @@ var sum = new Function( 'a', 'b', ' return a + b;');
 
 ```
 
+#### Exercício
+
 Sabendo disso vamos ao nosso exercício:
 
+```js
+var numbers = [1,2,3,4,5,6,7,8,9,10];
 
+// Crie uma função chamada apenasPares
+// a qual você passará por parâmetro para filter
+// Assim: var resposta = numbers.filter(apenasPares)
+
+```
 
 ### High-order function
 
@@ -816,6 +825,19 @@ calcular(dividir, 840, 2); // 420
 Nesse caso criamos apenas as operações básicas da aritmética e apenas utilizamos elas como argumento da função `calcular`, falei que usaremos muito esse exemplo no curso, pois são de fácil assimilação quando chegarmos em composição para criarmos funções mais complexas.
 
 Perceba que a função `calcular` retorna a chamada da função `op` que é passada via parâmetro, por isso ela é uma *High-order function*.
+
+#### Exercício
+
+Crie uma função que multiplique recebendo 3 parâmetros:
+
+```js
+function multiplicar(op, valor, vezes){};
+```
+
+Onde `op` será a operação de `somar` do nosso exemplo passado.
+
+Depois de fazer isso para `multiplicar` faça também para `dividir`.
+
 
 ### Closures
 
