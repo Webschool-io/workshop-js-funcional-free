@@ -831,7 +831,7 @@ Perceba que a função `calcular` retorna a chamada da função `op` que é pass
 Crie uma função que multiplique recebendo 3 parâmetros:
 
 ```js
-function multiplicar(op, valor, vezes){};
+function _multiplicar(op, valor, vezes){};
 ```
 
 Onde `op` será a operação de `somar` do nosso exemplo passado.
@@ -841,7 +841,7 @@ Depois de fazer isso para `multiplicar` faça também para `dividir`.
 
 ### Closures
 
-É importantíssimo que você entenda como funciona o escopo no JavaScript para que não fique confuso ao ver closures e currying.
+É importantíssimo que você entenda como funciona o escopo no JavaScript para que não fique confuso ao ver closures e currying, existem até livros apenas sobre esse tema como: [You Don't Know JS: Scope & Closures](http://shop.oreilly.com/product/0636920026327.do) e [Closure: The Definitive Guide](http://shop.oreilly.com/product/0636920001416.do).
 
 Como na maioria das linguagens do mercado, uma variável declarada em um escopo maior é visível em um escopo menor, enquanto o contrário não é verdadeiro. Basicamente isso:
 
@@ -876,7 +876,27 @@ console.log(y);
 // ReferenceError: y is not defined
 ```
 
-Quando uma função altera o valor de uma variável global, isso afeta toda a aplicação. Por isso o uso de variáveis globais não é considerado uma boa prática. Porém, uma variável global passada por parâmetro para uma função não tem o seu valor alterado:
+Agora vamos ver como podemos alterar uma variável global dentro da nossa função:
+
+
+```js
+var x = 1;
+
+function bar() {
+  x = 420;
+  console.log(x);
+}
+
+bar();
+// 420
+
+console.log(x);
+// 420
+```
+
+Perceba que agora dentro da função `bar` eu não uso a palavra mágica `var`, então nesse caso ele irá buscar a referência da nossa variável e depois atualizar seu valor, sem criar nenhuma instância local.
+
+Quando uma função altera o valor de uma variável global, isso afeta toda a aplicação. Por isso o uso de variável global não é considerado uma boa prática. Porém, uma variável global passada por parâmetro para uma função não tem o seu valor alterado:
 
 ```js
 var x = 1;
@@ -887,8 +907,7 @@ function meh(x) {
   x++;
 
   y++;
-console.log("Dentro: ", x, y);
-
+  console.log("Dentro: ", x, y);
 }
 
 meh(x);
@@ -899,11 +918,99 @@ console.log("Fora: ", x, y);
 // Fora:  1 12
 ```
 
+Vamos analisar o porquê isso ocorre:
+
+
+```js
+var x = 1;
+var y = 11;
+```
+
+Primeiramente definimos nossas variáveis globais fora da função, depois passamos ela por parâmetro para a função `meh`, vimos isso na aula passada, então vamos relembrar:
+
+```js
+function meh(x) {
+  console.log("Dentro: ", x, y);
+  x++;
+  y++;
+  console.log("Dentro: ", x, y);
+}
+```
+
+Esse código acima é interpretado dessa forma:
+
+```js
+function meh(x) {
+  var x = x;
+  console.log("Dentro: ", x, y);
+  x++;
+  y++;
+  console.log("Dentro: ", x, y);
+}
+```
+
+Então perceba que é criada uma variável local que recebe aquele parâmetro, por isso as mudanças só fazem efeito localmente.
+
+```js
+function meh(x) {
+  console.log("Dentro: ", x, y);
+  x++;
+  y++;
+  console.log("Dentro: ", x, y);
+}
+
+meh(x);
+// Dentro:  1 11
+// Dentro:  2 12
+
+console.log("Fora: ", x, y);
+// Fora:  1 12
+```
 #### Hoisting
 
-### Currying
+Todos os artigos e vídeos sobre *Hoisting* **QUASE SEMPRE** começam com esse exemplo:
 
-[FIM AULA 1]
+```js
+// Exemplo 1
+var a = 1
+
+function foo() {
+  console.log(a)
+  var a = 2
+  console.log(a)
+}
+
+foo()
+
+console.log(a)
+```
+
+
+Então eu não fazer isso, já que é muito fácil você achar a explicação desse código simples acima, vou até indicar esse vídeo maravilhoso que vi dia desses [Dicas Javascript - Ep01: Hoisting](https://www.youtube.com/watch?v=JGpekHQ_9kY)
+
+Vou explicar do mais básico ainda!
+
+![](http://www.quickmeme.com/img/8b/8b176b52163a66ce75d1b6423b6b510b0830653bb028ccf09f78fb15d25dfe93.jpg)
+
+Vamos analisar o seguinte código:
+
+```js
+var idade = 30;
+
+if(idade === 666){
+    var paiinho = "Belzebu";
+}
+
+console.log(idade); // 30
+console.log(paiinho); // undefined
+console.log(maiinha); // Uncaught ReferenceError: maiinha is not defined(…)
+
+```
+
+Por que você acha que o valor de `idade` é `30`, do `paainho` é `undefined` e `maiinha` é um **erro**?
+
+
+### Currying
 
 ### Teoria das Categorias
 
