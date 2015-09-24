@@ -966,7 +966,160 @@ meh(x);
 console.log("Fora: ", x, y);
 // Fora:  1 12
 ```
-#### Hoisting
+
+### ArrayAPI
+O Array do javascript tem um API extensa, com varios métodos úteis, dentro da programação funcional usamos constantemente essas funções para suprir *for's* desnecessarios e mais variaveis! Para facilitar vou dividir meu exemplo em : **teoria**, **implementação** e como faço em **es6**(não que exista muita diferença!).
+
+####MAP
+O MAP é um método que gera um **callback** para cada valor de um **array** modificando os mesmos, isso faz com que o **map** crie um novo **array** com os novos valores obtidos. Exemplo:
+
+```javascript
+var x = [1,2,3].map(function (value) {
+  return value * 2
+});
+
+console.log(x) //[2,4,6]
+```
+
+Em ES6:
+
+```javascript
+var x = [1,2,3].map(v => x*2);
+console.log(x) //[2,4,6]
+```
+
+####Filter
+Essa já é um pouco mais simples de entender, ela vai criar um **teste lógico** dentro de um **callback**, e a partir disso devolver um **array** com os valores do **outro array** que passaram no teste! Exemplo:
+
+```javascript
+var x = [1,2,3].filter(function (val) {
+  return val % 2 == 0
+});
+
+console.log(x); //[2]
+```
+Em ES6:
+
+```javascript
+var x = [1,2,3].filter(v => v % 2 == 0);
+console.log(x); //[2]
+```
+
+####Reduce / ReduceRight
+Reduce é uma função incrível! Esse método realiza um **callback**! Sua função? **Reduzir um array à um único valor!** Como faz isso? Aplica um **callback** para um acumulador a partir de cada valor em um array. O **Reduce** faz isso da **Esquerda > Direita**, o **ReduceRight** faz a mesma coisa porem da **Direita > Esquerda**. Ja que esse é um pouco mais complicado, vamos dar uma olhada na estrutura alem do exemplo:
+
+```javascript
+//array.reduce(function(acumulador, valor , index, array ) {...}
+
+//Em ação!
+var x = [1,2,3].reduce(function(a, v, i ,arr) {
+   return a + v;
+});
+console.log(x) //6
+```
+
+Em ES6:
+```javascript
+var x = [1,2,3].reduce((a, v, i ,arr) => a + v);
+console.log(x) //6
+```
+
+####Every/Some
+Esses métodos como alguns outros são esquecido por muitos, porem, podem ser **muito úteis**! Tanto o **every** quanto o **some** são **testes de array**.
+
+O **every** age como o fator **AND**, ou seja, se **TODOS** os elementos passarem no teste, ele retornara **true**, porem, basta apenas **um** não cumprir  a regra para restornar um false.
+
+O **some** age como o fator **OR**, em outras palavras, se apenas **UM** elemento cumprir a regra ele retornara **true**.  Em exemplo:
+
+```javascript
+var x = [1,2,3].every(function(v){
+   return v+v >= 2
+})
+console.log(x) //true
+
+//VENDO A DIFERENÇA
+var y = [1,2,3].every(function(v){
+   return v*v >= 9
+})
+console.log(y) //false
+
+var y = [1,2,3].some(function(v){
+   return v*v >= 9
+})
+console.log(y) //true
+```
+
+Em ES6:
+```javascript
+var x = [1,2,3].every(v => v+v >= 2)
+console.log(x) //true
+```
+
+#### Agora na prática!
+
+Imaginemos que tenho que pegar a **média** dos **maiores de idade** que frequentam um **clube**.
+
+**Simulando um retorno de Banco**
+```javascript
+var pessoas = [
+   {name : "Guilherme", age: 21},
+   {name : "Mario", age: 16},
+   {name : "Luiza", age: 17},
+   {name : "Carlos", age: 19},
+   {name : "André", age: 26},
+   {name : "Bianca", age: 18},
+   {name : "Maria", age: 14}
+]
+```
+
+**Como fariamos isso sem ArrayAPI**
+```javascript
+var maioresDe18 = [];
+for (var i = 0; i < pessoas.length; i++) {
+   if (pessoas[i].age >= 18) maioresDe18.push(pessoas[i])
+}
+
+var mediaIdade = 0;
+for (i = 0; i < maioresDe18.length; i++){
+  mediaIdade += maioresDe18[i].age
+}
+
+mediaIdade = mediaIdade/maioresDe18.length;
+console.log(mediaIdade)
+```
+
+**Com Array API**
+```javascript
+var mediaIdade = pessoas.filter(function (p) {
+  return p.age >= 18
+}).map(function(p) {
+  return p.age
+}).reduce(function(a, v, i, arr) {
+  return i + 1 == arr.length ? (a + v) / arr.length : a + v
+})
+```
+
+**Com uma firulas e ES6**
+```javascript
+var media = (a, v, i, arr) => i + 1 == arr.length ? (a + v) / arr.length : a + v,
+    maioridade = p => p.age >= 18,
+    mediaIdade = pessoas
+                     .filter(maioridade) //Retorna maiores de 18
+                     .map(p => p.age) //Transforma objetos apenas em idades
+                     .reduce(media); // Faz media
+
+console.log(mediaIdade); //21
+```
+
+#### Menção Honrosa (.forEach)
+As vezes não queremos um retorno! Só queremos um **for** facilitado! Por mais que não goste, existe o **.forEach** no ArrayAPI que permite que você emule o famoso **for (int x : list)** do java e outras linguagens!
+```javascript
+[1,2,3].forEach(function(n) {
+   console.log("Estamos vendo o numero: "+n);
+})
+```
+
+### Hoisting
 
 Todos os artigos e vídeos sobre *Hoisting* **QUASE SEMPRE** começam com esse exemplo:
 
@@ -984,7 +1137,6 @@ foo()
 
 console.log(a)
 ```
-
 
 Então eu não fazer isso, já que é muito fácil você achar a explicação desse código simples acima, vou até indicar esse vídeo maravilhoso que vi dia desses [Dicas Javascript - Ep01: Hoisting](https://www.youtube.com/watch?v=JGpekHQ_9kY)
 
@@ -1300,7 +1452,7 @@ var inputs = [].slice.call(document.getElementsByTagName('input'), 0),
 
 Funções puras são funções que se receberem um argumento retornarão o mesmo valor sem modificações, dado uma entrada ela sempre retornará o mesmo valor. Ela não pode modificar nenhum argumento passado nem gravar nenhum estado.
 
-Outra coisa muito boa de se trabalhar com *pure functions* é a transparência referecial. Um código será transparente referencialmente quando ele pode ser substituído pelo valor avaliado, sem alterar o comportamento do programa. 
+Outra coisa muito boa de se trabalhar com *pure functions* é a transparência referecial. Um código será transparente referencialmente quando ele pode ser substituído pelo valor avaliado, sem alterar o comportamento do programa.
 
 Vamos ver um exemplo ([retirado daqui](https://github.com/Webschool-io/mostly-adequate-guide/blob/master/ch3.md)):
 
@@ -1550,4 +1702,3 @@ http://ariya.ofilabs.com/2013/01/es6-and-array-comprehension.html
 ## Alunos
 
 Quem utilizar esse material para estudo, peço que mande um pull request adicionado o seu nome na lista abaixo:
-
