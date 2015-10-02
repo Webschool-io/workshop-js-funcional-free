@@ -1121,6 +1121,33 @@ As vezes não queremos um retorno! Só queremos um **for** facilitado! Por mais 
 
 ### Hoisting
 
+Em uma tradução mais literal *hoisting* significa: içar, levantar.
+
+Aí você deve se perguntar:
+
+**-Mas o que que ele vai içar?**
+
+Pois eu lhe respondo:
+
+**-As declarações de variáveis.**
+
+![](http://m.memegen.com/l81732.jpg)
+
+> Because variable declarations (and declarations in general) are processed before any code is executed, declaring a variable anywhere in the code is equivalent to declaring it at the top. This also means that a variable can appear to be used before it's declared. This behavior is called "hoisting", as it appears that the variable declaration is moved to the top of the function or global code.
+
+```js
+bla = 2
+var bla;
+// ...
+
+// is implicitly understood as:
+
+var bla;
+bla = 2;
+```
+
+fonte: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var)
+
 Todos os artigos e vídeos sobre *Hoisting* **QUASE SEMPRE** começam com esse exemplo:
 
 ```js
