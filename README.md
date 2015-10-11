@@ -1121,7 +1121,7 @@ As vezes não queremos um retorno! Só queremos um **for** facilitado! Por mais 
 
 ### Hoisting
 
-Em uma tradução mais literal *hoisting* significa: içar, levantar.
+Em uma tradução mais literal *hoisting* significa: içar, levantar. É uma característica do JavaScript que nao temos como fugir, mas no ES6 isso ja muda com `let`.
 
 Aí você deve se perguntar:
 
@@ -1138,9 +1138,8 @@ Pois eu lhe respondo:
 ```js
 bla = 2
 var bla;
-// ...
 
-// is implicitly understood as:
+// implicitamente é interpretado como:
 
 var bla;
 bla = 2;
@@ -1183,10 +1182,52 @@ if(idade === 666){
 console.log(idade); // 30
 console.log(paiinho); // undefined
 console.log(maiinha); // Uncaught ReferenceError: maiinha is not defined(…)
-
 ```
 
 Por que você acha que o valor de `idade` é `30`, do `paainho` é `undefined` e `maiinha` é um **erro**?
+
+Bom o primeiro é facil né? O valor de `idade` é `30` pois definimos esse valor na primeira linha e nao o modificamos mais. Porém o valor de `paainho` é `undefined` e nao `Belzebu` como "deveria" ser e é aqui que esta acontecendo o *hoisting*, veja nesse código abaixo como fica o código explícito:
+
+```js
+var idade = 30;
+var paiinho = undefined;
+
+if(idade === 666){
+    paiinho = "Belzebu";
+}
+
+console.log(idade); // 30
+console.log(paiinho); // undefined
+console.log(maiinha); // Uncaught ReferenceError: maiinha is not defined(…)
+```
+
+Percebeu o porquê `paiinho` nao teve seu valor alterdo para `Belzebu`?
+
+Porque o código nunca entrou no `if`, por isso ele permaneceu com seu valor inicial que era `undefined`.
+
+
+
+Malandro pra caraleo esse esquea né? Pois é tome muito cuidado com suas variaveis elas podem estar com valores diferentes do que você imagina.
+
+Porém assim ainda esta simples de perceber, a coisa começa a piorar quando colocamos funções na jogada, vamos analisar o seguinte código:
+
+```js
+var idade = 30;
+
+function setPaiinho() {
+  var paiinho = "Belzebu";
+}
+
+console.log(idade); // 30
+console.log(paiinho); // undefined
+```
+
+
+
+
+
+
+
 
 
 ### Currying
