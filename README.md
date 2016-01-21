@@ -1224,7 +1224,7 @@ console.log(paiinho); // undefined
 
 
 
-
+# Explicar mais sobre hoisting!!!!
 
 
 
