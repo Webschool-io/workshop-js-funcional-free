@@ -73,10 +73,10 @@ O turno será o noturno, ainda farei uma pesquisa para ver se preferem as 21 ou 
 
 Caso você seja uma pessoa muito legal e deseja contribuir para esse e outros projetos gratuitos que faço, por exemplo o [JS4Girls](https://github.com/Webschool-io/js4girls), e pela continuidade de mais módulos mensais como: ES6, Node.js, AngularJs, React e outros.
 
-[Para doar basta clickar no botão do PagSeguro no site oficial desse curso.](http://webschool.io/curso-javascript-funcional) Ou mandar email diretamente para webschool.cursos[at]gmail[dot]com pedindo a conta para depósito ou transfêrencia.
+[Para doar basta clickar no botão do PagSeguro ou do Paypal no site oficial desse curso E GANHE UMA CAMISETA LINDONA!.](http://webschool.io/jsfuncional/camisetas/) Ou mandar email diretamente para webschool.cursos[at]gmail[dot]com pedindo a conta para depósito ou transfêrencia.
 ### Local
 
-**ONLINE** via Hangout on Air.
+**ONLINE** via [https://www.youtube.com/c/webschool-io](https://www.youtube.com/c/webschool-io).
 
 ### Data e Hora
 
