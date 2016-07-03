@@ -502,7 +502,7 @@ Então se chamamos apenas a função `repeat` dessa forma, passando *String* ent
 Sim meu caro aluno, prete atenção no exemplo abaixo:
 
 ```js
-repeat(10);
+repeat(2);
 // 4
 ```
 
