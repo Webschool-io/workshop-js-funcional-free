@@ -560,7 +560,7 @@ $.ajax('http://cors-server.getup.io/url/api.redtube.com/?data=redtube.Videos.sea
 
 #### IIFE - Immediately-Invoked Function Expression
 
-No JavScript cada vez que você executa uma função você cria um escopo fechado para ela de onde as variáveis não podem "sair", tendo assim um mecanismo simples de privacidade.
+No JavaScript cada vez que você executa uma função você cria um escopo fechado para ela de onde as variáveis não podem "sair", tendo assim um mecanismo simples de privacidade.
 
 ```js
 function makeCounter() {
