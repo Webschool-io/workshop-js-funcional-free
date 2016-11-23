@@ -216,6 +216,37 @@ Para garantir vamos executar nosso teste:
 
 ```
 
+> **SHOW DE BOLA!!!** Agora só precisamos implementar um teste para verificar se a entrada é realmente um *Array*.
+
+
+Bom para essa validação existem diversas formas, contudo utilizaremos a mais fácil: `Array.isArray(value)`.
+
+Deixaremos nosso código assim:
+
+
+```js
+const isArrayLike = (value) => value != null && value.length && Array.isArray(value)
+
+const map = (values, fn) => {
+  console.log('isArrayLike(values)', isArrayLike(values))
+  if (!isArrayLike(values)) throw new TypeError('Não é Array')
+
+  let arr = []
+
+  for (let i=0; i<values.length; i++){
+    arr.push(fn(values[i]))
+  }
+
+  return arr
+}
+
+module.exports = map
+```
+
+
+
+
+// Escrevendo ainda
 
 [Implementação do map do lodash](https://github.com/lodash/lodash/blob/master/dist/lodash.core.js#L795)
 
