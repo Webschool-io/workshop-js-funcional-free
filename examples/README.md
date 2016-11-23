@@ -1,25 +1,61 @@
-# Exemplos de funçoes conhecidas
+# Exemplos de funções conhecidas
 
 [Códigos de exemplo](https://gist.github.com/halan/c3c0ec1142b8d1bbf242939c238fbcab) do mestre [Halan Pinheiro](https://github.com/halan)!
 
 Como estou aprendendo bastante no grupo [Programacao Funcional Brasil](https://telegram.me/ProgramacaoFuncionalBrasil) com o [Halan Pinheiro](https://github.com/halan) então nada mais justo que eu ensine vocês também.
 
-## Reduce
-
-```js
-const reduce = (reducer, initial, [head, ...tail]) =>
-  head // condition to go or stop
-    ? reduce(reducer, reducer(initial, head), tail) // recursion
-    : initial // stop
-```
 
 ## Map
+
+
+[Função map OFICIAL](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+
+
+[Implementação do map do lodash](https://github.com/lodash/lodash/blob/master/dist/lodash.core.js#L795)
+
+```js
+
+function isArrayLike(value) {
+    return value != null && isLength(value.length) && !isFunction(value);
+  }
+
+/**
+ * The base implementation of `_.map` without support for iteratee shorthands.
+ *
+ * @private
+ * @param {Array|Object} collection The collection to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Array} Returns the new mapped array.
+ */
+function baseMap(collection, iteratee) {
+  var index = -1,
+      result = isArrayLike(collection) ? Array(collection.length) : [];
+
+  baseEach(collection, function(value, key, collection) {
+    result[++index] = iteratee(value, key, collection);
+  });
+  return result;
+}
+```
+
 
 ```js
 const map = (mapper, [head, ...tail]) =>
   head // condition to go or stop
     ? [ mapper(head), ...map(mapper, tail) ] //recursion
     : [] // stop
+```
+
+
+## Reduce
+
+[Função reduce OFICIAL](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+
+```js
+const reduce = (reducer, initial, [head, ...tail]) =>
+  head // condition to go or stop
+    ? reduce(reducer, reducer(initial, head), tail) // recursion
+    : initial // stop
 ```
 
 ## Filter
