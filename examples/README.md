@@ -4,6 +4,8 @@
 
 Como estou aprendendo bastante no grupo [Programacao Funcional Brasil](https://telegram.me/ProgramacaoFuncionalBrasil) com o [Halan Pinheiro](https://github.com/halan) então nada mais justo que eu ensine vocês também.
 
+Antes de entrarmos nas funções
+
 
 ## Map
 
@@ -11,23 +13,14 @@ Como estou aprendendo bastante no grupo [Programacao Funcional Brasil](https://t
 
 ## Reduce
 
-[Função reduce OFICIAL](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+**Explicação completa [AQUI](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/reduce.md)!**
 
-```js
-const reduce = (reducer, initial, [head, ...tail]) =>
-  head // condition to go or stop
-    ? reduce(reducer, reducer(initial, head), tail) // recursion
-    : initial // stop
-```
 
 ## Filter
 
-```js
-const filter = (predicate, [head, ...tail]) =>
-  head // condition to go or stop
-    ? [ ...(predicate(head) ? [head] : []), ...filter(predicate, tail) ] // recursion
-    : [] // stop
-```
+
+**Explicação completa [AQUI](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/filter.md)!**
+
 
 ## Zip
 
