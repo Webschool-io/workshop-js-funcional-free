@@ -1,4 +1,4 @@
-## Map
+# Map
 
 Lembrando do [nosso material do workshop](https://github.com/Webschool-io/workshop-js-funcional-free#map) sobre `map`:
 
@@ -280,7 +280,7 @@ module.exports = map
 > **Falei que era simples!**
 
 
-### Map FUNCIONAL
+## Map FUNCIONAL
 
 Agora que já temos nossa implementação precisamos analisar esse exemplo puramente funcional e entender como refatorar nosso código até chegar nele:
 
@@ -544,7 +544,7 @@ Então perceba que o *Array* de retorno da função `map` é gerado dinamicament
 > Porque a cada iteração nós retiramos a primeira posição que é o `head` e aplicamos a função `mapper` apenas nesse valor, isso vai acontecendo até que não exista mais elementos a serem processados.
 
 
-### Map - COMPARAÇÃO
+## Map - COMPARAÇÃO
 
 Agora iremos aprender como sair do código imperativo:
 
@@ -657,8 +657,13 @@ Executando, `mocha examples/test/map.nosso.spec.js`, nosso teste para essa funç
   3 passing (17ms)
 ``` 
 
-### Map - Coclusão
+## Map - Conclusão
 
 Para criarmos aprendermos essa função foi necessário utilizarmos/conhecermos:
 
 - arrow function
+- destructuring assignment
+- spread operator
+- if ternário
+- recursão
+
