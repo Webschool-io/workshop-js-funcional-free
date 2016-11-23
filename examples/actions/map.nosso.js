@@ -1,10 +1,5 @@
-const map = ([head, ...tail], fn) => {
-  
-  let arr = []
-
-  if (!head) return arr
-  // fn(head)
-  map(tail, fn)
-}
+const map = ([head, ...tail], fn) => (!head) 
+                                        ? [] 
+                                        : [fn(head), ...map(tail, fn)]
 
 module.exports = map

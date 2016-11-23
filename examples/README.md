@@ -467,6 +467,9 @@ if (head) {
 }
 ```
 
+> Perceba que ele não precisou usar o `return`, isso se deve pela forma da criação da função `map` que utilizou [Arrow Function](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions), `() =>`, quando ela possuir apenas 1 linha a qual já faz o retorno da função não é necessário utilizar `{ }` muito menos o `return`.
+
+
 Porém além disso ela também está usando recursividade como visto aqui: `[ mapper(head), ...map(mapper, tail) ]`.
 
 Agora que eu lhe pergunto:
@@ -595,7 +598,77 @@ const map = ([head, ...tail], fn) => {
 
 Depois precisamos fazer a chamada recursiva passando os valores corretamente:
 
+```js
+const map = ([head, ...tail], fn) => {
+  
+  if (!head) return []
 
+  return [fn(head), map(tail, fn)]
+}
+```
+
+Com isso estamos quase lá, porém eu não usei `...map(tail, fn)` apenas para vermos como ficaria essa saída errada:
+
+```js
+
+      -  [
+      -    20
+      -    [
+      -      30
+      -      [
+      -        40
+      -        [
+      -          50
+      -          []
+      -        ]
+      -      ]
+      -    ]
+      -  ]
+```
+
+> **Percebeu como o `...` é importantíssimo?**
+
+Então refatorando deixaremos nossa função assim:
+
+
+```js
+const map = ([head, ...tail], fn) => {
+  
+  if (!head) return []
+
+  return [fn(head), ...map(tail, fn)]
+}
+```
+
+Agora basta refatorarmos esse `if` normal para um ternário:
+
+```js
+const map = ([head, ...tail], fn) => (!head) 
+                                        ? [] 
+                                        : [fn(head), ...map(tail, fn)]
+
+module.exports = map
+```
+
+Executando, `mocha examples/test/map.nosso.spec.js`, nosso teste para essa função teremos o seguinte resultado:
+
+```
+
+  Map
+    Array
+      ✓ deve retornar um ERRO caso não seja Array
+      ✓ deve retornar um Array
+      ✓ deve retornar os valor antigos multiplicados por 10
+
+
+  3 passing (17ms)
+``` 
+
+### Map - Coclusão
+
+Para criarmos aprendermos essa função foi necessário utilizarmos/conhecermos:
+
+- arrow function
 
 ## Reduce
 

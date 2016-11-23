@@ -1,6 +1,6 @@
 const expect = require('chai').expect
 
-const map = require('./../actions/map')
+const map = require('./../actions/map.nosso')
 const value = 2
 const values = [1, 2, 3, 4, 5]
 const times10 = (value) => value * 10
