@@ -287,49 +287,120 @@ module.exports = map
 > **Falei que era simples!**
 
 
-```js
-const isArrayLike = (value) => !!(value != null 
-                                && value != undefined 
-                                && value.length 
-                                && Array.isArray(value))
-```
+### Map FUNCIONAL
 
-
-// Escrevendo ainda
-
-[Implementação do map do lodash](https://github.com/lodash/lodash/blob/master/dist/lodash.core.js#L795)
+Agora que já temos nossa implementação precisamos analisar esse exemplo puramente funcional e entender como refatorar nosso código até chegar nele:
 
 ```js
-
-function isArrayLike(value) {
-    return value != null && isLength(value.length) && !isFunction(value);
-  }
-
-/**
- * The base implementation of `_.map` without support for iteratee shorthands.
- *
- * @private
- * @param {Array|Object} collection The collection to iterate over.
- * @param {Function} iteratee The function invoked per iteration.
- * @returns {Array} Returns the new mapped array.
- */
-function baseMap(collection, iteratee) {
-  var index = -1,
-      result = isArrayLike(collection) ? Array(collection.length) : [];
-
-  baseEach(collection, function(value, key, collection) {
-    result[++index] = iteratee(value, key, collection);
-  });
-  return result;
-}
-```
-
-
-```js
+// map.funcional.js
 const map = (mapper, [head, ...tail]) =>
   head // condition to go or stop
     ? [ mapper(head), ...map(mapper, tail) ] //recursion
     : [] // stop
+```
+
+Como você deve ter percebido a ordem dos parâmetros é invertida, por isso iremos criar um outro teste para essa função nova apenas invertendo os parâmetros na chamada da função:
+
+```js
+const expect = require('chai').expect
+
+const map = require('./../actions/map.funcional')
+const value = 2
+const values = [1, 2, 3, 4, 5]
+const times10 = (value) => value * 10
+
+describe('Map',  () => {
+  describe('Array',  () => {
+
+    const resultadoRecebido = map(times10, values)
+    const resultadoEsperado = [10, 20, 30, 40, 50]  
+
+    it('deve retornar um ERRO caso não seja Array', () => {
+      expect(() => map(times10, value)).to.throw(TypeError)
+    })
+
+    it('deve retornar um Array', () => {
+      expect(resultadoRecebido).to.be.an('array')
+    })
+
+    it('deve retornar os valor antigos multiplicados por 10', () => {
+      expect(resultadoRecebido).to.eql(resultadoEsperado)
+    })
+  })
+})
+```
+
+E depois rodamos com `mocha examples/test/map.funcional.spec.js`:
+
+```
+
+  Map
+    Array
+      ✓ deve retornar um ERRO caso não seja Array
+      ✓ deve retornar um Array
+      ✓ deve retornar os valor antigos multiplicados por 10
+
+
+  3 passing (16ms)
+```
+
+> **PERFEITO!** Nosso teste está passando, agora vamos para a análise pesada do bagulho.
+
+
+```js
+// map.funcional.js
+const map = (mapper, [head, ...tail]) =>
+  head // condition to go or stop
+    ? [ mapper(head), ...map(mapper, tail) ] //recursion
+    : [] // stop
+```
+
+Analisamos seus parâmetros vimos que o primeiro é a função a ser executada em cada posição do *Array* mas e esse segundo parâmetro `[head, ...tail]`?
+
+Vamos criar um tipo de teste de mesa para que possamos entender os valores de entrada, para isso modifiquei a função para:
+
+```js
+const map = (mapper, [head, ...tail]) =>{
+  console.log('mapper', mapper)
+  console.log('head', head)
+  console.log('tail', tail)
+  console.log('[head, ...tail]', [head, ...tail])
+
+  return head // condition to go or stop
+    ? [ mapper(head), ...map(mapper, tail) ] //recursion
+    : [] // stop
+}
+```
+
+Executado o nosso teste podemos verificar o seguinte (peguei apenas a parte do console.log):
+
+
+```
+mapper (value) => value * 10
+head 1
+tail [ 2, 3, 4, 5 ]
+[head, ...tail] [ 1, 2, 3, 4, 5 ]
+mapper (value) => value * 10
+head 2
+tail [ 3, 4, 5 ]
+[head, ...tail] [ 2, 3, 4, 5 ]
+mapper (value) => value * 10
+head 3
+tail [ 4, 5 ]
+[head, ...tail] [ 3, 4, 5 ]
+mapper (value) => value * 10
+head 4
+tail [ 5 ]
+[head, ...tail] [ 4, 5 ]
+mapper (value) => value * 10
+head 5
+tail []
+[head, ...tail] [ 5 ]
+mapper (value) => value * 10
+head undefined
+tail []
+[head, ...tail] [ undefined ]
+
 ```
 
 
