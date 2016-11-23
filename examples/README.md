@@ -1,6 +1,8 @@
-# Exemplos de funções conhecidas
+# Exemplos de funções conhecidas e como cria-las
 
-[Códigos de exemplo](https://gist.github.com/halan/c3c0ec1142b8d1bbf242939c238fbcab) do mestre [Halan Pinheiro](https://github.com/halan)!
+
+
+Os [códigos de exemplo funcionais](https://gist.github.com/halan/c3c0ec1142b8d1bbf242939c238fbcab) são do mestre [Halan Pinheiro](https://github.com/halan)! Eu apenas irei mostrar como criar as funções de forma imperativa e depois analisando os códigos do Halan mostrarei como refatorarmos para chegarmos à esse resultado maravilhosamente **funcional**.
 
 Como estou aprendendo bastante no grupo [Programacao Funcional Brasil](https://telegram.me/ProgramacaoFuncionalBrasil) com o [Halan Pinheiro](https://github.com/halan) então nada mais justo que eu ensine vocês também.
 
@@ -30,21 +32,6 @@ const map = (mapper, [head, ...tail]) =>
 ![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/array-map.png)
 
 
-## [Reduce](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/reduce.md)
-
-**Explicação completa [AQUI](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/reduce.md)!**
-
-
-```js
-const reduce = (reducer, initial, [head, ...tail]) =>
-  head // condition to go or stop
-    ? reduce(reducer, reducer(initial, head), tail) // recursion
-    : initial // stop
-```
-
-![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/array-reduce.png)
-
-
 ## [Filter](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/filter.md)
 
 
@@ -60,6 +47,22 @@ const filter = (predicate, [head, ...tail]) =>
 
 
 ![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/array-filter.png)
+
+
+## [Reduce](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/reduce.md)
+
+**Explicação completa [AQUI](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/reduce.md)!**
+
+
+```js
+const reduce = (reducer, initial, [head, ...tail]) =>
+  head // condition to go or stop
+    ? reduce(reducer, reducer(initial, head), tail) // recursion
+    : initial // stop
+```
+
+![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/array-reduce.png)
+
 
 
 ## Zip

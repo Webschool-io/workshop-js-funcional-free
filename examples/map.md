@@ -64,6 +64,8 @@ let p10 = functor(10, plus10)
 console.log(p10)
 ```
 
+## Map - Teste
+
 Com isso já criamos a base para o nosso `map`, agora obviamente precisamos fazer a mesma funcionar com *Array*, porém antes iremos escrever o **TESTE** para ela: 
 
 ```js
