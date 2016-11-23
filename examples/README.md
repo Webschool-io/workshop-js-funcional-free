@@ -278,7 +278,7 @@ module.exports = map
 
 > Percebeu uma coisa diferente na função `isArrayLike`?
 >
-> **SIM! Os dois `!`.**
+> **SIM! As duas `!`(exclamações).**
 >
 > Por que você acha que fiz isso?
 > 
