@@ -185,7 +185,36 @@ Para depois executarmos o teste novamente:
 
 Agora só falta passarmos pelo segundo teste, esse sim é nossa verdadeira prova, então vamos pensar:
 
-> 
+> Preciso fazer a função executar a função `fn` passada para cada elemento do *Array*, porém se estamos fazendo o `map` logicamente não podemos utilizar o `forEach` logo usaremos o `for`!
+
+
+Sabendo disso nosso código ficará assim:
+
+```js
+const map = (values, fn) => {
+  let arr = []
+
+  for (let i=0; i<values.length; i++){
+    arr.push(fn(values[i]))
+  }
+
+  return arr
+}
+```
+
+Para garantir vamos executar nosso teste:
+
+```
+
+  Map
+    Array
+      ✓ deve retornar um Array
+      ✓ deve retornar os valor antigos multiplicados por 10
+
+
+  2 passing (15ms)
+
+```
 
 
 [Implementação do map do lodash](https://github.com/lodash/lodash/blob/master/dist/lodash.core.js#L795)
