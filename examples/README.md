@@ -374,34 +374,66 @@ const map = (mapper, [head, ...tail]) =>{
 
 Executado o nosso teste podemos verificar o seguinte (peguei apenas a parte do console.log):
 
-
 ```
 mapper (value) => value * 10
 head 1
 tail [ 2, 3, 4, 5 ]
 [head, ...tail] [ 1, 2, 3, 4, 5 ]
+
 mapper (value) => value * 10
 head 2
 tail [ 3, 4, 5 ]
 [head, ...tail] [ 2, 3, 4, 5 ]
+
 mapper (value) => value * 10
 head 3
 tail [ 4, 5 ]
 [head, ...tail] [ 3, 4, 5 ]
+
 mapper (value) => value * 10
 head 4
 tail [ 5 ]
 [head, ...tail] [ 4, 5 ]
+
 mapper (value) => value * 10
 head 5
 tail []
 [head, ...tail] [ 5 ]
+
 mapper (value) => value * 10
 head undefined
 tail []
 [head, ...tail] [ undefined ]
 
 ```
+
+Analisando apenas a primeira parte:
+
+```js
+mapper (value) => value * 10
+head 1
+tail [ 2, 3, 4, 5 ]
+[head, ...tail] [ 1, 2, 3, 4, 5 ]
+```
+
+Podemos notar que `[head, ...tail]` nada mais é do que o *Array* completo que entra no `map`, onde o `head` é a primeira posição e o `tail` é o resto. 
+
+> Com certeza você notou essa chamada `...tail` e sabe o porquê foi utilizado esses `...`? 
+>
+> Essa funcionalidade chama-se [Spread operator](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Spread_operator) e sua descrição é:
+> 
+> "O  operador spread permite uma expressão ser expandida em locais onde múltiplo argumentos (por chamadas de função) ou múltiplos elementos (por array literais) são esperados."
+
+
+Deixando isso mais claro ainda com esse exemplo executado no *Terminal* (precisa executar `node` antes!):
+
+```js
+> let tail = [ 2, 3, 4, 5 ]
+> [...tail]
+[ 2, 3, 4, 5 ]
+```
+
+
 
 
 ## Reduce
