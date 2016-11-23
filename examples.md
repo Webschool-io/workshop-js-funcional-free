@@ -4,33 +4,54 @@
 
 Como estou aprendendo bastante no grupo [Programacao Funcional Brasil](https://telegram.me/ProgramacaoFuncionalBrasil) com o [Halan Pinheiro](https://github.com/halan) então nada mais justo que eu ensine vocês também.
 
+## Reduce
 
 ```js
 const reduce = (reducer, initial, [head, ...tail]) =>
   head // condition to go or stop
     ? reduce(reducer, reducer(initial, head), tail) // recursion
     : initial // stop
+```
 
+## Map
+
+```js
 const map = (mapper, [head, ...tail]) =>
   head // condition to go or stop
     ? [ mapper(head), ...map(mapper, tail) ] //recursion
     : [] // stop
+```
 
+## Filter
+
+```js
 const filter = (predicate, [head, ...tail]) =>
   head // condition to go or stop
     ? [ ...(predicate(head) ? [head] : []), ...filter(predicate, tail) ] // recursion
     : [] // stop
+```
 
+## Zip
+
+```js
 const zip = ([head, ...tail], [head2, ...tail2]) =>
   head // condition to go or stop
     ? [ [head, head2], ...zip(tail, tail2)] // recursion
     : [] // stop
+```
 
+## Find
+
+```js
 const find = (predicate, [head, ...tail]) =>
   head // condition to go or stop
     ? predicate(head) ? head : find(predicate, tail) // recursion
     : undefined // stop
+```
 
+## Sort
+
+```js
 const sort = ([head, ...tail]) => // quick sort (https://pt.wikipedia.org/wiki/Quicksort)
   head // condition to go or stop
     ? [...sort(filter(n => n <= head, tail)), head, ...sort(filter(n => n > head, tail))] // recursion (depends of filter)
