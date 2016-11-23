@@ -417,7 +417,13 @@ tail [ 2, 3, 4, 5 ]
 
 Podemos notar que `[head, ...tail]` nada mais é do que o *Array* completo que entra no `map`, onde o `head` é a primeira posição e o `tail` é o resto. 
 
-> Com certeza você notou essa chamada `...tail` e sabe o porquê foi utilizado esses `...`? 
+Note que passamos apenas 1 *Array* pra função `map`, porém ela separa em 2 valores: `head` e `tail`. 
+
+Isso acontece graças a [destructuring assignment](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Atribuicao_via_desestruturacao) que é a atribuição via desestruturação, ou seja, como o próprio nome diz: ela desestrutura um Objeto ou *Array* para variáveis definidas. 
+
+**Nesse caso a primeira posição do *Array* vai para `head` e o resto para `tail`!** Mas como ela sabe que o resto vai para o `tail?`
+
+> Graças a essa chamada `...tail` e sabe o porquê foi utilizado esses `...`? 
 >
 > Essa funcionalidade chama-se [Spread operator](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Spread_operator) e sua descrição é:
 > 
@@ -428,9 +434,20 @@ Deixando isso mais claro ainda com esse exemplo executado no *Terminal* (precisa
 
 ```js
 > let tail = [ 2, 3, 4, 5 ]
-> [...tail]
-[ 2, 3, 4, 5 ]
+> [666, ...tail]
+[666, 2, 3, 4, 5 ]
+> const f = ([a, b, resto]) => console.log(a, b, resto)
+undefined
+> f([1, 2, 3, 4, 5])
+1 2 3
+undefined
+> const g = ([a, b, ...resto]) => console.log(a, b, resto)
+undefined
+> g([1, 2, 3, 4, 5])
+1 2 [ 3, 4, 5 ]
 ```
+
+Logo ele irá definindo cada valor na sequência do *Array* e para pegarmos "todos" os que sobraram basta usar o *Spread Operator*!
 
 Depois de entendermos com quais valores estamos trabalhando precisamos entender a estrutura da nossa função:
 
@@ -529,6 +546,54 @@ Então perceba que o *Array* de retorno da função `map` é gerado dinamicament
 > **EXATAMENTE!** 
 > 
 > Porque a cada iteração nós retiramos a primeira posição que é o `head` e aplicamos a função `mapper` apenas nesse valor, isso vai acontecendo até que não exista mais elementos a serem processados.
+
+
+### Map - COMPARAÇÃO
+
+Agora iremos aprender como sair do código imperativo:
+
+```js
+const isArrayLike = (value) => !!(value != null 
+                                && value != undefined 
+                                && value.length 
+                                && Array.isArray(value))
+
+const map = (values, fn) => {
+  
+  if (!isArrayLike(values)) throw new TypeError('Não é Array')
+
+  let arr = []
+
+  for (let i=0; i<values.length; i++){
+    arr.push(fn(values[i]))
+  }
+
+  return arr
+}
+```
+
+Para o código funcional:
+
+```js
+const map = (mapper, [head, ...tail]) =>
+  head // condition to go or stop
+    ? [ mapper(head), ...map(mapper, tail) ] //recursion
+    : [] // stop
+```
+
+Primeira coisa que devemos fazer é refatorar nossos parâmetros de entrada e **uma coisa impotantíssima: a condição de parada da função recursiva**
+
+```js
+const map = ([head, ...tail], fn) => {
+  
+  let arr = []
+  
+  if (!head) return arr
+
+}
+```
+
+Depois precisamos fazer a chamada recursiva passando os valores corretamente:
 
 
 

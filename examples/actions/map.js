@@ -5,7 +5,7 @@ const isArrayLike = (value) => !!(value != null
 
 const map = (values, fn) => {
   
-  // if (!isArrayLike(values)) throw new TypeError('Não é Array')
+  if (!isArrayLike(values)) throw new TypeError('Não é Array')
 
   let arr = []
 

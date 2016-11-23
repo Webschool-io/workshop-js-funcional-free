@@ -7,21 +7,6 @@ const times10 = (value) => value * 10
 
 describe('Map',  () => {
 
-  // describe('Number',  () => {
-
-    // const resultadoRecebido = map(value, times10)
-    // const resultadoEsperado = 20
-
-
-    // it('deve retornar um Number', () => {
-    //   expect(resultadoRecebido).to.be.a('number')
-    // })
-
-    // it(`deve retornar o valor antigo ${value} multiplicado por 10`, () => {
-    //   expect(resultadoRecebido).to.eql(resultadoEsperado)
-    // })
-  // })
-
   describe('Array',  () => {
 
     const resultadoRecebido = map(values, times10)
