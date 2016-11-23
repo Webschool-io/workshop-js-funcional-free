@@ -137,7 +137,7 @@ Depois basta executarmos `mocha examples/test/map.spec.js`:
 
 Criei o teste com o *Number* apenas para vermos como a função funciona com 1 valor porém quebra com 1 *Array* e o `map` na verdade só deveria funcionar com *Arrays*, **então bora refatorar!** 
 
-Inicialmente irei apenas retornar um *Array* para passarmos no teste do tipo de retorno, aliás também **comentei o teste do *Number* para nos focarmos apenas no *Array*:
+Inicialmente irei apenas retornar um *Array* para passarmos no teste do tipo de retorno, aliás também **comentei o teste do *Number* para nos focarmos apenas no *Array*:**
 
 ```js
 const map = (values, fn) => {
