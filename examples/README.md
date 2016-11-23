@@ -14,10 +14,17 @@ Caso queira outro exemplo mais lúdico e com o `filter` também aí vai:
 ![map filter reduce in emoji](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/map-filter-reduce-in-emoji.png)
 
 
-## [Map]((https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/map.md))
-
+## [Map](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/map.md)
 
 **Explicação completa [AQUI](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/map.md)!** 
+
+```js
+const map = (mapper, [head, ...tail]) =>
+  head // condition to go or stop
+    ? [ mapper(head), ...map(mapper, tail) ] //recursion
+    : [] // stop
+```
+
 
 
 ![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/array-map.png)
