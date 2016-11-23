@@ -14,27 +14,30 @@ Caso queira outro exemplo mais lúdico e com o `filter` também aí vai:
 ![map filter reduce in emoji](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/map-filter-reduce-in-emoji.png)
 
 
-## Map
+## [Map]((https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/map.md))
 
-![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/array-map.png)
 
 **Explicação completa [AQUI](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/map.md)!** 
 
-## Reduce
 
-![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/array-reduce.png)
+![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/array-map.png)
 
+
+## [Reduce](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/reduce.md)
 
 **Explicação completa [AQUI](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/reduce.md)!**
 
 
-## Filter
+![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/array-reduce.png)
 
 
-![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/array-filter.png)
+## [Filter](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/filter.md)
 
 
 **Explicação completa [AQUI](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/filter.md)!**
+
+
+![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/array-filter.png)
 
 
 ## Zip
