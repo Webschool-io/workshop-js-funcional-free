@@ -8,13 +8,9 @@ const filter = (values, fn) => {
   if (!isArrayLike(values)) throw new TypeError('Não é Array')
 
   let arr = []
-  let elemento = undefined
 
   for (let i=0; i<values.length; i++){
-    if(fn(values[i])) {
-      elemento = values[i]
-      arr.push(elemento)
-    }
+    if(fn(values[i])) arr.push(values[i])
   }
 
   return arr
