@@ -35,6 +35,13 @@ const map = (mapper, [head, ...tail]) =>
 **Explicação completa [AQUI](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/reduce.md)!**
 
 
+```js
+const reduce = (reducer, initial, [head, ...tail]) =>
+  head // condition to go or stop
+    ? reduce(reducer, reducer(initial, head), tail) // recursion
+    : initial // stop
+```
+
 ![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/array-reduce.png)
 
 
@@ -42,6 +49,14 @@ const map = (mapper, [head, ...tail]) =>
 
 
 **Explicação completa [AQUI](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/filter.md)!**
+
+
+```js
+const filter = (predicate, [head, ...tail]) =>
+  head // condition to go or stop
+    ? [ ...(predicate(head) ? [head] : []), ...filter(predicate, tail) ] // recursion
+    : [] // stop
+```
 
 
 ![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/array-filter.png)
