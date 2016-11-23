@@ -7,8 +7,126 @@ Como estou aprendendo bastante no grupo [Programacao Funcional Brasil](https://t
 
 ## Map
 
+Lembrando do [nosso material do workshop](https://github.com/Webschool-io/workshop-js-funcional-free#map) sobre `map`:
 
-[Função map OFICIAL](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+> O `map` é um método que executa um **`callback`** para cada valor de um **`array`** modificando os mesmos, isso faz com que o **`map`** crie um novo **`array`** com os novos valores obtidos. Exemplo:
+
+
+```javascript
+var x = [1,2,3].map(function (value) {
+  return value * 2
+});
+
+console.log(x) //[2,4,6]
+```
+
+Em ES6:
+
+```javascript
+const x = [1,2,3].map(v => x*2);
+console.log(x) //[2,4,6]
+```
+
+[Documentação oficial do map em JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+
+Antes de entendermos como implementar o `map`, precisamos [lembrar que ele é um Functor](https://github.com/Webschool-io/workshop-js-funcional-free#functor):
+
+
+> A Functor is a function, given a value and a function, unwraps the values to get to its inner value(s), calls the given function with the inner value(s), wraps the returned values in a new structure, and returns the new structure.
+
+Vamos entender parte por parte:
+
+- *Functor* é uma função que irá receber um valor e uma função;
+- Desencapsula[?] os valores para chegar a seu(s) valor(es) interno(s);
+- Chama a função repassada com o(s) valor(es) interno(s);
+- Encapsula os valores devolvidos em uma nova estrutura;
+- e retorna a nova estrutura.
+
+Sabendo disso podemos começar a montar nosso `map`, criando a função `functor` que receberá o valor e a função a ser executada:
+
+```js
+function functor(value, fn) {
+  return fn(value)
+};
+
+```
+
+Colocando ela como um módulo para ser mais facilmente testada:
+
+```js
+const map = (value, fn) => fn(value)
+
+module.exports = map
+```
+
+Podemos testar ela fazendo o seguinte:
+
+```js
+function plus10(value) {
+  return value + 10
+};
+
+let p10 = functor(10, plus10)
+
+console.log(p10)
+```
+
+Com isso já criamos a base para o nosso `map`, agora obviamente precisamos fazer a mesma funcionar com *Array*, porém antes iremos escrever o **TESTE** para ela: 
+
+```js
+const expect = require('chai').expect
+
+const map = require('./../actions/map')
+const value = 2
+const values = [1, 2, 3, 4, 5]
+const times10 = (value) => value * 10
+
+describe('Map',  () => {
+  it('deve retornar um Number novo com o valor antigo, sendo multiplicado por 10', () => {
+
+    const resultadoRecebido = map(value, times10)
+    const resultadoEsperado = 20
+
+    expect(resultadoRecebido).to.be.a('number')
+    expect(resultadoRecebido).to.equal(resultadoEsperado)
+
+  })
+  it('deve retornar um Array novo com os valores antigos, sendo cada um multiplicado por 10', () => {
+
+    const resultadoRecebido = map(values, times10)
+    const resultadoEsperado = [10, 20, 30, 40, 50]
+
+    expect(resultadoRecebido).to.be.an('array')
+    expect(resultadoRecebido).to.have.members(resultadoEsperado)
+    expect(resultadoRecebido).to.equal(resultadoEsperado)
+
+  })
+})
+```
+
+Depois basta executarmos `mocha examples/test/map.spec.js`:
+
+```
+➜ mocha examples/test/map.spec.js
+
+
+  Map
+    ✓ deve retornar um Number novo com o valor antigo, sendo multiplicado por 10
+    1) deve retornar um Array novo com os valores antigos, sendo cada um multiplicado por 10
+
+
+  1 passing (20ms)
+  1 failing
+
+  1) Map deve retornar um Array novo com os valores antigos, sendo cada um multiplicado por 10:
+     AssertionError: expected NaN to be an array
+      at Context.it (examples/test/map.spec.js:23:37)
+
+```
+
+Criei o teste com o *Number* apenas para vermos como a função funciona com 1 valor porém quebra com 1 *Array* e o `map` na verdade só deveria funcionar com *Arrays*, **então bora refatorar!** 
+
+
 
 
 [Implementação do map do lodash](https://github.com/lodash/lodash/blob/master/dist/lodash.core.js#L795)

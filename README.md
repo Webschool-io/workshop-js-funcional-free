@@ -970,8 +970,9 @@ console.log("Fora: ", x, y);
 ### ArrayAPI
 O Array do javascript tem um API extensa, com varios métodos úteis, dentro da programação funcional usamos constantemente essas funções para suprir *for's* desnecessarios e mais variaveis! Para facilitar vou dividir meu exemplo em : **teoria**, **implementação** e como faço em **es6**(não que exista muita diferença!).
 
-####MAP
-O MAP é um método que gera um **callback** para cada valor de um **array** modificando os mesmos, isso faz com que o **map** crie um novo **array** com os novos valores obtidos. Exemplo:
+#### MAP
+
+O `map` é um método que executa um **`callback`** para cada valor de um **`array`** modificando os mesmos, isso faz com que o **`map`** crie um novo **`array`** com os novos valores obtidos. Exemplo:
 
 ```javascript
 var x = [1,2,3].map(function (value) {
@@ -984,7 +985,7 @@ console.log(x) //[2,4,6]
 Em ES6:
 
 ```javascript
-var x = [1,2,3].map(v => x*2);
+const x = [1,2,3].map(v => x*2);
 console.log(x) //[2,4,6]
 ```
 

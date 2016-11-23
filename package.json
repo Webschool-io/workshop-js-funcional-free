@@ -1,0 +1,37 @@
+{
+  "name": "workshop-js-funcional-free",
+  "version": "1.0.0",
+  "description": "Funcional for All",
+  "main": "examples.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Webschool-io/workshop-js-funcional-free.git"
+  },
+  "keywords": [
+    "funcional",
+    "suissa",
+    "webschool",
+    "programação",
+    "funcional",
+    "functional",
+    "javascript",
+    "map",
+    "reduce",
+    "filter"
+  ],
+  "author": "Suissa",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/Webschool-io/workshop-js-funcional-free/issues"
+  },
+  "homepage": "https://github.com/Webschool-io/workshop-js-funcional-free#readme",
+  "dependencies": {
+    "chai": "^3.5.0"
+  }
+}
