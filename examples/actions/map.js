@@ -1,8 +1,11 @@
-const isArrayLike = (value) => value != null && value.length && Array.isArray(value)
+const isArrayLike = (value) => !!(value != null 
+                                && value != undefined 
+                                && value.length 
+                                && Array.isArray(value))
 
 const map = (values, fn) => {
-  console.log('isArrayLike(values)', isArrayLike(values))
-  if (!isArrayLike(values)) throw new TypeError('Não é Array')
+  
+  // if (!isArrayLike(values)) throw new TypeError('Não é Array')
 
   let arr = []
 

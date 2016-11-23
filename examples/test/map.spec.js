@@ -27,10 +27,9 @@ describe('Map',  () => {
     const resultadoRecebido = map(values, times10)
     const resultadoEsperado = [10, 20, 30, 40, 50]  
 
-    // it('deve retornar um ERRO caso não seja Array', () => {
-    //   const err = new TypeError('Não é Array')
-    //   expect(map(2, times10)).to.throw(err)
-    // })
+    it('deve retornar um ERRO caso não seja Array', () => {
+      expect(() => map(2, times10)).to.throw(TypeError)
+    })
 
     it('deve retornar um Array', () => {
       expect(resultadoRecebido).to.be.an('array')

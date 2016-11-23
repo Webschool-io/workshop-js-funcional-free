@@ -218,17 +218,50 @@ Para garantir vamos executar nosso teste:
 
 > **SHOW DE BOLA!!!** Agora só precisamos implementar um teste para verificar se a entrada é realmente um *Array*.
 
-
-Bom para essa validação existem diversas formas, contudo utilizaremos a mais fácil: `Array.isArray(value)`.
-
-Deixaremos nosso código assim:
+Basta adicionarmos esse teste no nosso `describe`:
 
 
 ```js
-const isArrayLike = (value) => value != null && value.length && Array.isArray(value)
+it('deve retornar um ERRO caso não seja Array', () => {
+  expect(() => map(2, times10)).to.throw(TypeError)
+})
+
+```
+
+Agora devemos executar o teste e vê-lo falhar para depois refatorarmos nossa função `map`:
+
+
+```
+
+  Map
+    Array
+      1) deve retornar um ERRO caso não seja Array
+      ✓ deve retornar um Array
+      ✓ deve retornar os valor antigos multiplicados por 10
+
+
+  2 passing (22ms)
+  1 failing
+
+  1) Map Array deve retornar um ERRO caso não seja Array:
+     AssertionError: expected [Function] to throw TypeError
+      at Context.it (examples/test/map.spec.js:31:45)
+
+
+```
+
+E para fazeros essa validação, se é um *Array*, existem diversas formas, contudo utilizaremos a mais fácil: `Array.isArray(value)`.
+
+Deixando nosso código assim:
+
+```js
+const isArrayLike = (value) => !!(value != null 
+                                && value != undefined 
+                                && value.length 
+                                && Array.isArray(value))
 
 const map = (values, fn) => {
-  console.log('isArrayLike(values)', isArrayLike(values))
+  
   if (!isArrayLike(values)) throw new TypeError('Não é Array')
 
   let arr = []
@@ -243,7 +276,23 @@ const map = (values, fn) => {
 module.exports = map
 ```
 
+> Percebeu uma coisa diferente na função `isArrayLike`?
+>
+> **SIM! Os dois `!`.**
+>
+> Por que você acha que fiz isso?
+> 
+> **Bem simples, fiz isso para forçar o retorno de um BOOLEANO.** Pois quando utilizamos o primeiro `!` ele irá **NEGAR** o valor e usando o segundo `!` ele irá **NEGAR O VALOR DA NEGAÇÃO ANTERIOR** logo transformando esse valor para o que desejamos.
+> 
+> **Falei que era simples!**
 
+
+```js
+const isArrayLike = (value) => !!(value != null 
+                                && value != undefined 
+                                && value.length 
+                                && Array.isArray(value))
+```
 
 
 // Escrevendo ainda
