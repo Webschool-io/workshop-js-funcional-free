@@ -23,7 +23,7 @@ console.log(x) //[2,4,6]
 Em ES6:
 
 ```javascript
-const x = [1,2,3].map(v => x*2);
+const x = [1,2,3].map(v => v * 2);
 console.log(x) //[2,4,6]
 ```
 
@@ -144,7 +144,7 @@ Depois basta executarmos `mocha examples/test/map.spec.js`:
 
 Criei o teste com o *Number* apenas para vermos como a função funciona com 1 valor porém quebra com 1 *Array* e o `map` na verdade só deveria funcionar com *Arrays*, **então bora refatorar!** 
 
-Inicialmente irei apenas retornar um *Array* para passarmos no teste do tipo de retorno:
+Inicialmente irei apenas retornar um *Array* para passarmos no teste do tipo de retorno, aliás também **comentei o teste do *Number* para nos focarmos apenas no *Array**:
 
 ```js
 const map = (values, fn) => {
@@ -158,18 +158,34 @@ Para depois executarmos o teste novamente:
 
 ```
   Map
-    1) deve retornar um Number novo com o valor antigo, sendo multiplicado por 10
-    ✓ deve retornar um Array novo com os valores antigos, sendo cada um multiplicado por 10
+    Array
+      ✓ deve retornar um Array
+      1) deve retornar os valor antigos multiplicados por 10
 
 
-  1 passing (22ms)
+  1 passing (21ms)
   1 failing
 
-  1) Map deve retornar um Number novo com o valor antigo, sendo multiplicado por 10:
-     AssertionError: expected [] to be a number
-      at Context.it (examples/test/map.spec.js:14:37)
+  1) Map Array deve retornar os valor antigos multiplicados por 10:
 
+      AssertionError: expected [] to deeply equal [ 10, 20, 30, 40, 50 ]
+      + expected - actual
+
+      -[]
+      +[
+      +  10
+      +  20
+      +  30
+      +  40
+      +  50
+      +]
+      
+      at Context.it (examples/test/map.spec.js:34:36)
 ```
+
+Agora só falta passarmos pelo segundo teste, esse sim é nossa verdadeira prova, então vamos pensar:
+
+> 
 
 
 [Implementação do map do lodash](https://github.com/lodash/lodash/blob/master/dist/lodash.core.js#L795)
