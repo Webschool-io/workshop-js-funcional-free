@@ -404,7 +404,6 @@ mapper (value) => value * 10
 head undefined
 tail []
 [head, ...tail] [ undefined ]
-
 ```
 
 Analisando apenas a primeira parte:
@@ -433,6 +432,103 @@ Deixando isso mais claro ainda com esse exemplo executado no *Terminal* (precisa
 [ 2, 3, 4, 5 ]
 ```
 
+Depois de entendermos com quais valores estamos trabalhando precisamos entender a estrutura da nossa função:
+
+```js
+head // condition to go or stop
+  ? [ mapper(head), ...map(mapper, tail) ] //recursion
+  : [] // stop
+```  
+
+Nesse caso ela está usando um `if` ternário, traduzindo para um `if` normal fica assim:
+
+```js
+if (head) {
+  return [ mapper(head), ...map(mapper, tail) ]
+} else {
+  return []
+}
+```
+
+Porém além disso ela também está usando recursividade como visto aqui: `[ mapper(head), ...map(mapper, tail) ]`.
+
+Agora que eu lhe pergunto:
+
+> O que está acontecendo nessa linha?
+> 
+> Vamos novamente analisar, uma parte do, nosso teste de mesa.
+
+
+```
+mapper (value) => value * 10
+head 1
+tail [ 2, 3, 4, 5 ]
+[head, ...tail] [ 1, 2, 3, 4, 5 ]
+
+mapper (value) => value * 10
+head 2
+tail [ 3, 4, 5 ]
+[head, ...tail] [ 2, 3, 4, 5 ]
+
+mapper (value) => value * 10
+head 3
+tail [ 4, 5 ]
+[head, ...tail] [ 3, 4, 5 ]
+```
+
+Sabemos então que na primeira parte essa linha `[ mapper(head), ...map(mapper, tail) ]` irá executar/retornar:
+
+```js
+[ 1 * 10,  // mapper(head)
+  ...map((n) => n * 10, [ 2, 3, 4, 5 ])// ...map(mapper, tail)
+]
+```
+
+Vamos nos atentar ao segundo valor desse *Array* que acredito ser o mais "complexo" de toda essa função. Quando chamarmos `map(mapper, tail)` ele irá chamar a mesma função onde estamos, `map`, passando agora apenas o *Array* `tail` que já não possui o primeiro valor, `head`, e retornar um *Array*. **Porém como precisamos pegar cada valor desse *Array* e "juntar" com o primeiro valor já passado anteriormente necessitamos usar `...map(mapper, tail)` pois será dessa forma que iremos criar o `[ mapper(head), ...map(mapper, tail) ]`.**
+
+Então para criar a primeira iteração dessa função ela se chama para poder criar o resto do *Array*, entretando você deve se perguntar:
+
+> E como é que ela sabe que deve parar de se chamar?
+>
+> **ÓTIMA PERGUNTA!** Analise aqui comigo as duas últimas iterações do nosso teste de mesa:
+
+```js
+head 5
+tail []
+[head, ...tail] [ 5 ]
+
+head undefined
+tail []
+[head, ...tail] [ undefined ]
+```
+
+Sabemos através da "tradução" do `if` ternário para o comum que o teste lógico é em cima do `head`, ou seja, enquanto existir valor pro `head` ela irá continuar executando. Logo se esse valor for `undefined` ela irá parar de se chamar e irá retornar `[]`.
+
+Então perceba que o *Array* de retorno da função `map` é gerado dinamicamente em cima do mesmo *Array*, note que o valor passado para cada iteração dessa recursividade é o `[head, ...tail]`. Então vamos ver como ele se comporta no nosso teste de mesa:
+
+
+```js
+[head, ...tail] [ 1, 2, 3, 4, 5 ]
+
+[head, ...tail] [ 2, 3, 4, 5 ]
+
+[head, ...tail] [ 3, 4, 5 ]
+
+[head, ...tail] [ 4, 5 ]
+
+[head, ...tail] [ 5 ]
+
+[head, ...tail] [ undefined ]
+```
+
+> Sabe o porquê esse *Array* vai diminuindo?
+> 
+> 
+> 
+> 
+> **EXATAMENTE!** 
+> 
+> Porque a cada iteração nós retiramos a primeira posição que é o `head` e aplicamos a função `mapper` apenas nesse valor, isso vai acontecendo até que não exista mais elementos a serem processados.
 
 
 
