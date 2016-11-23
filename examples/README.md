@@ -82,24 +82,33 @@ const values = [1, 2, 3, 4, 5]
 const times10 = (value) => value * 10
 
 describe('Map',  () => {
-  it('deve retornar um Number novo com o valor antigo, sendo multiplicado por 10', () => {
+
+  describe('Number',  () => {
 
     const resultadoRecebido = map(value, times10)
     const resultadoEsperado = 20
 
-    expect(resultadoRecebido).to.be.a('number')
-    expect(resultadoRecebido).to.equal(resultadoEsperado)
+    it('deve retornar um Number', () => {
+      expect(resultadoRecebido).to.be.a('number')
+    })
 
+    it('deve retornar o valor antigo ${value} multiplicado por 10', () => {
+      expect(resultadoRecebido).to.eql(resultadoEsperado)
+    })
   })
-  it('deve retornar um Array novo com os valores antigos, sendo cada um multiplicado por 10', () => {
+  
+  describe('Array',  () => {
 
     const resultadoRecebido = map(values, times10)
-    const resultadoEsperado = [10, 20, 30, 40, 50]
+    const resultadoEsperado = [10, 20, 30, 40, 50]  
 
-    expect(resultadoRecebido).to.be.an('array')
-    expect(resultadoRecebido).to.have.members(resultadoEsperado)
-    expect(resultadoRecebido).to.equal(resultadoEsperado)
+    it('deve retornar um Array', () => {
+      expect(resultadoRecebido).to.be.an('array')
+    })
 
+    it('deve retornar os valor antigos multiplicados por 10', () => {
+      expect(resultadoRecebido).to.eql(resultadoEsperado)
+    })
   })
 })
 ```
@@ -111,22 +120,56 @@ Depois basta executarmos `mocha examples/test/map.spec.js`:
 
 
   Map
-    ✓ deve retornar um Number novo com o valor antigo, sendo multiplicado por 10
-    1) deve retornar um Array novo com os valores antigos, sendo cada um multiplicado por 10
+    Number
+      ✓ deve retornar um Number
+      ✓ deve retornar o valor antigo ${value} multiplicado por 10
+    Array
+      1) deve retornar um Array
+      2) deve retornar os valor antigos multiplicados por 10
 
 
-  1 passing (20ms)
-  1 failing
+  2 passing (21ms)
+  2 failing
 
-  1) Map deve retornar um Array novo com os valores antigos, sendo cada um multiplicado por 10:
+  1) Map Array deve retornar um Array:
      AssertionError: expected NaN to be an array
-      at Context.it (examples/test/map.spec.js:23:37)
+      at Context.it (examples/test/map.spec.js:30:39)
+
+  2) Map Array deve retornar os valor antigos multiplicados por 10:
+     AssertionError: expected NaN to deeply equal [ 10, 20, 30, 40, 50 ]
+      at Context.it (examples/test/map.spec.js:34:36)
+
 
 ```
 
 Criei o teste com o *Number* apenas para vermos como a função funciona com 1 valor porém quebra com 1 *Array* e o `map` na verdade só deveria funcionar com *Arrays*, **então bora refatorar!** 
 
+Inicialmente irei apenas retornar um *Array* para passarmos no teste do tipo de retorno:
 
+```js
+const map = (values, fn) => {
+  let arr = []
+
+  return arr
+}
+```
+
+Para depois executarmos o teste novamente:
+
+```
+  Map
+    1) deve retornar um Number novo com o valor antigo, sendo multiplicado por 10
+    ✓ deve retornar um Array novo com os valores antigos, sendo cada um multiplicado por 10
+
+
+  1 passing (22ms)
+  1 failing
+
+  1) Map deve retornar um Number novo com o valor antigo, sendo multiplicado por 10:
+     AssertionError: expected [] to be a number
+      at Context.it (examples/test/map.spec.js:14:37)
+
+```
 
 
 [Implementação do map do lodash](https://github.com/lodash/lodash/blob/master/dist/lodash.core.js#L795)
