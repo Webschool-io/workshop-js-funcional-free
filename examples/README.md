@@ -4,19 +4,34 @@
 
 Como estou aprendendo bastante no grupo [Programacao Funcional Brasil](https://telegram.me/ProgramacaoFuncionalBrasil) com o [Halan Pinheiro](https://github.com/halan) então nada mais justo que eu ensine vocês também.
 
-Antes de entrarmos nas funções
+Antes de entrarmos nas funções podemos fazer uma analogia simples do `map`  & `reduce` com a fabricação de sanduíches, veja a imagem abaixo:
+
+![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/map-reduce.png)
+
+Caso queira outro exemplo mais lúdico e com o `filter` também aí vai:
+
+
+![map filter reduce in emoji](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/map-filter-reduce-in-emoji.png)
 
 
 ## Map
+
+![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/array-map.png)
 
 **Explicação completa [AQUI](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/map.md)!** 
 
 ## Reduce
 
+![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/array-reduce.png)
+
+
 **Explicação completa [AQUI](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/reduce.md)!**
 
 
 ## Filter
+
+
+![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/array-filter.png)
 
 
 **Explicação completa [AQUI](https://github.com/Webschool-io/workshop-js-funcional-free/blob/master/examples/filter.md)!**
