@@ -4,7 +4,9 @@ Depois de já termos criado manualmente as funções de `map`, `filter` e `reduc
 
 > Imagine que você está programando um robô para fazer sanduíches no Subway.
 
-Logo deveremos ter de antemao
+![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/robo.jpg)
+
+Logo deveremos ter de antemão o menu:
 
 ```js
 const paes = ['Integral', 
@@ -13,6 +15,7 @@ const paes = ['Integral',
   'Italiano', 
   'Parmesão e orégano', 
   'Três Queijos']
+const tamanhos = [15, 30]
 const recheios = ['Vegetariano', 'Atum', 'Italiano', 'Frango']
 const queijos = ['Cheddar', 'Prato', 'Suíço']  
 const saladas = ['Alface', 
@@ -30,12 +33,32 @@ const molhos = ['Mostarda e Mel',
   'Mostarda',
   'Maionese']
 
+const menu = { paes, tamanhos, recheios, queijos, saladas, molhos }
+```
 
-const meuSanduba = {
-  quente: true,       
+Agora o robô está pronto para receber seu primeiro cliente, esse chega com o seguinte pedido:
+
+> Integral 15, Atum, queijo Suíço.
+> 
+> Sim, quente.
+> 
+> (30 segundos depois)
+> 
+> Alface, Cebolas, Azeitonas pretas, Picles
+> 
+> Mostarda e Mel, Cebola Agridoce e Chipotle
+> 
+> Pode feixar.
+
+Traduzindo o pedido para JSON teremos:
+
+```js
+const pedido = {   
   pao: ['Integral'],
+  tamanho: [15],
   recheio: ['Atum'],
   queijo: ['Suíço'],
+  quente: true,    
   saladas: ['Alface', 
     'Cebolas',
     'Azeitonas pretas',
@@ -46,38 +69,55 @@ const meuSanduba = {
     'Chipotle'
   ] 
 }
+```
 
-const monteSanduba = (sanduba) => {
+Para que o robo possa montar o sanduíche precisamos definir suas ações:
+
+```js
+const montaSanduba = (sanduba) => {
 
   const escolhaPao = (pao) => sanduba.pao.includes(pao)
+  const escolhaTamanho = (tamanho) => sanduba.tamanho.includes(tamanho)
   const escolhaRecheio = (recheio) => sanduba.recheio.includes(recheio)
   const escolhaQueijo = (queijo) => sanduba.queijo.includes(queijo)
   const escolhaSaladas = (salada) => sanduba.saladas.includes(salada)
   const escolhaMolhos = (molho) => sanduba.molhos.includes(molho)
-  const fechaSanduba = (sanduba, ingrediente) => sanduba + ' + ' + ingrediente
-  const esquentar = (ingrediente, i) => (i <= 2) 
+  const fechaSanduba = (sanduba, ingrediente) => sanduba + '\r\n' + ingrediente 
+  const esquentar = (ingrediente, i) => ( i <= 4 && 
+                                          !Number.isInteger(ingrediente) &&
+                                          sanduba.quente)
                                         ? ingrediente + '(quente)'
                                         : ingrediente
 
-  return 'Sanduba fechado com: ' + [...paes.filter(escolhaPao), 
-          ...recheios.filter(escolhaRecheio),
-          ...queijos.filter(escolhaQueijo)]
-          .map(esquentar)
-          .concat([ ...saladas.filter(escolhaSaladas),
-                    ...molhos.filter(escolhaMolhos)])
-          .reduce(fechaSanduba)
-}
-
-console.log(monteSanduba(meuSanduba))
 ```
 
-> **Agora sim podemos pegar nosso sanduba!**
+Ainda dentro da função `montaSanduba` iremos então executar as ações previamente definidas:
+
+```js
+  return '\r\nSanduba fechado com: ' + 
+          [ menu.paes.filter(escolhaPao) + ' ' 
+          + menu.tamanhos.filter(escolhaTamanho),
+            ...menu.recheios.filter(escolhaRecheio),
+            ...menu.queijos.filter(escolhaQueijo)
+          ]
+          .map(esquentar)
+          .concat([ 
+            ...menu.saladas.filter(escolhaSaladas),
+            ...menu.molhos.filter(escolhaMolhos)
+          ])
+          .reduce(fechaSanduba, '')
+}
+
+console.log(montaSanduba(pedido)) 
+```
+
+> **Agora sim podemos entregar o sanduba!**
 
 ```js
 ➜ node examples/subway/subway.js
 
 Sanduba fechado com: 
-Integral(quente)
+Integral 15(quente)
 Atum(quente)
 Suíço(quente)
 Alface

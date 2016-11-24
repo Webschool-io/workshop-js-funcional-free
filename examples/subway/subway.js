@@ -4,6 +4,7 @@ const paes = ['Integral',
   'Italiano', 
   'Parmesão e orégano', 
   'Três Queijos']
+const tamanhos = [15, 30]
 const recheios = ['Vegetariano', 'Atum', 'Italiano', 'Frango']
 const queijos = ['Cheddar', 'Prato', 'Suíço']  
 const saladas = ['Alface', 
@@ -21,13 +22,14 @@ const molhos = ['Mostarda e Mel',
   'Mostarda',
   'Maionese']
 
-const menu = { paes, recheios, queijos, saladas, molhos }
+const menu = { paes, tamanhos, recheios, queijos, saladas, molhos }
 
-const meuSanduba = {
-  quente: true,       
+const pedido = {   
   pao: ['Integral'],
+  tamanho: [15],
   recheio: ['Atum'],
   queijo: ['Suíço'],
+  quente: true,    
   saladas: ['Alface', 
     'Cebolas',
     'Azeitonas pretas',
@@ -39,27 +41,33 @@ const meuSanduba = {
   ] 
 }
 
-const monteSanduba = (sanduba) => {
+const montaSanduba = (sanduba) => {
 
   const escolhaPao = (pao) => sanduba.pao.includes(pao)
+  const escolhaTamanho = (tamanho) => sanduba.tamanho.includes(tamanho)
   const escolhaRecheio = (recheio) => sanduba.recheio.includes(recheio)
   const escolhaQueijo = (queijo) => sanduba.queijo.includes(queijo)
   const escolhaSaladas = (salada) => sanduba.saladas.includes(salada)
   const escolhaMolhos = (molho) => sanduba.molhos.includes(molho)
   const fechaSanduba = (sanduba, ingrediente) => sanduba + '\r\n' + ingrediente 
-  const esquentar = (ingrediente, i) => (i <= 2) 
+  const esquentar = (ingrediente, i) => ( i <= 4 && 
+                                          !Number.isInteger(ingrediente) &&
+                                          sanduba.quente)
                                         ? ingrediente + '(quente)'
                                         : ingrediente
 
   return '\r\nSanduba fechado com: ' + 
-          [ ...menu.paes.filter(escolhaPao), 
+          [ menu.paes.filter(escolhaPao) + ' ' 
+          + menu.tamanhos.filter(escolhaTamanho),
             ...menu.recheios.filter(escolhaRecheio),
-            ...menu.queijos.filter(escolhaQueijo)]
+            ...menu.queijos.filter(escolhaQueijo)
+          ]
           .map(esquentar)
           .concat([ 
             ...menu.saladas.filter(escolhaSaladas),
-            ...menu.molhos.filter(escolhaMolhos)])
+            ...menu.molhos.filter(escolhaMolhos)
+          ])
           .reduce(fechaSanduba, '')
 }
 
-console.log(monteSanduba(meuSanduba))
+console.log(montaSanduba(pedido))
