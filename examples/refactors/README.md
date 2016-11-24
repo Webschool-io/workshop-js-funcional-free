@@ -98,9 +98,9 @@ module("app")
   );
 ```
 
-Porém o nosso querido mestre do Funcional, [Halan](), conseguiu melhorar mais. Esse cara é foda!
+Porém o nosso querido mestre do Funcional, [Halan](https://github.com/halan), conseguiu melhorar mais. Esse cara é foda!
 
-Essa é nossa versão final, encapsulando em uma função para deixarmos mais legível:
+Encapsulando em uma função para deixarmos mais legível:
 
 ```js
 const idFilter = (array, id) =>
@@ -111,9 +111,32 @@ const idFilter = (array, id) =>
 module("app").filter('searchById', () => idFilter)
 ```
 
+> E seu te disser que ainda rola melhorar mais um pouco?
+
+
+Pois sim! O [Cleiton Loyola] lá no grupo [Programação Funcional Brasil](https://telegram.me/ProgramacaoFuncionalBrasil) melhorou eliminando a nossa necessidade do `if` ternário:
+
+```js
+const idFilter = (array, id) => 
+  (array || []).filter(el => el.id == id)
+
+module("app").filter('searchById', () => idFilter)
+```
+
+Dessa forma é bem melhor pois não estamos retornando `null` fazendo com que nossa função realmente fique funcional!
+
+
 ![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/refatoracao01.png)
 
-**Espero que esse meu hobby de refatorar o código dos outros ajude alguém.**
+> **Espero que esse meu hobby de refatorar o código dos outros ajude alguém.**
+
+## Referências
+
+- [Is returning null bad design?](http://stackoverflow.com/questions/1274792/is-returning-null-bad-design)
+- [Why NULL is Bad?](http://www.yegor256.com/2014/05/13/why-null-is-bad.html)
+
+
+
 
 
 
