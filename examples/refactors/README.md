@@ -1,4 +1,4 @@
-# Refatorção do coração
+# Refatoração do coração
 
 Hoje estava de bobeira no grupo [angularjsbrasil](https://telegram.me/angularjsbrasil) quando me deparo com esse código:
 
