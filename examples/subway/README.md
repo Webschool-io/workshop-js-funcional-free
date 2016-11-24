@@ -129,3 +129,5 @@ Cebola Agridoce
 Chipotle
 
 ```
+
+![Sanduíche de atum](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/sanduba.png)
