@@ -1,6 +1,13 @@
 # Exemplos de funções conhecidas e como cria-las
 
 
+```js
+[🍞, 🍗].reduce((sanduba, ingrediente) => 🍔)
+.concat(
+[🍏, 🍎, 🍐, 🍊, 🍋, 🍌]
+.filter((fruta) => fruta === 🍎 || fruta === 🍋)
+.reduce((suco, fruta) => 🍹))
+```
 
 Os [códigos de exemplo funcionais](https://gist.github.com/halan/c3c0ec1142b8d1bbf242939c238fbcab) são do mestre [Halan Pinheiro](https://github.com/halan)! Eu apenas irei mostrar como criar as funções de forma imperativa e depois analisando os códigos do Halan mostrarei como refatorarmos para chegarmos à esse resultado maravilhosamente **funcional**.
 
