@@ -91,11 +91,11 @@ E para finalizar trocamos o `if` por um ternário:
 
 ```js
 module("app")
-    .filter('searchById', () => (array, id) => 
-      (array) 
-        ? array.filter(el => el.id == id)
-        : null
-    );
+  .filter('searchById', () => 
+    (array, id) => (array) 
+                    ? array.filter(el => el.id == id)
+                    : null
+  );
 ```
 
 ![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/refatoracao01.png)
