@@ -50,9 +50,8 @@ const montaSanduba = (sanduba) => {
   const escolhaSaladas = (salada) => sanduba.saladas.includes(salada)
   const escolhaMolhos = (molho) => sanduba.molhos.includes(molho)
   const fechaSanduba = (sanduba, ingrediente) => sanduba + '\r\n' + ingrediente 
-  const esquentar = (ingrediente, i) => ( i <= 4 && 
-                                          !Number.isInteger(ingrediente) &&
-                                          sanduba.quente)
+  const esquentar = (ingrediente, i) => (!Number.isInteger(ingrediente) 
+                                          && sanduba.quente)
                                         ? ingrediente + '(quente)'
                                         : ingrediente
 
