@@ -127,6 +127,11 @@ module("app").filter('searchById', () => idFilter)
 
 Dessa forma é bem melhor pois não estamos retornando `null` fazendo com que nossa função realmente fique funcional!
 
+Sobre não retornar o `null` achei essa explicação a mais simples possível:
+
+> In Clean Code by Robert Martin he writes that returning null is bad design when you can instead return, say, empty array. Since expected result is an array, why not? It'll enable you to iterate over result without any extra conditions. If it's an integer, maybe 0 will suffice, if it's a hash, empty hash. etc.
+>
+> The premise is to not force calling code to immediately handle issues. Calling code may not want to concern itself with them. That's also why in many cases exceptions is better than nil.
 
 ![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/refatoracao01.png)
 
@@ -136,7 +141,7 @@ Dessa forma é bem melhor pois não estamos retornando `null` fazendo com que no
 
 - [Is returning null bad design?](http://stackoverflow.com/questions/1274792/is-returning-null-bad-design)
 - [Why NULL is Bad?](http://www.yegor256.com/2014/05/13/why-null-is-bad.html)
-
+- [Is returning null bad design?](http://stackoverflow.com/questions/1274792/is-returning-null-bad-design)
 
 
 
