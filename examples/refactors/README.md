@@ -116,7 +116,7 @@ module("app").filter('searchById', () => idFilter)
 > E seu te disser que ainda rola melhorar mais um pouco?
 
 
-Pois sim! O [Cleiton Loyola] lá no grupo [Programação Funcional Brasil](https://telegram.me/ProgramacaoFuncionalBrasil) melhorou eliminando a nossa necessidade do `if` ternário:
+Pois sim! O Cleiton Loyola lá no grupo [Programação Funcional Brasil](https://telegram.me/ProgramacaoFuncionalBrasil) melhorou eliminando a nossa necessidade do `if` ternário:
 
 ```js
 const idFilter = (array, id) => 
