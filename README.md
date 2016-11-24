@@ -985,7 +985,7 @@ console.log(x) //[2,4,6]
 Em ES6:
 
 ```javascript
-const x = [1,2,3].map(v => x*2);
+const x = [1,2,3].map(v => v*2);
 console.log(x) //[2,4,6]
 ```
 
