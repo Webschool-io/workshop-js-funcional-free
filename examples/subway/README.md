@@ -113,7 +113,7 @@ console.log(montaSanduba(pedido))
 
 > **Agora sim podemos entregar o sanduba!**
 
-```js
+```
 ➜ node examples/subway/subway.js
 
 Sanduba fechado com: 
