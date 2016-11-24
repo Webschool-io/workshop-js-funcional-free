@@ -24,10 +24,11 @@ module("app")
 
 ```js
 module("app")
-  .filter('searchById', () => (array, id) => (array) 
-    ? array.filter(el => (parseInt(el) === parseInt(id)) ? el : null
-    : null
-  );
+    .filter('searchById', () => (array, id) => 
+      (array) 
+        ? array.filter(el => el.id == id)
+        : null
+    );
 ```
 
 > Então o que aconteceu ali?
@@ -92,7 +93,7 @@ E para finalizar trocamos o `if` por um ternário:
 module("app")
     .filter('searchById', () => (array, id) => 
       (array) 
-        ? array.filter(el => parseInt(el.id) === parseInt(id))
+        ? array.filter(el => el.id == id)
         : null
     );
 ```
