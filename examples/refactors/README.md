@@ -98,6 +98,8 @@ module("app")
   );
 ```
 
+## Finalizando
+
 Porém o nosso querido mestre do Funcional, [Halan](https://github.com/halan), conseguiu melhorar mais. Esse cara é foda!
 
 Encapsulando em uma função para deixarmos mais legível:
