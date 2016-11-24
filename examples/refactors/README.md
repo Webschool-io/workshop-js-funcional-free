@@ -97,6 +97,8 @@ module("app")
     );
 ```
 
+![](https://raw.githubusercontent.com/Webschool-io/workshop-js-funcional-free/master/assets/images/refatoracao01.png)
+
 **Espero que esse meu hobby de refatorar o código dos outros ajude alguém.**
 
 
