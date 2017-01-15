@@ -1671,7 +1671,7 @@ var immutableState = Object.freeze({
 
 [EXPLICAR]
 
-Mas o que é um efeito colateral (*side effect*)? Um pedaço de código segundo o qual uma variável é criada e está disponível ao longo de uma extensão quando ele não precisa de ser. Deixe-me mostrar-lhe alguns exemplos e como evitar esses efeitos colaterais indesejados:
+Mas o que é um efeito collateral (*side effect*)? Um pedaço de código segundo o qual uma variável é criada e está disponível ao longo de uma extensão quando ele não precisa de ser. Deixe-me mostrar-lhe alguns exemplos e como evitar esses efeitos colaterais indesejados:
 
 >Array.prototype.forEach() instead of for(var x = ...)
 
@@ -1687,7 +1687,7 @@ for(var x=0, length = myArray.length; x < length; x++) {
 // "x" and "length" são efeitos colaterais
 ```
 
-O efeito colateral deste padrão é, no mínimo, o índice incremental `x`, se não o `length`, elas estão disponíveis em todo o escopo. Métodos do *prototype* do *Array* como map, foreach, e outros nos evitam esses efeitos colaterais:
+O efeito collateral deste padrão é, no mínimo, o índice incremental `x`, se não o `length`, elas estão disponíveis em todo o escopo. Métodos do *prototype* do *Array* como map, foreach, e outros nos evitam esses efeitos colaterais:
 
 ```js
 [1, 2, 3].forEach(function(item, index, array) {
