@@ -1,10 +1,16 @@
-#JS Funcional
+# MUITO ANTIGO NAO LEIAM!!
+
+# ESSE ANO AINDA TERMINO UM CONTEUDO MUITO MAIS ATUALIZADO E FODA!!!!
+
+
+###JS Funcional
 ![Logo da Webschool e do Curso JS Funcional](https://cldup.com/bn_CJFPZce-2000x2000.png)
 
-# Aulas
-Canal com os vídeos [https://www.youtube.com/c/webschool-io](https://www.youtube.com/c/webschool-io)
 
-# Ementa
+
+
+
+### Ementa
 * [O Curso](#o-curso)
   * [Custo](#custo)
   * [Data e Hora](#data-e-hora)
